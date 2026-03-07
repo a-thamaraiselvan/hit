@@ -23,6 +23,48 @@ $(document).ready(function () {
       }
     }
   });
+
+  $(".mou-slider").owlCarousel({
+    loop: true,
+    margin: 20,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    smartSpeed: 1000,
+    nav: false,
+    dots: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      768: {
+        items: 1
+      },
+      992: {
+        items: 4
+      }
+    }
+  });
+
+  $(document).on('click', '.mou-slider .read-more-btn', function () {
+    const card = $(this).closest('.hit-dpt-collab-card');
+    const wrapper = card.find('.mou-text-wrapper');
+    const btn = $(this);
+
+    // Close other expanded cards
+    $('.mou-text-wrapper.expanded').not(wrapper).each(function () {
+      $(this).removeClass('expanded');
+      $(this).closest('.hit-dpt-collab-card').find('.read-more-btn').html('Read More <i class="bx bx-chevron-down"></i>');
+    });
+
+    wrapper.toggleClass('expanded');
+
+    if (wrapper.hasClass('expanded')) {
+      btn.html('Read Less <i class="bx bx-chevron-up"></i>');
+    } else {
+      btn.html('Read More <i class="bx bx-chevron-down"></i>');
+    }
+  });
 });
 
 

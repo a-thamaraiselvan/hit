@@ -5334,7 +5334,7 @@ Footer Area CSS
   padding: 20px 0;
 }
 
-.copy-right-area .cpr-left {}
+
 
 .copy-right-area .cpr-left p {
   color: var(--paragraphColorSecond);
@@ -8594,25 +8594,153 @@ Go Top CSS
 /* Collab Cards */
 .hit-dpt-collab-card {
   background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  border-left: 5px solid var(--hit-dpt-main);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: var(--hit-dpt-transition);
+  padding: 25px 20px;
+  border-radius: 4px;
+  border-top: 3px solid transparent;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
   height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hit-dpt-collab-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ed6f26;
+  transition: width 0.3s ease;
+}
+
+.hit-dpt-collab-card:hover::before {
+  width: 100%;
+}
+
+.mou-slider .owl-stage {
+  display: flex;
+  align-items: flex-start;
+}
+
+.mou-slider .owl-item {
+  display: flex;
+}
+
+.mou-slider .hit-dpt-collab-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mou-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 12px;
+}
+
+.mou-slider .owl-dots {
+  /* margin-top: 30px !important; */
+}
+
+.mou-slider .owl-dot span {
+  width: 12px !important;
+  height: 12px !important;
+  background: #ddd !important;
+}
+
+.mou-slider .owl-dot.active span {
+  background: var(--hit-dpt-main) !important;
 }
 
 .hit-dpt-collab-card:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-left-width: 2px;
 }
 
 .hit-dpt-collab-logo {
-  margin-bottom: 20px;
-  display: flex;
-  /* width: 100%; */
-  justify-content: end;
+  flex-shrink: 0;
+  order: 2;
 }
+
+.hit-dpt-collab-logo img {
+  width: 100px;
+  height: 55px;
+  object-fit: contain;
+  display: block;
+}
+
+.mou-card-header h4 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #002147;
+  order: 1;
+}
+
+/* Matches .process-desc-container exactly */
+.mou-text-wrapper {
+  max-height: 70px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.4s ease-in-out;
+  margin-top: 12px;
+}
+
+/* Gradient fade at bottom when truncated */
+.mou-text-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mou-text-wrapper.expanded {
+  max-height: 600px;
+}
+
+.mou-text-wrapper.expanded::after {
+  opacity: 0;
+}
+
+.mou-read-more-container {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.mou-text-wrapper ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.mou-text-wrapper ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mou-text-wrapper ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #ff5e14;
+  font-weight: bold;
+}
+
 
 /* Logo Slider (Placement) */
 .hit-dpt-slider-container {
@@ -8747,7 +8875,7 @@ Go Top CSS
   }
 
   .hit-dpt-padding {
-    padding: 40px 0;
+    padding: 20px 0;
   }
 }
 
@@ -8831,6 +8959,231 @@ Go Top CSS
 
 
 
+
+/* Research & Development Section */
+.hit-dpt-research-section {
+  background-color: #fff;
+}
+
+.hit-dpt-research-card {
+  background: #fdfdfd;
+  border-radius: 12px;
+  padding: 30px;
+  border-left: 5px solid var(--hit-dpt-main);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.hit-dpt-research-card h4 {
+  color: var(--hit-dpt-black);
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.hit-dpt-research-card p {
+  color: #555;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 0;
+}
+
+.hit-dpt-research-list-wrapper {
+  padding-left: 20px;
+}
+
+.hit-dpt-research-list-wrapper h4 {
+  color: var(--hit-dpt-black);
+  font-weight: 700;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.hit-dpt-research-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hit-dpt-research-list li {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  color: #444;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.hit-dpt-research-list li i {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  color: var(--hit-dpt-main);
+  font-size: 20px;
+}
+
+/* Research Projects Table */
+.hit-dpt-research-table-wrapper {
+  margin-top: 50px;
+  background: #fff;
+  border-radius: 12px;
+  /* padding: 30px; */
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); */
+  overflow-x: auto;
+}
+
+.hit-dpt-research-table-wrapper h4 {
+  color: var(--hit-dpt-black);
+  font-weight: 700;
+  margin-bottom: 25px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.hit-dpt-research-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 900px;
+}
+
+.hit-dpt-research-table thead th {
+  background-color: var(--hit-dpt-black);
+  color: #fff;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  text-align: left;
+}
+
+.hit-dpt-research-table thead th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.hit-dpt-research-table thead th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.hit-dpt-research-table tbody td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #444;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.hit-dpt-research-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.hit-dpt-research-table tbody tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
+.hit-dpt-research-table tbody tr:hover {
+  background-color: #f7f7f7;
+}
+
+.hit-dpt-amount {
+  font-weight: 700;
+  color: var(--hit-dpt-main);
+  white-space: nowrap;
+}
+
+
+.hit-dpt-duration {
+  font-style: italic;
+  font-size: 13px;
+  color: #777;
+}
+
+
+/* Professional Society Section */
+.hit-dpt-society-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.hit-dpt-society-item {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hit-dpt-society-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(237, 111, 38, 0.1);
+  border-color: var(--hit-dpt-main);
+}
+
+.hit-dpt-society-item img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.hit-dpt-society-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* OBE Practices Section */
+.hit-dpt-obe-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid var(--hit-dpt-main);
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.hit-dpt-obe-card::before {
+  content: '\eb72';
+  /* boxicons check-double */
+  font-family: 'boxicons';
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  font-size: 150px;
+  color: rgba(237, 111, 38, 0.05);
+  transform: rotate(-15deg);
+}
+
+.hit-dpt-obe-card h4 {
+  color: var(--hit-dpt-black);
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.hit-dpt-obe-card p {
+  color: #555;
+  line-height: 1.9;
+  font-size: 16px;
+  text-align: justify;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
 
 /*================================================
 Latest News Marquee CSS
@@ -9346,7 +9699,7 @@ Features Area CSS
   bottom: 0;
   right: 0;
   background: #ff5e14;
-  color: #002147;
+  color: #ffffff;
   width: 40px;
   height: 40px;
   border-radius: 50%;
