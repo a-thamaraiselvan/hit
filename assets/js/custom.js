@@ -37,12 +37,12 @@ const runCounter = (counter) => {
   const increment = target / speed;
 
   const update = () => {
-    const current = +counter.innerText;
+    const current = +counter.innerText.replace('+', '');
     if (current < target) {
-      counter.innerText = Math.ceil(current + increment);
+      counter.innerText = Math.ceil(current + increment) + '+';
       setTimeout(update, 10);
     } else {
-      counter.innerText = target.toLocaleString();
+      counter.innerText = target.toLocaleString() + '+';
     }
   };
   update();
