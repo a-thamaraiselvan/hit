@@ -24,26 +24,44 @@ $(document).ready(function () {
     }
   });
 
-  $(".mou-slider").owlCarousel({
+  $(".lab-image-slider").owlCarousel({
     loop: true,
-    margin: 20,
+    margin: 10,
     autoplay: true,
-    autoplayTimeout: 3000,
+    autoplayTimeout: 4000,
     autoplayHoverPause: true,
     smartSpeed: 1000,
     nav: false,
     dots: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 1
-      },
-      992: {
-        items: 4
+    items: 1,
+    animateOut: 'fadeOut'
+  });
+
+  $(".mou-slider").each(function () {
+    const $this = $(this);
+    const itemsCount = $this.children().length;
+
+    $this.owlCarousel({
+      loop: itemsCount > 1,
+      margin: 20,
+      autoplay: itemsCount > 1,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      smartSpeed: 1000,
+      nav: false,
+      dots: itemsCount > 1,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: Math.min(itemsCount, 2)
+        },
+        992: {
+          items: Math.min(itemsCount, 4)
+        }
       }
-    }
+    });
   });
 
   $(document).on('click', '.mou-slider .read-more-btn', function () {

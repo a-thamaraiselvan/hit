@@ -8596,6 +8596,156 @@ Go Top CSS
   margin-bottom: 15px;
 }
 
+/* Course Cards */
+.hit-dpt-course-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 33, 71, 0.08);
+  transition: var(--hit-dpt-transition);
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.hit-dpt-course-header {
+  background: var(--hit-dpt-black);
+  padding: 25px 20px;
+  color: #fff !important;
+  text-align: center;
+}
+
+.hit-dpt-course-header h4 {
+  color: #fff !important;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.hit-dpt-course-body {
+  padding: 30px 25px;
+  flex-grow: 1;
+}
+
+.hit-dpt-course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hit-dpt-course-list li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  font-size: 15px;
+  color: #555;
+}
+
+.hit-dpt-course-list li:last-child {
+  margin-bottom: 0;
+}
+
+.hit-dpt-course-list i {
+  color: var(--hit-dpt-main);
+  font-size: 18px;
+  margin-right: 12px;
+  margin-top: 3px;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.hit-dpt-course-list strong {
+  color: var(--hit-dpt-black);
+  margin-right: 5px;
+}
+
+/* Lab Image Slider */
+.lab-image-slider {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 33, 71, 0.1);
+}
+
+.lab-image-slider .item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.lab-image-slider .owl-dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.lab-image-slider .owl-dot span {
+  background: rgba(255, 255, 255, 0.5) !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s ease;
+}
+
+.lab-image-slider .owl-dot.active span {
+  background: var(--hit-dpt-main) !important;
+  width: 25px !important;
+}
+
+/* Lab Content Styling */
+.hit-dpt-lab-capacity {
+  display: inline-block;
+  background: rgba(0, 33, 71, 0.05);
+  color: var(--hit-dpt-main);
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0, 33, 71, 0.1);
+}
+
+.hit-dpt-lab-features {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.hit-dpt-lab-features h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--hit-dpt-black);
+}
+
+.hit-dpt-lab-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hit-dpt-lab-features ul li {
+  background: #f8f9fa;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #555;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.hit-dpt-lab-features ul li i {
+  color: var(--hit-dpt-main);
+  margin-right: 6px;
+  font-size: 16px;
+}
+
 /* Collab Cards */
 .hit-dpt-collab-card {
   background: #fff;
