@@ -584,7 +584,7 @@ $alumni = $stmt->fetchAll();
                                                         examination updates.</p>
                                                 </a>
 
-                                                <a href="e-campus-login.html" class="mega-link">
+                                                <a href="http://ecampus.hicet.ac.in/ecampus/" class="mega-link">
                                                     <h6 class="mega-title">E Campus Login</h6>
                                                     <p class="mega-desc">Access the student E-Campus portal for academic
                                                         information.</p>
@@ -638,17 +638,17 @@ $alumni = $stmt->fetchAll();
 
                                                     <div class="audit-buttons">
 
-                                                        <a href="audit-report-2024-2025.pdf" class="audit-btn"
-                                                            target="_blank">
+                                                        <a href="assets/hit/pdf_folder/Audit_pdf/Audit 2024-25.pdf"
+                                                            class="audit-btn" target="_blank">
                                                             Audit Report 2024 – 2025
                                                         </a>
 
-                                                        <a href="audit-report-2023-2024.pdf" class="audit-btn"
-                                                            target="_blank">
+                                                        <a href="assets/hit/pdf_folder/Audit_pdf/Audit 2023-24.pdf"
+                                                            class="audit-btn" target="_blank">
                                                             Audit Report 2023 – 2024
                                                         </a>
-                                                        <a href="audit-report-2022-2023.pdf" class="audit-btn"
-                                                            target="_blank">
+                                                        <a href="assets/hit/pdf_folder/Audit_pdf/Audit 2022-23.pdf"
+                                                            class="audit-btn" target="_blank">
                                                             Audit Report 2022 – 2023
                                                         </a>
                                                     </div>
@@ -661,13 +661,13 @@ $alumni = $stmt->fetchAll();
 
                                                     <div class="audit-buttons">
 
-                                                        <a href="audit-report-nba.pdf" class="audit-btn"
-                                                            target="_blank">
+                                                        <a href="assets/hit/pdf_folder/Audit_pdf/NBA EXT 2025.pdf"
+                                                            class="audit-btn" target="_blank">
                                                             NBA
                                                         </a>
 
-                                                        <a href="audit-report-naac.pdf" class="audit-btn"
-                                                            target="_blank">
+                                                        <a href="assets/hit/pdf_folder/Audit_pdf/accreditation2022.pdf"
+                                                            class="audit-btn" target="_blank">
                                                             NAAC
                                                         </a>
                                                     </div>
@@ -707,7 +707,7 @@ $alumni = $stmt->fetchAll();
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="campus-security-audit.pdf" target="_blank">
+                                        <a class="nav-link" href="assets\hit\pdf_folder\HiTech Campus Security Audit Checklist.pdf" target="_blank">
                                             Campus Security Audit (PDF)
                                         </a>
                                     </li>
@@ -913,19 +913,29 @@ $alumni = $stmt->fetchAll();
                                         <a class='accordion-link' href='about_placement.html'>About Placement</a>
                                     </div>
                                     <div class="accordion-item">
-                                        <a class='accordion-link' href='placement-details.html'>Placement Details</a>
+                                        <a class='accordion-link'
+                                            href='assets/hit/pdf_folder/placement_pdf/HiTECH Placement Details.pdf'
+                                            target="_blank">Placement Details</a>
                                     </div>
                                     <div class="accordion-item">
-                                        <a class='accordion-link' href='placement .pdf'>Placement 2025</a>
+                                        <a class='accordion-link'
+                                            href='assets/hit/pdf_folder/placement_pdf/PLACEMENT 2024-2025.pdf'
+                                            target="_blank">Placement 2025</a>
                                     </div>
                                     <div class="accordion-item">
-                                        <a class='accordion-link' href='placement .pdf'>Placement 2024</a>
+                                        <a class='accordion-link'
+                                            href='assets/hit/pdf_folder/placement_pdf/PLACEMENT 2023-2024.pdf'
+                                            target="_blank">Placement 2024</a>
                                     </div>
                                     <div class="accordion-item">
-                                        <a class='accordion-link' href='placement .pdf'>Placement 2023</a>
+                                        <a class='accordion-link'
+                                            href='assets/hit/pdf_folder/placement_pdf/PLACEMENT 2022-2023.pdf'
+                                            target="_blank">Placement 2023</a>
                                     </div>
                                     <div class="accordion-item">
-                                        <a class='accordion-link' href='placement .pdf'>Placement 2022</a>
+                                        <a class='accordion-link'
+                                            href='assets/hit/pdf_folder/placement_pdf/PLACEMENT 2021-2022.pdf'
+                                            target="_blank">Placement 2022</a>
                                     </div>
                                 </div>
                             </div>
@@ -944,7 +954,8 @@ $alumni = $stmt->fetchAll();
                                         <a class='accordion-link' href='coe.html'>COE</a>
                                     </div>
                                     <div class="accordion-item">
-                                        <a class='accordion-link' href='e-campus-login.html'>E Campus Login</a>
+                                        <a class='accordion-link' href='http://ecampus.hicet.ac.in/ecampus/'>E Campus
+                                            Login</a>
                                     </div>
                                     <div class="accordion-item">
                                         <a class='accordion-link' href='online-fee-payment.html'>Online Fee Payment</a>
@@ -971,21 +982,26 @@ $alumni = $stmt->fetchAll();
                                             <div class="accordion-body">
                                                 <div class="accordion">
                                                     <div class="accordion-item"><a class='accordion-link'
-                                                            href='audit-report-2024-2025.pdf' target="_blank">Audit
+                                                            href='assets/hit/pdf_folder/Audit_pdf/Audit 2024-25.pdf'
+                                                            target="_blank">Audit
                                                             Report
                                                             2024 – 2025</a></div>
                                                     <div class="accordion-item"><a class='accordion-link'
-                                                            href='audit-report-2023-2024.pdf' target="_blank">Audit
+                                                            href='assets/hit/pdf_folder/Audit_pdf/Audit 2023-24.pdf'
+                                                            target="_blank">Audit
                                                             Report
                                                             2023 – 2024</a></div>
                                                     <div class="accordion-item"><a class='accordion-link'
-                                                            href='audit-report-2022-2023.pdf' target="_blank">Audit
+                                                            href='assets/hit/pdf_folder/Audit_pdf/Audit 2022-23.pdf'
+                                                            target="_blank">Audit
                                                             Report
                                                             2022 – 2023</a></div>
                                                     <div class="accordion-item"><a class='accordion-link'
-                                                            href='audit-report-nba.pdf' target="_blank">NBA</a></div>
+                                                            href='assets/hit/pdf_folder/Audit_pdf/NBA EXT 2025.pdf'
+                                                            target="_blank">NBA</a></div>
                                                     <div class="accordion-item"><a class='accordion-link'
-                                                            href='audit-report-naac.pdf' target="_blank">NAAC</a></div>
+                                                            href='assets/hit/pdf_folder/Audit_pdf/accreditation2022.pdf'
+                                                            target="_blank">NAAC</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1015,7 +1031,7 @@ $alumni = $stmt->fetchAll();
                                             href='research-cell.html'>Research
                                             Cell</a></div>
                                     <div class="accordion-item"><a class='accordion-link'
-                                            href='campus-security-audit.pdf' target="_blank">Campus Security Audit
+                                            href='assets\hit\pdf_folder\HiTech Campus Security Audit Checklist.pdf' target="_blank">Campus Security Audit
                                             (PDF)</a></div>
                                     <div class="accordion-item"><a class='accordion-link active'
                                             href='alumni.php'>Alumni</a>

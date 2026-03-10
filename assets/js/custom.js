@@ -359,7 +359,128 @@ $(document).ready(function () {
 });
 
 
+/*================================================
+  Statutory Committees — Tab Switching JS
+  --------------------------------------------------
+  HOW TO USE ON ANY PAGE:
+  --------------------------------------------------------
+  1. Include style.css and custom.js as usual (already done
+     on all pages).
+
+  2. Add the main tab buttons in your HTML:
+
+       <div class="stat-tabs">
+         <button class="stat-tab-btn active"
+                 onclick="showStatTab('governing-body', this)">
+           <i class='bx bxs-institution'></i> Governing Body
+         </button>
+         <button class="stat-tab-btn"
+                 onclick="showStatTab('academic-council', this)">
+           <i class='bx bxs-graduation'></i> Academic Council
+         </button>
+       </div>
+
+  3. Add matching panel divs (one "active" at load):
+
+       <div id="governing-body"   class="stat-panel active"> ... </div>
+       <div id="academic-council" class="stat-panel"> ... </div>
+
+  4. For Board of Studies department tabs:
+
+       <div class="bos-tabs">
+         <button class="bos-tab-btn active"
+                 onclick="showBosTab('bos-mech', this)">MECH</button>
+         <button class="bos-tab-btn"
+                 onclick="showBosTab('bos-cse', this)">CSE</button>
+       </div>
+
+       <div id="bos-mech" class="bos-panel active"> ... </div>
+       <div id="bos-cse"  class="bos-panel"> ... </div>
+
+  5. Each PDF link should use class="pdf-item" with an
+     <i class='bx bxs-file-pdf'> icon inside.
+=================================================*/
+
+/**
+ * showStatTab
+ * Switches the active main committee tab panel.
+ *
+ * @param {string}      id  – id of the .stat-panel div to activate
+ * @param {HTMLElement} btn – the .stat-tab-btn that was clicked
+ */
+function showStatTab(id, btn) {
+  // Hide all main tab panels
+  document.querySelectorAll('.stat-panel').forEach(function (p) {
+    p.classList.remove('active');
+  });
+  // Deactivate all main tab buttons
+  document.querySelectorAll('.stat-tab-btn').forEach(function (b) {
+    b.classList.remove('active');
+  });
+  // Show the selected panel and highlight the button
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/**
+ * showBosTab
+ * Switches the active Board of Studies department panel.
+ *
+ * @param {string}      id  – id of the .bos-panel div to activate
+ * @param {HTMLElement} btn – the .bos-tab-btn that was clicked
+ */
+function showBosTab(id, btn) {
+  // Hide all department panels
+  document.querySelectorAll('.bos-panel').forEach(function (p) {
+    p.classList.remove('active');
+  });
+  // Deactivate all department buttons
+  document.querySelectorAll('.bos-tab-btn').forEach(function (b) {
+    b.classList.remove('active');
+  });
+  // Show the selected department panel and highlight the button
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
 
 
+/*================================================
+  IQAC Page — Scroll-reveal animation
+  Adds a gentle fade-up entrance for all IQAC cards
+  as they enter the viewport.
+=================================================*/
+(function () {
+  var iqacSelectors = [
+    '.iqac-card',
+    '.iqac-objective-item',
+    '.iqac-plan-item',
+    '.iqac-contribution-card',
+    '.iqac-pdf-card',
+    '.iqac-aqar-card',
+    '.iqac-policy-item'
+  ];
 
+  var elements = document.querySelectorAll(iqacSelectors.join(', '));
+  if (!elements.length) return;
 
+  // Set initial hidden state
+  elements.forEach(function (el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  elements.forEach(function (el) {
+    revealObserver.observe(el);
+  });
+})();
