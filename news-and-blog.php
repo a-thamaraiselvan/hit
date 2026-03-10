@@ -478,10 +478,8 @@ require_once 'admin/includes/db.php';
                                                 <h6 class="mega-title">Electronics and Communication Engineering</h6>
                                                 <p class="mega-desc">Circuit design and electronic devices.</p>
                                             </a>
-                                            <a href="pharmaceutical-technology.html" class="mega-link">
-                                                <h6 class="mega-title">Pharmaceutical Technology</h6>
-                                                <p class="mega-desc">Drug formulation, analysis, and healthcare.</p>
-                                            </a>
+                                             
+
                                             <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. Computer Science and Engineering</h6>
                                                 <p class="mega-desc">Advanced postgraduate computing logic.</p>
