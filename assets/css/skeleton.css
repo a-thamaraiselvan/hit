@@ -1,0 +1,59 @@
+/* Skeleton image loader styles for site-wide use */
+:root{
+  --skeleton-bg: #e9e9ee;
+  --skeleton-highlight: #f6f6f9;
+  --skeleton-duration: 1.2s;
+}
+
+.skeleton-wrapper{
+  display:inline-block;
+  position:relative;
+  overflow:hidden;
+  background:var(--skeleton-bg);
+}
+
+.skeleton-wrapper::after{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
+  transform:translateX(-100%);
+  animation:shimmer var(--skeleton-duration) linear infinite;
+  will-change:transform;
+}
+
+@keyframes shimmer{to{transform:translateX(100%)}}
+
+/* Image should fill the wrapper */
+.skeleton-wrapper img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  vertical-align:middle;
+  transition:opacity .24s ease, transform .24s ease;
+  opacity:0;
+}
+
+/* When image is loaded remove shimmer and show image */
+.skeleton-wrapper.loaded::after{display:none}
+.skeleton-wrapper.loaded img{opacity:1}
+
+/* Helper utility for common gallery/lab thumbnails */
+.lab-thumb{
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:6px;
+  overflow:hidden;
+}
+
+/* Square/circle variants */
+.skeleton-square{aspect-ratio:1/1}
+.skeleton-circle{aspect-ratio:1/1;border-radius:50%}
+
+/* Small accessibility tweaks */
+.skeleton-wrapper.error{background:#f8d7da}
+.skeleton-wrapper.error::after{display:none}
+
+/* Provide a lightweight default placeholder if image src is blank */
+.skeleton-placeholder{background:linear-gradient(180deg,var(--skeleton-bg),var(--skeleton-highlight));}
