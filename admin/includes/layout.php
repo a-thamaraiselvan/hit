@@ -34,6 +34,7 @@ if (!isset($_SESSION['admin_id'])) {
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/skeleton.css">
 
     <style>
         :root {
@@ -326,6 +327,7 @@ if (!isset($_SESSION['admin_id'])) {
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="row align-items-center">
+        <script src="../../assets/js/skeleton.js"></script>
             <div class="col">
 
                 <nav aria-label="breadcrumb">

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="assets/css/flaticon.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 
@@ -967,7 +968,7 @@
                                 <li><a href='computer-science-and-engineering.html'>Computer Science and Engineering</a>
                                 </li>
                                 <li><a href='information-technology.html'>Information Technology</a></li>
-                                <li><a href='pharmaceutical-technology.html'>Pharmaceutical Technology</a></li>
+
                                 <li><a href='mechanical-engineering.html'>Mechanical Engineering</a></li>
                                 <li><a class='active' href='master-of-business-administration.html'>Master of Business
                                         Administration</a></li>
@@ -1122,7 +1123,7 @@
                         <div class="hit-dpt-accordion-body">
                             <p>Promote a culture of research and innovation by encouraging students and
                                 faculty to engage in cutting-edge projects and publications in the
-                                aerospace domain.</p>
+                                management domain.</p>
                         </div>
                     </div> -->
             </div>
@@ -1229,78 +1230,294 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- 5. FACULTY MEMBERS -->
-                    <section class="hit-dpt-faculty hit-dpt-padding bg-light">
-                        <div class="container">
-                            <h2 class="hit-dpt-title text-center">Faculty Members</h2>
-                            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
-                                <div class="col">
-                                    <div class="hit-dpt-faculty-card">
-                                        <div class="hit-dpt-faculty-img">
-                                            <img src="assets/hindusthan_images/Khannaiyann_sir1.png" alt="Faculty Name">
+                  <!-- 5. FACULTY MEMBERS -->
+                        <section class="faculty-area">
+                            <div class="container">
+                                <div class="section-title text-center mb-4">
+                                    <h2 style="font-weight: 700; color: #00004a;">Meet Our Esteemed Faculty</h2>
+                                </div>
+                                <div class="row" id="faculty-grid">
+
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item ">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Dr_THIRUMALAI_RAMANATHAN.png"
+                                                    alt="Dr.THIRUMALAI RAMANATHAN">
+                                                <a href="mailto:dr.thirumalai.r@hit.edu.in"
+                                                    class="social-link-overlay"><i class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Dr.THIRUMALAI RAMANATHAN</h3>
+                                                <span class="designation">Professor and Head</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 27 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i> Ph.D</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal0">
+                                                    View Profile
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div class="hit-dpt-faculty-info">
-                                            <h5>Dr. John Doe</h5>
-                                            <p>Head of Department</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item ">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Dr.K.P.DHANABALAKRISHNAN.png"
+                                                    alt="Dr.K.P.DHANABALAKRISHNAN">
+                                                <a href="mailto:dhanabalakrishnan@hit.edu.in"
+                                                    class="social-link-overlay"><i class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Dr.K.P.DHANABALAKRISHNAN</h3>
+                                                <span class="designation">Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 28 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i> Ph.D</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal1">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item ">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Dr.A.PERAMANAN.png"
+                                                    alt="Dr.A.PERAMANAN">
+                                                <a href="mailto:dr.peramananr.a@hit.edu.in"
+                                                    class="social-link-overlay"><i class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Dr.A.PERAMANAN</h3>
+                                                <span class="designation">Associate Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 18 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i>Ph.D </p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal2">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item extra-faculty d-none">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Dr.J.ABUTHAKIR.png"
+                                                    alt="Dr.J.ABUTHAKIR">
+                                                <a href="mailto:dr.abuthakir.j@hit.edu.in"
+                                                    class="social-link-overlay"><i class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Dr.J.ABUTHAKIR</h3>
+                                                <span class="designation">Associate Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 13 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i>Ph.D</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal3">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item extra-faculty d-none">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Mr.M.MOSES_DEVAPRASANNA.png"
+                                                    alt="Mr.M.MOSES DEVAPRASANNA">
+                                                <a href="mailto:mosesdevaprasanna@hit.edu.in"
+                                                    class="social-link-overlay"><i class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Mr.M.MOSES DEVAPRASANNA</h3>
+                                                <span class="designation">Assistant Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 20 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i>M.E</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal4">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item extra-faculty d-none">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Mr.M.S.PRABHU.png"
+                                                    alt="Mr.M.S.PRABHU">
+                                                <a href="mailto:prabhu@hit.edu.in" class="social-link-overlay"><i
+                                                        class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Mr.M.S.PRABHU</h3>
+                                                <span class="designation">Assistant Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 17 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i> (Ph.D)</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal5">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item extra-faculty d-none">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Mr.M.HARISH.png"
+                                                    alt="Mr.M.HARISH">
+                                                <a href="mailto:harish@hit.edu.in" class="social-link-overlay"><i
+                                                        class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Mr.M.HARISH</h3>
+                                                <span class="designation">Assistant Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 14 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i> </p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal6">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item extra-faculty d-none">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Mr.S.TAMIL_SELVAN.png"
+                                                    alt="Mr.S.TAMIL SELVAN">
+                                                <a href="mailto:tamilselvan@hit.edu.in" class="social-link-overlay"><i
+                                                        class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Mr.S.TAMIL SELVAN</h3>
+                                                <span class="designation">Assistant Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 14 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i> M.E. (Ph.D)</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal7">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item extra-faculty d-none">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Dr.N.MAHESWARAN.png"
+                                                    alt="Dr.N.MAHESWARAN">
+                                                <a href="mailto:maheswaran.n@hit.edu.in" class="social-link-overlay"><i
+                                                        class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Dr.N.MAHESWARAN</h3>
+                                                <span class="designation">Assistant Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 10 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i> Ph.D</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal8">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item extra-faculty d-none">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Mr.V.GANESAN.png"
+                                                    alt="Mr.V.GANESAN">
+                                                <a href="mailto:ganesan.v@hit.edu.in" class="social-link-overlay"><i
+                                                        class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Mr.V.GANESAN</h3>
+                                                <span class="designation">Assistant Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 11 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i> M.E. (Ph.D)</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal9">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item extra-faculty d-none">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Mr.R.SAKTHIVEL.png"
+                                                    alt="Mr.R.SAKTHIVEL">
+                                                <a href="mailto:sakthivel.r@hit.edu.in" class="social-link-overlay"><i
+                                                        class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Mr.R.SAKTHIVEL</h3>
+                                                <span class="designation">Assistant Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 4 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i> MS</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal10">
+                                                    View Profile
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 faculty-card-item extra-faculty d-none">
+                                        <div class="single-faculty-card">
+                                            <div class="faculty-img-wrapper">
+                                                <img src="./assets/department/AERO/faculty_image_folder/Mr.S.MOHAMMED_MEERAN.png"
+                                                    alt="Mr.S.MOHAMMED MEERAN">
+                                                <a href="mailto:mohammedmeeran.s@hit.edu.in"
+                                                    class="social-link-overlay"><i class='bx bx-envelope'></i></a>
+                                            </div>
+                                            <div class="faculty-info">
+                                                <h3>Mr.S.MOHAMMED MEERAN</h3>
+                                                <span class="designation">Assistant Professor</span>
+                                                <div class="stats">
+                                                    <p><i class='bx bx-briefcase'></i> 6 Yrs Exp</p>
+                                                    <p><i class='bx bxs-graduation'></i> M.E. (Ph.D)</p>
+                                                </div>
+                                                <button class="btn-faculty-view" data-bs-toggle="modal"
+                                                    data-bs-target="#facultyModal11">
+                                                    View Profile
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="hit-dpt-faculty-card">
-                                        <div class="hit-dpt-faculty-img">
-                                            <img src="assets/images/user.jpg" alt="Faculty Name">
-                                        </div>
-                                        <div class="hit-dpt-faculty-info">
-                                            <h5>Dr. Jane Smith</h5>
-                                            <p>Professor</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="hit-dpt-faculty-card">
-                                        <div class="hit-dpt-faculty-img">
-                                            <img src="assets/images/user.jpg" alt="Faculty Name">
-                                        </div>
-                                        <div class="hit-dpt-faculty-info">
-                                            <h5>Mr. Robert Fox</h5>
-                                            <p>Assistant Professor</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="hit-dpt-faculty-card">
-                                        <div class="hit-dpt-faculty-img">
-                                            <img src="assets/images/user.jpg" alt="Faculty Name">
-                                        </div>
-                                        <div class="hit-dpt-faculty-info">
-                                            <h5>Ms. Emily Brown</h5>
-                                            <p>Assistant Professor</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="hit-dpt-faculty-card">
-                                        <div class="hit-dpt-faculty-img">
-                                            <img src="assets/images/user.jpg" alt="Faculty Name">
-                                        </div>
-                                        <div class="hit-dpt-faculty-info">
-                                            <h5>Mr. Michael Green</h5>
-                                            <p>Assistant Professor</p>
-                                        </div>
-                                    </div>
+                                <div class="text-center mt-3">
+                                    <span id="view-all-faculty-btn"
+                                        style="color: #ff5e14; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 16px;">View
+                                        All Faculty <i class='bx bx-down-arrow-alt'></i></span>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-
+                        </section>
                     <!-- 6. LABORATORIES -->
                     <section class="hit-dpt-labs hit-dpt-padding">
                         <div class="container">
                             <h2 class="hit-dpt-title text-center">Laboratories</h2>
                             <div class="hit-dpt-lab-row row align-items-center">
                                 <div class="col-lg-6 hit-dpt-lab-img-col">
-                                    <img src="assets/home/card/card_3.JPG" alt="MBA Computer Lab"
-                                        class="img-fluid rounded shadow">
+                                    <img src="" data-src="assets/department/MBA/lab_images/MBA 1.jpg" alt="MBA Computer Lab"
+                                        class="img-fluid rounded shadow skeleton-img">
                                 </div>
                                 <div class="col-lg-6 hit-dpt-lab-content-col">
                                     <h3>MBA Computer Lab</h3>
@@ -1377,7 +1594,7 @@
 
 
                     <!-- 8. TOP RECRUITERS -->
-                    <!-- <section class="hit-dpt-recruiters hit-dpt-padding bg-light">
+                    <!-- <section class="hit-dpt-recruiters hit-dpt-padding ">
                             <div class="container">
                                 <h2 class="hit-dpt-title text-center">Top Recruiters</h2>
                                 <div class="hit-dpt-recruiter-grid">
@@ -1418,7 +1635,7 @@
 
                     <!-- 10. REPORTS -->
                     <!-- Replace the '#' in href with your PDF file path -->
-                    <!-- <section class="hit-dpt-reports hit-dpt-padding bg-light">
+                    <!-- <section class="hit-dpt-reports hit-dpt-padding ">
                             <div class="container">
                                 <h2 class="hit-dpt-title text-center">Reports</h2>
 
@@ -1588,26 +1805,34 @@
                             <h2 class="hit-dpt-title text-center">Gallery</h2>
                             <div class="hit-dpt-gallery-slider" id="dptGallerySlider">
                                 <div class="hit-dpt-gallery-track" id="dptGalleryTrack">
-                                    <div class="hit-dpt-gallery-item"><img src="assets/home/card/card_1.JPG"
-                                            alt="Gallery Image">
+                                    <div class="hit-dpt-gallery-item">
+                                        <img src="assets/department/MBA/images/MBA 1.jpg" alt="Gallery Image">
                                     </div>
-                                    <div class="hit-dpt-gallery-item"><img src="assets/home/card/card_2.JPG"
-                                            alt="Gallery Image">
+                                    <div class="hit-dpt-gallery-item">
+                                        <img src="assets/department/MBA/images/MBA 2.jpg" alt="Gallery Image">
                                     </div>
-                                    <div class="hit-dpt-gallery-item"><img src="assets/home/card/card_3.JPG"
-                                            alt="Gallery Image">
+                                    <div class="hit-dpt-gallery-item">
+                                        <img src="assets/department/MBA/images/MBA 3.jpg" alt="Gallery Image">
                                     </div>
-                                    <div class="hit-dpt-gallery-item"><img src="assets/college_images/hicas_group_1.JPG"
-                                            alt="Gallery Image"></div>
-                                    <div class="hit-dpt-gallery-item"><img src="assets/home/card/card_1.JPG"
-                                            alt="Gallery Image">
+                                    <div class="hit-dpt-gallery-item">
+                                        <img src="assets/department/MBA/images/MBA 4.jpg" alt="Gallery Image">
                                     </div>
-                                    <div class="hit-dpt-gallery-item"><img src="assets/home/card/card_2.JPG"
-                                            alt="Gallery Image">
+                                    <div class="hit-dpt-gallery-item">
+                                        <img src="assets/department/MBA/images/MBA 5.jpg" alt="Gallery Image">
                                     </div>
-                                    <div class="hit-dpt-gallery-item"><img src="assets/home/card/card_3.JPG"
-                                            alt="Gallery Image">
+                                    <div class="hit-dpt-gallery-item">
+                                        <img src="assets/department/MBA/images/MBA 6.jpg" alt="Gallery Image">
                                     </div>
+                                    <div class="hit-dpt-gallery-item">
+                                        <img src="assets/department/MBA/images/MBA 7.jpg" alt="Gallery Image">
+                                    </div>
+                                    <div class="hit-dpt-gallery-item">
+                                        <img src="assets/department/MBA/images/MBA 8.jpg" alt="Gallery Image">
+                                    </div>
+                                    <div class="hit-dpt-gallery-item">
+                                        <img src="assets/department/MBA/images/MBA 9.jpg" alt="Gallery Image">
+                                    </div>
+                                   
                                 </div>
                                 <button class="hit-dpt-slider-btn prev" id="dptGalleryPrev">&#10094;</button>
                                 <button class="hit-dpt-slider-btn next" id="dptGalleryNext">&#10095;</button>
@@ -1814,6 +2039,7 @@
     <script src="assets/js/magnific-popup.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/skeleton.js"></script>
     <script src="assets/js/messagefloating.js"></script>
     <script src="assets/js/custom.js"></script>
 

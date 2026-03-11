@@ -8596,6 +8596,15 @@ Go Top CSS
   margin-bottom: 15px;
 }
 
+.hit-dpt-lab-img-col img {
+  width: 100%;
+  /* aspect-ratio: 16 / 9; */
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  box-shadow: none !important;
+}
+
 /* Course Cards */
 .hit-dpt-course-card {
   background: #fff;
@@ -8665,12 +8674,12 @@ Go Top CSS
 .lab-image-slider {
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 33, 71, 0.1);
+  box-shadow: none !important;
 }
 
 .lab-image-slider .item img {
   width: 100%;
-  height: 350px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
 }
@@ -8985,7 +8994,7 @@ Go Top CSS
 
 .hit-dpt-gallery-item img {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 8px;
 }
