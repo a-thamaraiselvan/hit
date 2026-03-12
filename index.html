@@ -690,7 +690,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-lg-4 col-md-6 mega-col">
-                                            <a href="about_placement.html" class="mega-link active">
+                                            <a href="about_placement.html" class="mega-link">
                                                 <h6 class="mega-title">About Placement</h6>
                                                 <p class="mega-desc">Overview of our training and placement cell.</p>
                                             </a>
@@ -1600,8 +1600,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
     <section class="process-diagram-section ptb-100">
         <div class="container">
             <div class="section-title text-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="sub-title">
-                    <i class='bx bxs-graduation'></i>
+                <div class="section-title">
                     <p>Our Ecosystem</p>
                 </div>
                 <h2>What We Do</h2>
@@ -1621,10 +1620,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                     <div class="process-content-card">
                         <h3 class="process-title">24/7 Classroom</h3>
                         <div class="process-desc-container">
-                            <p class="process-desc">Google Classroom’s purpose is to facilitate paperless communication
-                                between teachers and students and streamline educational workflow. Classroom allows
-                                teachers to create classes, post assignments, organize folders, and view work in
-                                real-time.</p>
+                            <p class="process-desc">Google Classroom’s purpose is to facilitate paperless communication between teachers and students and streamline educational workflow. Classroom allows teachers to create classes, post assignments, organize folders, and view work in real-time.</p>
                         </div>
                         <button class="read-more-btn">Read More <i class='bx bx-chevron-down'></i></button>
                     </div>
@@ -1742,72 +1738,6 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
         </div>
     </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Initialize Owl Carousel for Process Slider
-            let checkProcessOwl = setInterval(function () {
-                if (window.jQuery && jQuery().owlCarousel) {
-                    clearInterval(checkProcessOwl);
-                    jQuery('.process-slider').owlCarousel({
-                        loop: true,
-                        margin: 0,
-                        nav: true,
-                        dots: false,
-                        navText: [
-                            "<i class='bx bx-chevron-left'></i>",
-                            "<i class='bx bx-chevron-right'></i>"
-                        ],
-                        autoplay: true,
-                        autoplayTimeout: 4000,
-                        autoplayHoverPause: true,
-                        responsive: {
-                            0: { items: 1 },
-                            576: { items: 2 },
-                            768: { items: 3 },
-                            1200: { items: 4 }
-                        }
-                    });
-                }
-            }, 100);
-
-            // Read More Expand/Collapse Logic
-            document.body.addEventListener('click', function (e) {
-                if (e.target.closest('.read-more-btn')) {
-                    const btn = e.target.closest('.read-more-btn');
-                    // Stop event to prevent OwlCarousel issues
-                    e.preventDefault();
-
-                    const container = btn.previousElementSibling; // targets .process-desc-container
-                    if (container && container.classList.contains('process-desc-container')) {
-
-                        // Close all currently expanded containers except the one just clicked
-                        document.querySelectorAll('.process-desc-container.expanded').forEach(function (openContainer) {
-                            if (openContainer !== container) {
-                                openContainer.classList.remove('expanded');
-                                const openBtn = openContainer.nextElementSibling;
-                                if (openBtn && openBtn.classList.contains('read-more-btn')) {
-                                    openBtn.innerHTML = "Read More <i class='bx bx-chevron-down'></i>";
-                                    openBtn.classList.remove('active');
-                                }
-                            }
-                        });
-
-                        if (container.classList.contains('expanded')) {
-                            // Collapse the clicked one
-                            container.classList.remove('expanded');
-                            btn.innerHTML = "Read More <i class='bx bx-chevron-down'></i>";
-                            btn.classList.remove('active');
-                        } else {
-                            // Expand the clicked one
-                            container.classList.add('expanded');
-                            btn.innerHTML = "Read Less <i class='bx bx-chevron-up'></i>";
-                            btn.classList.add('active');
-                        }
-                    }
-                }
-            });
-        });
-    </script>
     <!-- End Features Area 2 -->
 
 
@@ -3045,6 +2975,74 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
 
 
     </script>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize Owl Carousel for Process Slider
+            let checkProcessOwl = setInterval(function () {
+                if (window.jQuery && jQuery().owlCarousel) {
+                    clearInterval(checkProcessOwl);
+                    jQuery('.process-slider').owlCarousel({
+                        loop: true,
+                        margin: 0,
+                        nav: true,
+                        dots: false,
+                        navText: [
+                            "<i class='bx bx-chevron-left'></i>",
+                            "<i class='bx bx-chevron-right'></i>"
+                        ],
+                        autoplay: true,
+                        autoplayTimeout: 4000,
+                        autoplayHoverPause: true,
+                        responsive: {
+                            0: { items: 1 },
+                            576: { items: 2 },
+                            768: { items: 3 },
+                            1200: { items: 4 }
+                        }
+                    });
+                }
+            }, 100);
+
+            // Read More Expand/Collapse Logic
+            document.body.addEventListener('click', function (e) {
+                if (e.target.closest('.read-more-btn')) {
+                    const btn = e.target.closest('.read-more-btn');
+                    // Stop event to prevent OwlCarousel issues
+                    e.preventDefault();
+
+                    const container = btn.previousElementSibling; // targets .process-desc-container
+                    if (container && container.classList.contains('process-desc-container')) {
+
+                        // Close all currently expanded containers except the one just clicked
+                        document.querySelectorAll('.process-desc-container.expanded').forEach(function (openContainer) {
+                            if (openContainer !== container) {
+                                openContainer.classList.remove('expanded');
+                                const openBtn = openContainer.nextElementSibling;
+                                if (openBtn && openBtn.classList.contains('read-more-btn')) {
+                                    openBtn.innerHTML = "Read More <i class='bx bx-chevron-down'></i>";
+                                    openBtn.classList.remove('active');
+                                }
+                            }
+                        });
+
+                        if (container.classList.contains('expanded')) {
+                            // Collapse the clicked one
+                            container.classList.remove('expanded');
+                            btn.innerHTML = "Read More <i class='bx bx-chevron-down'></i>";
+                            btn.classList.remove('active');
+                        } else {
+                            // Expand the clicked one
+                            container.classList.add('expanded');
+                            btn.innerHTML = "Read Less <i class='bx bx-chevron-up'></i>";
+                            btn.classList.add('active');
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
