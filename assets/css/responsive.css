@@ -575,8 +575,7 @@
   }
 
   .video-play-area .contant p {
-    font-size: 16px;
-    margin-right: 0;
+    display: none;
   }
 
   .video-play-area .contant img {
@@ -589,6 +588,7 @@
 
   .video-play-area .contant {
     text-align: left;
+    display: none;
   }
 
   .video-play-area .play-button {

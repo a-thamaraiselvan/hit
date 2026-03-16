@@ -29,27 +29,89 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Handle photo upload
     $photo_update = "";
+    $max_size = 2 * 1024 * 1024; // 2MB in bytes
     if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0) {
-        // Delete old photo if exists
-        if($alumni['photo']) {
-            $old_file = "../../" . $alumni['photo'];
-            if(file_exists($old_file)) {
-                unlink($old_file);
-            }
-        }
-        
         $target_dir = "../../uploads/alumni/";
         if (!file_exists($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
         
-        $file_extension = pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION);
-        $file_name = uniqid() . "." . $file_extension;
-        $target_file = $target_dir . $file_name;
-        
-        if(move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
-            $photo_update = ", photo = ?";
-            $photo_value = "uploads/alumni/" . $file_name;
+        $file_extension = strtolower(pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION));
+        // Check if image file is a actual image
+        $check = getimagesize($_FILES["photo"]["tmp_name"]);
+        if($check !== false) {
+            // Valid image file
+            $file_name = uniqid() . "." . $file_extension;
+            $target_file = $target_dir . $file_name;
+            
+            // Create image from uploaded file
+            $source = null;
+            switch($file_extension) {
+                case 'jpg':
+                case 'jpeg':
+                    $source = imagecreatefromjpeg($_FILES["photo"]["tmp_name"]);
+                    break;
+                case 'png':
+                    $source = imagecreatefrompng($_FILES["photo"]["tmp_name"]);
+                    break;
+            }
+            
+            if($source) {
+                // Delete old photo if exists
+                if($alumni['photo']) {
+                    $old_file = "../../" . $alumni['photo'];
+                    if(file_exists($old_file)) {
+                        unlink($old_file);
+                    }
+                }
+
+                // Get original dimensions
+                $width = imagesx($source);
+                $height = imagesy($source);
+                
+                // Determine compression settings
+                $needs_compression = $_FILES["photo"]["size"] > $max_size;
+                
+                if($needs_compression) {
+                    // Calculate new dimensions while maintaining aspect ratio
+                    $max_dimension = 800; // Max width or height
+                    if($width > $height) {
+                        $new_width = $max_dimension;
+                        $new_height = floor($height * ($max_dimension / $width));
+                    } else {
+                        $new_height = $max_dimension;
+                        $new_width = floor($width * ($max_dimension / $height));
+                    }
+                    
+                    // Create new image
+                    $new_image = imagecreatetruecolor($new_width, $new_height);
+                    
+                    // Handle transparency for PNG
+                    if($file_extension == 'png') {
+                        imagealphablending($new_image, false);
+                        imagesavealpha($new_image, true);
+                    }
+                    
+                    // Resize image
+                    imagecopyresampled($new_image, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+                    
+                    // Save compressed image
+                    if($file_extension == 'jpg' || $file_extension == 'jpeg') {
+                        imagejpeg($new_image, $target_file, 60); // Compression quality 60
+                    } else {
+                        imagepng($new_image, $target_file, 8); // PNG compression 8
+                    }
+                    
+                    imagedestroy($new_image);
+                } else {
+                    // For files under 2MB, just move the uploaded file
+                    move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
+                }
+                
+                imagedestroy($source);
+                $photo_update = ", photo = ?";
+                $photo_value = "uploads/alumni/" . $file_name;
+            }
         }
     }
     

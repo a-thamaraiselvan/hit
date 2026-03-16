@@ -4662,20 +4662,27 @@ Campus Tour Area CSS
 /*================================================
 Events Area CSS
 =================================================*/
+/*================================================
+Events Area CSS (Home Page News & Events)
+=================================================*/
+/* Main container for the News and Events section */
 .events-area {
   background-color: var(--secounderyColor);
 }
 
+/* Individual event/news item container */
 .event .content {
   display: flex;
   align-items: center;
   margin-bottom: 25px;
 }
 
+/* Image styling for news items */
 .event .content .image {
   width: 55%;
 }
 
+/* Text block for news items - adjust width and padding for spacing */
 .event .content .text {
   width: 77%;
   padding-right: 50px;
@@ -4686,6 +4693,7 @@ Events Area CSS
   padding-top: 30px;
 }
 
+/* White background box that appears on hover/active news items */
 .event .content .text::before {
   position: absolute;
   content: '';
@@ -4700,11 +4708,13 @@ Events Area CSS
   box-shadow: 1px 1px 30px #0000000d;
 }
 
+/* Show background effect on hover */
 .event .content:hover .text::before {
   top: 0px;
   opacity: 1;
 }
 
+/* Tag styling (e.g., Featured News) */
 .event .content .text .tag {
   color: var(--whiteColor);
   background: var(--mainColor);
@@ -4713,18 +4723,21 @@ Events Area CSS
   margin-bottom: 30px;
 }
 
+/* News/Event Title */
 .event .content .text h2 {
   font-size: 30px;
   font-family: 'Lexend', sans-serif;
   margin-bottom: 20px;
 }
 
+/* Date and secondary text */
 .event .content .text span {
   color: var(--paragraphColor);
   display: inline-block;
   margin-bottom: 20px;
 }
 
+/* Link icon positioning */
 .event .content .text .link {
   position: absolute;
   content: '';
@@ -4741,6 +4754,7 @@ Events Area CSS
   color: var(--mainColor);
 }
 
+/* Layout for Recent Posts section */
 .recent-post h4 {
   font-size: 20px;
   font-weight: 500;
@@ -4751,6 +4765,7 @@ Events Area CSS
   width: 91%;
 }
 
+/* Layout for Upcoming Events section */
 .upcoming-event h4 {
   font-size: 20px;
   font-weight: 500;
@@ -4768,6 +4783,7 @@ Events Area CSS
   margin-bottom: 10px;
 }
 
+/* Venue/Location styling */
 .upcoming-event .content .location {
   color: var(--paragraphColor);
   position: relative;
@@ -4792,6 +4808,7 @@ Events Area CSS
   color: var(--mainColor);
 }
 
+/* Event date card styling (Calendar box) */
 .upcoming-event .event-dates {
   display: flex;
   padding: 30px;
@@ -4805,6 +4822,7 @@ Events Area CSS
   justify-content: center;
 }
 
+/* "View More" button at the bottom of upcoming events */
 .upcoming-event .event-dates .btn {
   color: var(--mainColor);
   font-weight: 500;
@@ -4821,6 +4839,7 @@ Events Area CSS
   right: -25px;
 }
 
+/* Calendar Date Box width */
 .upcoming-event .event-dates .date {
   width: 35%;
 }
@@ -4830,6 +4849,7 @@ Events Area CSS
   padding: 0;
 }
 
+/* Month tag in calendar box */
 .upcoming-event .event-dates .date ul .mnt {
   padding: 4px;
   background: var(--mainColor);
@@ -4837,6 +4857,7 @@ Events Area CSS
   color: var(--whiteColor);
 }
 
+/* Day/Date number in calendar box */
 .upcoming-event .event-dates .date ul .det {
   padding: 5px 12px;
   background: var(--whiteColor);
@@ -4845,11 +4866,35 @@ Events Area CSS
   font-weight: 700;
 }
 
+/* Absolute positioning for link icons in upcoming events */
 .upcoming-event .content .link {
   position: absolute;
   top: 15%;
   right: 6%;
   content: '';
+}
+
+/* "View More News" button styling */
+.view-more-news {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.view-more-news .btn {
+  color: var(--mainColor);
+  font-weight: 500;
+  position: relative;
+  padding: 0;
+  border: 0;
+  display: inline-block;
+}
+
+.view-more-news .btn i {
+  position: absolute;
+  content: '';
+  font-size: 22px;
+  top: 1px;
+  right: -25px;
 }
 
 /*================================================
@@ -10018,8 +10063,8 @@ Features Area CSS
 }
 
 .faculty-modal-right {
-  padding: 50px 40px;
-  max-height: 80vh;
+  padding: 25px 25px;
+  max-height: 90vh;
   overflow-y: auto;
 }
 
@@ -13408,3 +13453,399 @@ NBA DCP Section CSS
   padding: 10px 25px;
   font-size: 14px;
 }
+
+
+
+
+/* =========================================
+   Why Choose Us Section
+========================================= */
+.why-choose-us-section {
+    position: relative;
+    background: #fff;
+    background-image: 
+        radial-gradient(#002147 1px, transparent 0.5px),
+        radial-gradient(#002147 0.5px, transparent 0.5px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    background-attachment: fixed;
+    opacity: 1;
+    overflow: hidden;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Gradient highlights in corners */
+.why-choose-us-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+    radial-gradient(circle at center, #FFD70033 0%, transparent 35%),
+    /* radial-gradient(circle at 10% 10%, #00D4FF26 0%, transparent 20%), */
+    radial-gradient(circle at 90% 10%, #00C2EF26 0%, transparent 20%),
+    radial-gradient(circle at 10% 90%, #00D4FF26 0%, transparent 20%),
+    radial-gradient(circle at 90% 90%, #00C2EF26 0%, transparent 0%);
+    pointer-events: none;
+}
+
+.blue-text {
+    color: #ed6f26;
+}
+
+.why-choose-us-section .section-title h2 {
+    font-size: 60px;
+    font-weight: 800;
+    color: #002147 !important;
+    text-transform: none;
+    margin-bottom: 40px;
+}
+
+.why-choose-us-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 550px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.why-image-center {
+    position: relative;
+    z-index: 5;
+    width: 380px;
+    text-align: center;
+}
+
+.why-image-center img {
+    width: 100%;
+    max-width: 400px;
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.12));
+}
+
+.why-items-left, .why-items-right {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.why-item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    pointer-events: auto;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.why-item:hover {
+    transform: scale(1.08);
+}
+
+.icon-circle {
+    width: 75px;
+    height: 75px;
+    background: #ed6f26;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(237, 111, 38, 0.3);
+    z-index: 15;
+    border: 3px solid #fff;
+    flex-shrink: 0;
+}
+
+.icon-circle i {
+    color: #fff;
+    font-size: 32px;
+}
+
+.text-pill {
+    background: #002147;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 17px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+/* Pill on the left of Icon */
+.pill-left {
+    padding: 0 45px 0 25px;
+    border-radius: 30px 0 0 30px;
+    margin-right: -35px;
+}
+
+/* Pill on the right of Icon */
+.pill-right {
+    padding: 0 25px 0 45px;
+    border-radius: 0 30px 30px 0;
+    margin-left: -35px;
+}
+
+/* Arrangement - Order flip using flex */
+.icon-first {
+    flex-direction: row; /* Icon | Text (if icon is physically first in HTML) */
+}
+
+/* Positions - Desktop */
+.why-item.top-left { top: 12%; left: 8%; }
+.why-item.middle-left { top: 43%; left: -5%; }
+.why-item.bottom-left { top: 74%; left: 3%; }
+
+.why-item.top-right { top: 12%; right: -5%; }
+.why-item.middle-right { top: 43%; right: 5%; }
+.why-item.bottom-right { top: 74%; right: -2%; }
+
+/* Responsive - Perfect Floating Layout */
+@media (max-width: 1200px) {
+    .why-choose-us-content {
+        max-width: 950px;
+    }
+    .why-item.top-left { left: 5%; }
+    .why-item.middle-left { left: -8%; }
+    .why-item.bottom-left { left: 0%; }
+    .why-item.top-right { right: -8%; }
+    .why-item.middle-right { right: 0%; }
+    .why-item.bottom-right { right: -5%; }
+}
+
+@media (max-width: 991px) {
+    .why-choose-us-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .why-choose-us-section .section-title h2 {
+        font-size: 45px;
+    }
+    .why-image-center {
+        width: 320px;
+    }
+    .why-item .icon-circle {
+        width: 60px;
+        height: 60px;
+    }
+    .why-item .icon-circle i {
+        font-size: 23px;
+    }
+    .why-item .text-pill {
+        height: 48px;
+        font-size: 10px;
+    }
+    .pill-left { padding: 0 40px 0 20px; margin-right: -30px; }
+    .pill-right { padding: 0 20px 0 40px; margin-left: -30px; }
+    
+    /* Reposition for Tablet */
+    .why-item.top-left { top: 10%; left: 0%; }
+    .why-item.middle-left { top: 43%; left: -15%; }
+    .why-item.bottom-left { top: 76%; left: -5%; }
+    
+    .why-item.top-right { top: 10%; right: -15%; }
+    .why-item.middle-right { top: 43%; right: -5%; }
+    .why-item.bottom-right { top: 76%; right: -10%; }
+}
+
+@media (max-width: 767px) {
+    .why-choose-us-section .section-title h2 {
+        font-size: 38px;
+        margin-bottom: 30px;
+    }
+    .why-choose-us-content {
+        min-height: 500px;
+        max-width: 100%;
+        overflow: visible;
+    }
+    .why-image-center {
+        width: 250px;
+    }
+    .why-item .icon-circle {
+        width: 40px;
+        height: 40px;
+        border-width: 2px;
+    }
+    .why-item .icon-circle i {
+        font-size: 20px;
+    }
+    .why-item .text-pill {
+        height: 35px;
+    }
+    .pill-left { padding: 0 35px 0 15px; margin-right: -25px; }
+    .pill-right { padding: 0 15px 0 35px; margin-left: -25px; }
+
+    /* Spread out items for mobile to prevent overlapping center image */
+    .why-item.top-left { top: 5%; left: 5%; }
+    .why-item.middle-left { top: 40%; left: 0%; }
+    .why-item.bottom-left { top: 75%; left: 0%; }
+    
+    .why-item.top-right { top: 5%; right: 7%; }
+    .why-item.middle-right { top: 40%; right: 0%; }
+    .why-item.bottom-right { top: 75%; right: 5%; }
+}
+
+@media (max-width: 480px) {
+    .why-choose-us-section .section-title h2 {
+        font-size: 32px;
+    }
+    .why-image-center {
+        width: 200px;
+    }
+    .why-choose-us-content {
+        min-height: 450px;
+    }
+    
+   /* Spread out items for mobile to prevent overlapping center image */
+    .why-item.top-left { top: 0%; left: 5%; }
+    .why-item.middle-left { top: 40%; left: -2%; }
+    .why-item.bottom-left { top: 82%; left: 3%; }
+    
+    .why-item.top-right { top: 10%; right: 2%; }
+    .why-item.middle-right { top: 50%; right: -2%; }
+    .why-item.bottom-right { top: 90%; right: 3%; }
+    
+    .why-item .text-pill {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/*================================================
+5W + 1H Area CSS
+=================================================*/
+.five-w-one-h-area {
+    background-color: #fefce8; /* Light yellow background */
+    overflow: hidden;
+}
+
+.five-w-illustration img {
+    max-width:100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+.five-w-items {
+    padding-left: 20px;
+}
+
+.five-w-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.five-w-badge {
+    background-color: #fff; /* Solid Yellow */
+    color: #ed6f26;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 25px;
+    border-radius: 50px;
+    min-width: 140px;
+    text-align: center;
+    box-shadow: 4px 4px 0px #000;
+    margin-right: -40px; /* Overlap effect */
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.five-w-content {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50px;
+    padding: 15px 40px 15px 60px;
+    flex-grow: 1;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.five-w-content p {
+    margin-bottom: 0;
+    color: #000;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: justify !important;
+}
+
+.five-w-item:hover .five-w-badge {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 0px #000;
+}
+
+.five-w-item:hover .five-w-content {
+    background-color: #fff;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+}
+
+/* HOW Item Specific Stylling */
+.how-item {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.how-item .five-w-badge {
+    min-width: 160px;
+    font-size: 30px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 991px) {
+    .five-w-illustration {
+        margin-bottom: 50px;
+    }
+    
+    .five-w-items {
+        padding-left: 0;
+    }
+    
+    .five-w-badge {
+        min-width: 100px;
+        font-size: 18px;
+        padding: 8px 15px;
+        margin-right: -30px;
+    }
+    
+    .five-w-content {
+        padding: 12px 30px 12px 45px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .five-w-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .five-w-badge {
+        margin-right: 0;
+        margin-bottom: -20px;
+        margin-left: 20px;
+        box-shadow: 3px 3px 0px #000;
+    }
+    
+    .five-w-content {
+        padding: 30px 20px 15px 20px;
+        width: 100%;
+        border-radius: 20px;
+    }
+    
+    .five-w-badge {
+        border-radius: 10px;
+    }
+}
+

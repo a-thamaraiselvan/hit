@@ -53,27 +53,27 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
 <html lang="en">
 
 <head>
-<!-- Required meta tags -->
-            <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
 
-        <!-- Links of CSS files -->
-        <link rel="stylesheet" href="assets/css/aos.css">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/boxicons.min.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/flaticon.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/header.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Links of CSS files -->
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
-        <title>Hindusthan Institute of Technology | Top Engineering College in Coimbatore</title>
-        <link rel="icon" type="image/png" href="assets/hindusthan_images/hindusthan.png">
+    <title>Hindusthan Institute of Technology | Top Engineering College in Coimbatore</title>
+    <link rel="icon" type="image/png" href="assets/hindusthan_images/hindusthan.png">
     <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <!-- Add Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
@@ -135,86 +135,91 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
 </head>
 
 <body>
-       <!-- preloader -->
-        <div class="preloader-container" id="preloader">
-            <div class="preloader-dot"></div>
-            <div class="preloader-dot"></div>
-            <div class="preloader-dot"></div>
-            <div class="preloader-dot"></div>
-            <div class="preloader-dot"></div>
-        </div>
-        <!-- preloader -->
+    <!-- preloader -->
+    <div class="preloader-container" id="preloader">
+        <div class="preloader-dot"></div>
+        <div class="preloader-dot"></div>
+        <div class="preloader-dot"></div>
+        <div class="preloader-dot"></div>
+        <div class="preloader-dot"></div>
+    </div>
+    <!-- preloader -->
 
-        <!-- Start Top Navbar Area -->
-        <div class="top-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-5 col-12 col-xm-12">
-                        <div class="top-left-items">
-                            <ul>
-                                <li><i class='bx bxs-time'></i> Mon - Sat : 9:00 AM - 06:00 PM</li>
-                                <li><i class='bx bxs-envelope'></i> <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a></li>
-                            </ul>
-                        </div>
+    <!-- Start Top Navbar Area -->
+    <div class="top-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5 col-12 col-xm-12">
+                    <div class="top-left-items">
+                        <ul>
+                            <li><i class='bx bxs-time'></i> Mon - Sat : 9:00 AM - 06:00 PM</li>
+                            <li><i class='bx bxs-envelope'></i> <a href="mailto:info@hindusthan.net">contact :
+                                    info@hindusthan.net</a></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-7 col-12 col-xm-12">
-                        <div class="top-right-items">
-                            <ul>
-                                <li><i class='bx bxs-map'></i> <a href='https://maps.app.goo.gl/DuTdwTJQtNP2jzmr7' target="_blank">Visit Us</a></li>
-                                <li><a href='student-activities.html'>Students</a></li>
-                                 <li><a href='alumni.php'>Alumni</a></li>
-                                <li><a href='the-campus-experience.html'>Visitors</a></li>
-                                <!-- <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li> -->
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-lg-7 col-12 col-xm-12">
+                    <div class="top-right-items">
+                        <ul>
+                            <li><i class='bx bxs-map'></i> <a href='https://maps.app.goo.gl/DuTdwTJQtNP2jzmr7'
+                                    target="_blank">Visit Us</a></li>
+                            <li><a href='student-activities.html'>Students</a></li>
+                            <li><a href='alumni.php'>Alumni</a></li>
+                            <li><a href='the-campus-experience.html'>Visitors</a></li>
+                            <!-- <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li> -->
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End Top Navbar Area -->
+    </div>
+    <!-- End Top Navbar Area -->
 
-        <!-- Navbar Area Start -->
-        <div class="navbar-area" id="navbar">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg">
-                    <a class='navbar-brand' href='index.html'>
-                        <img class="logo-light" src="assets/hindusthan_images/hindusthan_logo.png"  alt="logo">
-                    </a>
-                        
-                    <a class="navbar-toggler" data-bs-toggle="offcanvas" href="#navbarOffcanvas" role="button" aria-controls="navbarOffcanvas">
-                        <i class='bx bx-menu'></i>
-                    </a>
-                    <div class="collapse navbar-collapse justify-content-between">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class='nav-link' href='index.html'>
-                                    Home
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="javascript:void(0)" class="dropdown-toggle nav-link active">
-                                    About
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class='nav-link' href='about-us.html'>About Us</a></li>
-                                    <li class="nav-item"><a class='nav-link' href='news-and-blog.php'>News and Blog</a></li>
-                                    <li class="nav-item"><a class='nav-link' href='blog-details.php'>Blog Details</a></li>
-                                    <li class="nav-item"><a class='nav-link' href='alumni.php'>Alumni</a></li>
-                                    <li class="nav-item"><a class='nav-link active' href='alumni_form.php'>Alumni Form</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
+    <!-- Navbar Area Start -->
+    <div class="navbar-area" id="navbar">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg">
+                <a class='navbar-brand' href='index.html'>
+                    <img class="logo-light" src="assets/hindusthan_images/hindusthan_logo.png" alt="logo">
+                </a>
+
+                <a class="navbar-toggler" data-bs-toggle="offcanvas" href="#navbarOffcanvas" role="button"
+                    aria-controls="navbarOffcanvas">
+                    <i class='bx bx-menu'></i>
+                </a>
+                <div class="collapse navbar-collapse justify-content-between">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class='nav-link' href='index.html'>
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:void(0)" class="dropdown-toggle nav-link active">
+                                About
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class='nav-link' href='about-us.html'>About Us</a></li>
+                                <li class="nav-item"><a class='nav-link' href='news-and-blog.php'>News and Blog</a></li>
+                                <li class="nav-item"><a class='nav-link' href='blog-details.php'>Blog Details</a></li>
+                                <li class="nav-item"><a class='nav-link' href='alumni.php'>Alumni</a></li>
+                                <li class="nav-item"><a class='nav-link active' href='alumni_form.php'>Alumni Form</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
                             <a href="javascript:void(0)" class="dropdown-toggle nav-link">
                                 Academics
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class='nav-link' href='academics.html'>Academics</a></li>
-                                <li class="nav-item"><a class='nav-link' href='undergraduate.html'>Undergraduate</a></li>
+                                <li class="nav-item"><a class='nav-link' href='undergraduate.html'>Undergraduate</a>
+                                </li>
                                 <li class="nav-item"><a class='nav-link' href='graduate.html'>Postgraduate</a></li>
                                 <li class="nav-item"><a class='nav-link' href='education.html'>Education</a></li>
-                             </ul>
+                            </ul>
                         </li>
-                                                                        <li class="nav-item mega-nav-item">
+                        <li class="nav-item mega-nav-item">
                             <a href="javascript:void(0)" class="dropdown-toggle nav-link">
                                 Courses
                             </a>
@@ -236,7 +241,8 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                             </a>
                                             <a href="m-e-vlsi-design.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. VLSI Design</h6>
-                                                <p class="mega-desc">Microchip architecture and system-on-chip design.</p>
+                                                <p class="mega-desc">Microchip architecture and system-on-chip design.
+                                                </p>
                                             </a>
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
@@ -262,7 +268,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                                 <h6 class="mega-title">Electronics and Communication Engineering</h6>
                                                 <p class="mega-desc">Circuit design and electronic devices.</p>
                                             </a>
-                                             
+
 
                                             <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. Computer Science and Engineering</h6>
@@ -277,131 +283,144 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                             <a href="javascript:void(0)" class="dropdown-toggle nav-link">
                                 Admissions
                             </a>
-                             <ul class="dropdown-menu">
+                            <ul class="dropdown-menu">
                                 <li class="nav-item"><a class='nav-link' href='how-to-apply.html'>How to Apply</a></li>
-                                <li class="nav-item"><a class='nav-link' href='https://apply.hindusthan.net/' target="_blank">Admissions</a></li>
-                                <li class="nav-item"><a class='nav-link' href='https://apply.hindusthan.net/arts-and-science' target="_blank">Arts & Science-Form</a></li>
-                                <li class="nav-item"><a class='nav-link' href='https://apply.hindusthan.net/engineering-form' target="_blank">Engineering-Form</a></li>
-                                <li class="nav-item"><a class='nav-link' href='financial-aid.html'>Financial Aid</a></li>
+                                <li class="nav-item"><a class='nav-link' href='https://admission.hindusthan.net/'
+                                        target="_blank">Admissions</a></li>
+                                <li class="nav-item"><a class='nav-link'
+                                        href='https://admission.hindusthan.net/arts-and-science' target="_blank">Arts &
+                                        Science-Form</a></li>
+                                <li class="nav-item"><a class='nav-link'
+                                        href='https://admission.hindusthan.net/engineering-form'
+                                        target="_blank">Engineering-Form</a></li>
+                                <li class="nav-item"><a class='nav-link' href='financial-aid.html'>Financial Aid</a>
+                                </li>
                             </ul>
                         </li>
-                         
+
                         <li class="nav-item">
                             <a href="javascript:void(0)" class="dropdown-toggle nav-link">
                                 College Life
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class='nav-link' href='college-life.html'>College Life</a></li>
-                                <li class="nav-item"><a class='nav-link' href='the-campus-experience.html'>The Campus Experience</a></li>
-                                <li class="nav-item"><a class='nav-link' href='fitness-athletics.html'>Fitness & Athletics</a></li>
-                                <li class="nav-item"><a class='nav-link' href='support-guidance.html'>Support & Guidance</a></li>
-                                <li class="nav-item"><a class='nav-link' href='student-activities.html'>Student Activities</a></li>
+                                <li class="nav-item"><a class='nav-link' href='the-campus-experience.html'>The Campus
+                                        Experience</a></li>
+                                <li class="nav-item"><a class='nav-link' href='fitness-athletics.html'>Fitness &
+                                        Athletics</a></li>
+                                <li class="nav-item"><a class='nav-link' href='support-guidance.html'>Support &
+                                        Guidance</a></li>
+                                <li class="nav-item"><a class='nav-link' href='student-activities.html'>Student
+                                        Activities</a></li>
                             </ul>
                         </li>
-                            <li class="nav-item">
-                                <a class='nav-link' href='contact-us.html'>
-                                    Contact
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="others-option d-flex align-items-center">
-                            <div class="option-item">
+                        <li class="nav-item">
+                            <a class='nav-link' href='contact-us.html'>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="others-option d-flex align-items-center">
+                        <div class="option-item">
                             <div class="nav-btn">
-                                <a class='default-btn' href='https://apply.hindusthan.net/' target="_blank">Admission</a>
+                                <a class='default-btn' href='https://admission.hindusthan.net/'
+                                    target="_blank">Admission</a>
                             </div>
                         </div>
-                        </div>
                     </div>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </div>
+    </div>
 
-        <!-- Start Responsive Navbar Area -->
-        <div class="responsive-navbar offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="navbarOffcanvas">
-            <div class="offcanvas-header">
-                <a class='logo d-inline-block' href='index.html'>
-                    <img class="logo-light" src="assets/hindusthan_images/hindusthan_logo.png"  alt="logo">
-                </a>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div class="accordion" id="navbarAccordion">
-                    <div class="accordion-item">
-                        <a class='accordion-link without-icon' href='index.html'>
-                           Home
-                        </a>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-button collapsed active" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            About
-                        </button>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
-                            <div class="accordion-body">
-                                <div class="accordion" id="navbarAccordion8">
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='about-us.html'>
-                                            About Us
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='news-and-blog.php'>
-                                            News and Blog
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='blog-details.php'>
-                                            Blog Details
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='alumni.php'>
-                                            Alumni
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link active' href='alumni_form.php'>
-                                            Alumni Form
-                                        </a>
-                                    </div>
+    <!-- Start Responsive Navbar Area -->
+    <div class="responsive-navbar offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="navbarOffcanvas">
+        <div class="offcanvas-header">
+            <a class='logo d-inline-block' href='index.html'>
+                <img class="logo-light" src="assets/hindusthan_images/hindusthan_logo.png" alt="logo">
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="accordion" id="navbarAccordion">
+                <div class="accordion-item">
+                    <a class='accordion-link without-icon' href='index.html'>
+                        Home
+                    </a>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button collapsed active" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        About
+                    </button>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
+                        <div class="accordion-body">
+                            <div class="accordion" id="navbarAccordion8">
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='about-us.html'>
+                                        About Us
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='news-and-blog.php'>
+                                        News and Blog
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='blog-details.php'>
+                                        Blog Details
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='alumni.php'>
+                                        Alumni
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link active' href='alumni_form.php'>
+                                        Alumni Form
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Academics
-                        </button>
-                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
-                            <div class="accordion-body">
-                                <div class="accordion" id="navbarAccordion30">
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='academics.html'>
-                                            Academics
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='undergraduate.html'>
-                                            Undergraduate
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link ' href='graduate.html'>
-                                            Postgraduate
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='education.html
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Academics
+                    </button>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
+                        <div class="accordion-body">
+                            <div class="accordion" id="navbarAccordion30">
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='academics.html'>
+                                        Academics
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='undergraduate.html'>
+                                        Undergraduate
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link ' href='graduate.html'>
+                                        Postgraduate
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='education.html
 '>
-                                            Education
+                                        Education
 
-                                        </a>
-                                    </div>
-  
+                                    </a>
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                                    <div class="accordion-item">
+                </div>
+                <div class="accordion-item">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseCourses" aria-expanded="false" aria-controls="collapseCourses">
                         Courses
@@ -410,199 +429,224 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                         <div class="accordion-body">
                             <div class="accordion" id="navbarAccordionCourses">
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='aeronautical-engineering.html'>Aeronautical Engineering</a>
+                                    <a class='accordion-link' href='aeronautical-engineering.html'>Aeronautical
+                                        Engineering</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='artificial-intelligence-and-data-science.html'>Artificial Intelligence & Data Science</a>
+                                    <a class='accordion-link'
+                                        href='artificial-intelligence-and-data-science.html'>Artificial Intelligence &
+                                        Data Science</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='electronics-and-communication-engineering.html'>Electronics and Communication Engineering</a>
+                                    <a class='accordion-link'
+                                        href='electronics-and-communication-engineering.html'>Electronics and
+                                        Communication Engineering</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='computer-science-and-engineering.html'>Computer Science and Engineering</a>
+                                    <a class='accordion-link' href='computer-science-and-engineering.html'>Computer
+                                        Science and Engineering</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='information-technology.html'>Information Technology</a>
+                                    <a class='accordion-link' href='information-technology.html'>Information
+                                        Technology</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='pharmaceutical-technology.html'>Pharmaceutical Technology</a>
+                                    <a class='accordion-link' href='pharmaceutical-technology.html'>Pharmaceutical
+                                        Technology</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='mechanical-engineering.html'>Mechanical Engineering</a>
+                                    <a class='accordion-link' href='mechanical-engineering.html'>Mechanical
+                                        Engineering</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='master-of-business-administration.html'>Master of Business Administration</a>
+                                    <a class='accordion-link' href='master-of-business-administration.html'>Master of
+                                        Business Administration</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='m-e-computer-science-and-engineering.html'>M.E. Computer Science and Engineering</a>
+                                    <a class='accordion-link' href='m-e-computer-science-and-engineering.html'>M.E.
+                                        Computer Science and Engineering</a>
                                 </div>
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='m-e-vlsi-design.html'>M.E. VLSI Design</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='science-and-humanities.html'>Science & Humanities</a>
+                                    <a class='accordion-link' href='science-and-humanities.html'>Science &
+                                        Humanities</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            Admissions
-                        </button>
-                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
-                            <div class="accordion-body">
-                                <div class="accordion" id="navbarAccordion31">
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='how-to-apply.html'>
-                                            How to Apply
-                                        </a>
-                                    </div>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Admissions
+                    </button>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
+                        <div class="accordion-body">
+                            <div class="accordion" id="navbarAccordion31">
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='how-to-apply.html'>
+                                        How to Apply
+                                    </a>
+                                </div>
 
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='https://apply.hindusthan.net/' target="_blank">
-                                            Admissions
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='https://apply.hindusthan.net/arts-and-science' target="_blank">
-                                            Arts & Science-Form
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='https://apply.hindusthan.net/engineering-form' target="_blank">
-                                            Engineering-Form
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='financial-aid.html'>
-                                            Financial Aid
-                                        </a>
-                                    </div>
-                                    
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='https://admission.hindusthan.net/' target="_blank">
+                                        Admissions
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='https://admission.hindusthan.net/arts-and-science'
+                                        target="_blank">
+                                        Arts & Science-Form
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='https://admission.hindusthan.net/engineering-form'
+                                        target="_blank">
+                                        Engineering-Form
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='financial-aid.html'>
+                                        Financial Aid
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        College Life
+                    </button>
+                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
+                        <div class="accordion-body">
+                            <div class="accordion" id="navbarAccordion40">
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='college-life.html'>
+                                        College Life
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='the-campus-experience.html'>
+                                        The Campus Experience
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='fitness-athletics.html'>
+                                        Fitness &amp; Athletics
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='support-guidance.html'>
+                                        Support &amp; Guidance
+                                    </a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='student-activities.html'>
+                                        Student Activities
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                      
-                    <div class="accordion-item">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                            College Life
-                        </button>
-                        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
-                            <div class="accordion-body">
-                                <div class="accordion" id="navbarAccordion40">
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='college-life.html'>
-                                            College Life
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='the-campus-experience.html'>
-                                            The Campus Experience
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='fitness-athletics.html'>
-                                            Fitness &amp; Athletics
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='support-guidance.html'>
-                                            Support &amp; Guidance
-                                        </a>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='student-activities.html'>
-                                            Student Activities
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <a class='accordion-link without-icon' href='contact-us.html'>
-                            Contact Us
-                        </a>
-                    </div>
                 </div>
-                <div class="offcanvas-contact-info">
-                    <h4>Contact Info</h4>
-                    <ul class="contact-info list-style">
-                        <li>
-                            <i class="bx bxs-envelope"></i>
-                            <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
-                        </li>
-                        <li>
-                            <i class="bx bxs-time"></i>
-                            <p>Mon - Sat : 9:00 AM - 06:00 PM</p>
-                        </li>
-                    </ul>
-                    <ul class="social-profile list-style">
-                        <li><a href="https://www.facebook.com/Hindusthan.College.Coimbatore" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="https://www.instagram.com/hindusthancolleges" target="_blank"><i class='bx bxl-instagram'></i></a></li>
-                        <li><a href="https://www.linkedin.com/company/hindusthanedu/" target="_blank"><i class='bx bxl-linkedin' ></i></a></li>
-                    </ul>
+                <div class="accordion-item">
+                    <a class='accordion-link without-icon' href='contact-us.html'>
+                        Contact Us
+                    </a>
                 </div>
-                <div class="offcanvas-other-options">
-                     <div class="option-item">
-                        <a class='default-btn' href='https://apply.hindusthan.net/' target="_blank">Admission</a>
-                    </div>
+            </div>
+            <div class="offcanvas-contact-info">
+                <h4>Contact Info</h4>
+                <ul class="contact-info list-style">
+                    <li>
+                        <i class="bx bxs-envelope"></i>
+                        <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
+                    </li>
+                    <li>
+                        <i class="bx bxs-time"></i>
+                        <p>Mon - Sat : 9:00 AM - 06:00 PM</p>
+                    </li>
+                </ul>
+                <ul class="social-profile list-style">
+                    <li><a href="https://www.facebook.com/Hindusthan.College.Coimbatore" target="_blank"><i
+                                class='bx bxl-facebook'></i></a></li>
+                    <li><a href="https://www.instagram.com/hindusthancolleges" target="_blank"><i
+                                class='bx bxl-instagram'></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/hindusthanedu/" target="_blank"><i
+                                class='bx bxl-linkedin'></i></a></li>
+                </ul>
+            </div>
+            <div class="offcanvas-other-options">
+                <div class="option-item">
+                    <a class='default-btn' href='https://admission.hindusthan.net/' target="_blank">Admission</a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Start hindusthan.net Searchbar Area -->
-        <div class="hindusthan.net offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop">
-            <div class="offcanvas-header">
-                <a class='logo' href='index.html'>
-                    <img src="assets/hindusthan_images/hindusthan_logo.png" alt="image">
-                </a>
+    <!-- Start hindusthan.net Searchbar Area -->
+    <div class="hindusthan.net offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop">
+        <div class="offcanvas-header">
+            <a class='logo' href='index.html'>
+                <img src="assets/hindusthan_images/hindusthan_logo.png" alt="image">
+            </a>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div class="search-box">
-                    <div class="searchwrapper"> 
-                        <div class="searchbox"> 
-                            <div class="row align-items-center"> 
-                                <div class="col-md-9"><input type="text" class="form-control" placeholder="Fiend Your Course Here!"></div> 
-                                <div class="col-lg-3"> 
-                                    <a class="btn" href="#">Search</a> 
-                                </div> 
-                            </div> 
+        </div>
+        <div class="offcanvas-body">
+            <div class="search-box">
+                <div class="searchwrapper">
+                    <div class="searchbox">
+                        <div class="row align-items-center">
+                            <div class="col-md-9"><input type="text" class="form-control"
+                                    placeholder="Fiend Your Course Here!"></div>
+                            <div class="col-lg-3">
+                                <a class="btn" href="#">Search</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="offcanvas-contact-info">
-                    <h4>Contact Info</h4>
-                    <ul class="contact-info list-style">
-                        <li>
-                            <i class="bx bxs-time"></i>
-                            <p>Mon - Sat : 9:00 AM - 06:00 PM</p>
-                        </li>
-                        <li><i class="bx bxs-phone-call"></i> General Inquiries - <a href="tel:+8495160885">(849) 516-0885</a></li>
-                        <li>
-                            <i class="bx bxs-envelope"></i>
-                            <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
-                        </li>
-                        <li>
-                            <i class="bx bxs-map"></i>
-                            <p>404 Camino Del Rio S, Suite 102San Diego, CA 92108</p>
-                        </li>
-                    </ul>
-                    <ul class="social-profile list-style">
-                        <li><a href="https://www.facebook.com/Hindusthan.College.Coimbatore" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="https://www.instagram.com/hindusthancolleges" target="_blank"><i class='bx bxl-instagram'></i></a></li>
-                        <li><a href="https://x.com/Hindusthanhce?t=cH1BisxThpHw8G_iyNXYDA&s=09" target="_blank"><i class='bx bxl-twitter'></i></a></li>
-                        <li><a href="https://www.dribbble.com/" target="_blank"><i class='bx bxl-dribbble'></i></a></li>
-                        <li><a href="https://www.linkedin.com/company/hindusthanedu/" target="_blank"><i class='bx bxl-linkedin' ></i></a></li>
-                    </ul>
-                </div>
+            <div class="offcanvas-contact-info">
+                <h4>Contact Info</h4>
+                <ul class="contact-info list-style">
+                    <li>
+                        <i class="bx bxs-time"></i>
+                        <p>Mon - Sat : 9:00 AM - 06:00 PM</p>
+                    </li>
+                    <li><i class="bx bxs-phone-call"></i> General Inquiries - <a href="tel:+8495160885">(849)
+                            516-0885</a></li>
+                    <li>
+                        <i class="bx bxs-envelope"></i>
+                        <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
+                    </li>
+                    <li>
+                        <i class="bx bxs-map"></i>
+                        <p>404 Camino Del Rio S, Suite 102San Diego, CA 92108</p>
+                    </li>
+                </ul>
+                <ul class="social-profile list-style">
+                    <li><a href="https://www.facebook.com/Hindusthan.College.Coimbatore" target="_blank"><i
+                                class='bx bxl-facebook'></i></a></li>
+                    <li><a href="https://www.instagram.com/hindusthancolleges" target="_blank"><i
+                                class='bx bxl-instagram'></i></a></li>
+                    <li><a href="https://x.com/Hindusthanhce?t=cH1BisxThpHw8G_iyNXYDA&s=09" target="_blank"><i
+                                class='bx bxl-twitter'></i></a></li>
+                    <li><a href="https://www.dribbble.com/" target="_blank"><i class='bx bxl-dribbble'></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/hindusthanedu/" target="_blank"><i
+                                class='bx bxl-linkedin'></i></a></li>
+                </ul>
             </div>
         </div>
-        <!-- End hindusthan.net Searchbar Area -->
+    </div>
+    <!-- End hindusthan.net Searchbar Area -->
 
     <!-- Start Section Banner Area -->
     <div class="section-banner bg-5">
@@ -697,51 +741,61 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
     <!-- End Form Area -->
 
     <!-- Start Footer Area -->
-        <!-- Start Footer Area -->
-        <div class="footer-area">
-            <div class="footer-top-info pb-100">
-                <div class="content">
-                                          <div class="image">
-                        <img src="assets/hindusthan_images/hindusthan_logo.png" style="height: 80px;width: 80px;" alt="image">
-                    </div>
-
-                    <p>Hindusthan offers an inclusive, welcoming campus where students learn with purpose, explore with confidence, and embrace opportunities that shape their future.</p>
-                    <ul>
-                        <li><a href="https://www.facebook.com/Hindusthan.College.Coimbatore" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="https://www.instagram.com/hindusthancolleges" target="_blank"><i class='bx bxl-instagram'></i></a></li>
-                        <li><a href="https://x.com/Hindusthanhce?t=cH1BisxThpHw8G_iyNXYDA&s=09"><i class='bx bxl-twitter'></i></a></li>
-                        <li><a href="https://www.linkedin.com/company/hindusthanedu/" target="_blank"><i class='bx bxl-linkedin-square'></i></a></li>
-                    </ul>
+    <!-- Start Footer Area -->
+    <div class="footer-area">
+        <div class="footer-top-info pb-100">
+            <div class="content">
+                <div class="image">
+                    <img src="assets/hindusthan_images/hindusthan_logo.png" style="height: 80px;width: 80px;"
+                        alt="image">
                 </div>
+
+                <p>Hindusthan offers an inclusive, welcoming campus where students learn with purpose, explore with
+                    confidence, and embrace opportunities that shape their future.</p>
+                <ul>
+                    <li><a href="https://www.facebook.com/Hindusthan.College.Coimbatore" target="_blank"><i
+                                class='bx bxl-facebook'></i></a></li>
+                    <li><a href="https://www.instagram.com/hindusthancolleges" target="_blank"><i
+                                class='bx bxl-instagram'></i></a></li>
+                    <li><a href="https://x.com/Hindusthanhce?t=cH1BisxThpHw8G_iyNXYDA&s=09"><i
+                                class='bx bxl-twitter'></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/hindusthanedu/" target="_blank"><i
+                                class='bx bxl-linkedin-square'></i></a></li>
+                </ul>
             </div>
-            <div class="footer-widget-info pt-100">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="footer-widget">
-                                <ul>
+        </div>
+        <div class="footer-widget-info pt-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget">
+                            <ul>
                                 <div>
-                                    <img class="logo-light logo-responsive-footer" src="assets/college_logos/hindusthan_logo_white.png"
+                                    <img class="logo-light logo-responsive-footer"
+                                        src="assets/college_logos/hindusthan_logo_white.png"
                                         style="height:auto !important; width:auto !important; max-height:50px; margin-bottom: 20px; align-items: center;">
                                 </div>
                                 <p>City Campus, Nava India, Avinashi Road, Coimbatore - 641028 & Valley Campus, Pollachi
                                     Highway, Coimbatore - 641032, Tamilnadu, India.</p>
                                 <div style="color: white;">
-                                  <i class="bx bxs-phone-call"></i>  <a href="tel:+91 422 - 4440555" style="color: white;">  +91 422 - 4440555</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 422 - 4440555"
+                                        style="color: white;"> +91 422 - 4440555</a>
                                 </div>
                                 <div style="color: white;">
-                                   <i class="bx bxs-phone-call"></i> <a href="tel:+91 80983 33333" style="color: white;">  +91 80983 33333</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 80983 33333"
+                                        style="color: white;"> +91 80983 33333</a>
                                 </div>
                                 <div style="color: white;">
-                                   <i class="bx bxs-envelope"></i> <a href="mailto:info@hindusthan.net" style="color: white;">  info@hindusthan.net</a>
+                                    <i class="bx bxs-envelope"></i> <a href="mailto:info@hindusthan.net"
+                                        style="color: white;"> info@hindusthan.net</a>
                                 </div>
 
                             </ul>
-                            </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="footer-widget">
-                                <h4>Our Campus</h4>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget">
+                            <h4>Our Campus</h4>
                             <ul>
                                 <li><a href='https://hicas.ac.in/' target="_blank"><i class='bx bx-chevron-right'></i>
                                         Arts & Science</a></li>
@@ -765,67 +819,79 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                             class='bx bx-chevron-right'></i> College of Nursing</a></li>
                                 <li><a href='https://hisac.ac.in/' target="_blank"><i class='bx bx-chevron-right'></i>
                                         College of Science & Commerce</a></li>
-                                <li><a href='https://hindusthan.net/hice/' target="_blank"><i
-                                            class='bx bx-chevron-right'></i>
+                                <li><a href='https://hice.ac.in/' target="_blank"><i class='bx bx-chevron-right'></i>
                                         College of Engineering</a></li>
-                             </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="footer-widget">
-                                <h4>Quick Links</h4>
-                                <ul>
-                                    <li><a href='how-to-apply.html'><i class='bx bx-chevron-right'></i> Apply For Admissions</a></li>
-                                    <li><a href='about-us.html'><i class='bx bx-chevron-right'></i> About us</a></li>
-                                    <li><a href='undergraduate.html'><i class='bx bx-chevron-right'></i> UG Course</a></li>
-                                    <li><a href='graduate.html'><i class='bx bx-chevron-right'></i> PG Course</a></li>
-                                    <li><a href='the-campus-experience.html'><i class='bx bx-chevron-right'></i> Campus Experience</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="footer-widget">
-                                <h4>Location</h4>
-                                <ul>
-                                    <div id="map" class="map-pd">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62661.52189754748!2d76.99315200000001!3d11.012712!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265d0f0e202dd%3A0x6c1cb249318c77f!2shicas!5e0!3m2!1sen!2sin!4v1746593040542!5m2!1sen!2sin" width="600" height="450" style="border-radius:20px 20px 20px 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                                    </div>
-                                </ul>
-                            </div>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="copy-right-area style-2">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-4">
-                            <div class="cpr-left">
-                                <p style="font-size: 12.5px;">Design & Developed by<a href="https://novacodex.in/" style="color: black;"> NovaCodex </a> ( HICAS - IT Alumni )</p>
-                            </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href='how-to-apply.html'><i class='bx bx-chevron-right'></i> Apply For
+                                        Admissions</a></li>
+                                <li><a href='about-us.html'><i class='bx bx-chevron-right'></i> About us</a></li>
+                                <li><a href='undergraduate.html'><i class='bx bx-chevron-right'></i> UG Course</a></li>
+                                <li><a href='graduate.html'><i class='bx bx-chevron-right'></i> PG Course</a></li>
+                                <li><a href='the-campus-experience.html'><i class='bx bx-chevron-right'></i> Campus
+                                        Experience</a></li>
+                            </ul>
                         </div>
-                        <div class="col-lg-8">
-                            <div class="cpr-right">
-                                <ul>
-                                 <div class="cpr-left">
-                                    <p style="font-size: 15px;">Copyright© <a href="#">Hindusthan.net</a>, All rights reserved.</p>
-                                 </div>
-
-                                    <!-- <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Cookie Policy</a></li> -->
-                                </ul>
-                                <ul class="social-list">
-                                    <li><a href="https://www.facebook.com/Hindusthan.College.Coimbatore" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                                    <li><a href="https://www.instagram.com/hindusthancolleges" target="_blank"><i class='bx bxl-instagram-alt'></i></a></li>
-                                    <li><a href="https://x.com/Hindusthanhce?t=cH1BisxThpHw8G_iyNXYDA&s=09"><i class='bx bxl-twitter'></i></a></li>
-                                    <li><a href="https://www.linkedin.com/company/hindusthanedu/" target="_blank"><i class='bx bxl-linkedin-square'></i></a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget">
+                            <h4>Location</h4>
+                            <ul>
+                                <div id="map" class="map-pd">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62661.52189754748!2d76.99315200000001!3d11.012712!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265d0f0e202dd%3A0x6c1cb249318c77f!2shicas!5e0!3m2!1sen!2sin!4v1746593040542!5m2!1sen!2sin"
+                                        width="600" height="450" style="border-radius:20px 20px 20px 20px;"
+                                        allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End Footer Area -->
+        <div class="copy-right-area style-2">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div class="cpr-left">
+                            <p style="font-size: 12.5px;">Design & Developed by<a href="https://novacodex.in/"
+                                    style="color: black;"> NovaCodex </a> ( HICAS - IT Alumni )</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="cpr-right">
+                            <ul>
+                                <div class="cpr-left">
+                                    <p style="font-size: 15px;">Copyright© <a href="#">Hindusthan.net</a>, All rights
+                                        reserved.</p>
+                                </div>
+
+                                <!-- <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Cookie Policy</a></li> -->
+                            </ul>
+                            <ul class="social-list">
+                                <li><a href="https://www.facebook.com/Hindusthan.College.Coimbatore" target="_blank"><i
+                                            class='bx bxl-facebook'></i></a></li>
+                                <li><a href="https://www.instagram.com/hindusthancolleges" target="_blank"><i
+                                            class='bx bxl-instagram-alt'></i></a></li>
+                                <li><a href="https://x.com/Hindusthanhce?t=cH1BisxThpHw8G_iyNXYDA&s=09"><i
+                                            class='bx bxl-twitter'></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/hindusthanedu/" target="_blank"><i
+                                            class='bx bxl-linkedin-square'></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Area -->
     <!-- End Footer Area -->
 
     <div class="go-top">
@@ -833,18 +899,17 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
     </div>
 
     <!-- Links of JS files -->
-   
+
 
     <!-- Links of JS files -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/aos.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/magnific-popup.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/messagefloating.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/magnific-popup.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/messagefloating.js"></script>
 
 </body>
 
 </html>
-

@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 // Database connection
-$conn = new mysqli("localhost", "root", "", "net");
+$conn = new mysqli("localhost", "root", "", "hit");
 
 // Check connection
 if ($conn->connect_error) {

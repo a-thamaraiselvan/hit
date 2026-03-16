@@ -320,6 +320,17 @@ $alumni = $stmt->fetchAll();
     </head>
 
     <body>
+
+        <!-- preloader -->
+        <div class="preloader-container" id="preloader">
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+        </div>
+        <!-- preloader -->
+
         <!-- Start Top Navbar Area -->
         <div class="top-area">
             <div class="container-fluid">
@@ -348,17 +359,7 @@ $alumni = $stmt->fetchAll();
                 </div>
             </div>
         </div>
-        <!-- End Top Navbar Area -->
 
-        <!-- preloader -->
-        <div class="preloader-container" id="preloader">
-            <div class="preloader-dot"></div>
-            <div class="preloader-dot"></div>
-            <div class="preloader-dot"></div>
-            <div class="preloader-dot"></div>
-            <div class="preloader-dot"></div>
-        </div>
-        <!-- preloader -->
 
         <!-- Start Navbar Area Start -->
         <div class="navbar-area style-2" id="navbar">
@@ -389,7 +390,7 @@ $alumni = $stmt->fetchAll();
                         <ul class="navbar-nav ms-auto">
 
                             <li class="nav-item">
-                                <a class='nav-link' href='index.html'>
+                                <a class='nav-link ' href='index.html'>
                                     Home
                                 </a>
                             </li>
@@ -479,10 +480,8 @@ $alumni = $stmt->fetchAll();
                                                     </h6>
                                                     <p class="mega-desc">Circuit design and electronic devices.</p>
                                                 </a>
-                                                <a href="pharmaceutical-technology.html" class="mega-link">
-                                                    <h6 class="mega-title">Pharmaceutical Technology</h6>
-                                                    <p class="mega-desc">Drug formulation, analysis, and healthcare.</p>
-                                                </a>
+
+
                                                 <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                     <h6 class="mega-title">M.E. Computer Science and Engineering</h6>
                                                     <p class="mega-desc">Advanced postgraduate computing logic.</p>
@@ -497,11 +496,10 @@ $alumni = $stmt->fetchAll();
                                     Admissions
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class='nav-link' href='https://apply.hindusthan.net/'
+                                    <li class="nav-item"><a class='nav-link' href='https://admission.hindusthan.net/'
                                             target="_blank">Admissions</a></li>
                                     <li class="nav-item"><a class='nav-link' href='admission_policy.html'>Admission
-                                            Policy</a>
-                                    </li>
+                                            Policy</a></li>
                                     <li class="nav-item"><a class='nav-link' href='financial-aid.html'>Financial Aid</a>
                                     </li>
                                 </ul>
@@ -536,36 +534,44 @@ $alumni = $stmt->fetchAll();
                                                     <p class="mega-desc">Overview of our training and placement cell.
                                                     </p>
                                                 </a>
-                                                <a href="placement-details.html" class="mega-link">
+                                                <a href="assets/hit/pdf_folder/placement_pdf/HiTECH Placement Details.pdf"
+                                                    target="_blank" class="mega-link">
                                                     <h6 class="mega-title">Placement Details</h6>
                                                     <p class="mega-desc">Detailed statistics and recruitment
                                                         information.
                                                     </p>
                                                 </a>
                                             </div>
+
                                             <div class="col-lg-4 col-md-6 mega-col">
-                                                <a href="placement .pdf" class="mega-link">
+                                                <a href="assets/hit/pdf_folder/placement_pdf/PLACEMENT 2024-2025.pdf"
+                                                    target="_blank" class="mega-link">
                                                     <h6 class="mega-title">Placement 2025</h6>
                                                     <p class="mega-desc">Record of placements for the year 2025.</p>
                                                 </a>
-                                                <a href="placement .pdf" class="mega-link">
+                                                <a href="assets/hit/pdf_folder/placement_pdf/PLACEMENT 2023-2024.pdf"
+                                                    target="_blank" class="mega-link">
                                                     <h6 class="mega-title">Placement 2024</h6>
                                                     <p class="mega-desc">Record of placements for the year 2024.</p>
                                                 </a>
                                             </div>
                                             <div class="col-lg-4 col-md-6 mega-col">
-                                                <a href="placement .pdf" class="mega-link">
+                                                <a href="assets/hit/pdf_folder/placement_pdf/PLACEMENT 2022-2023.pdf"
+                                                    target="_blank" class="mega-link">
                                                     <h6 class="mega-title">Placement 2023</h6>
                                                     <p class="mega-desc">Record of placements for the year 2023.</p>
                                                 </a>
-                                                <a href="placement .pdf" class="mega-link">
+                                                <a href="assets/hit/pdf_folder/placement_pdf/PLACEMENT 2021-2022.pdf"
+                                                    target="_blank" class="mega-link">
                                                     <h6 class="mega-title">Placement 2022</h6>
                                                     <p class="mega-desc">Record of placements for the year 2022.</p>
                                                 </a>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
+
                             </li>
 
                             <li class="nav-item mega-nav-item">
@@ -682,7 +688,7 @@ $alumni = $stmt->fetchAll();
 
 
                             <li class="nav-item">
-                                <a href="javascript:void(0)" class="dropdown-toggle nav-link">
+                                <a href="javascript:void(0)" class="dropdown-toggle nav-link active">
                                     Committees
                                 </a>
 
@@ -691,7 +697,7 @@ $alumni = $stmt->fetchAll();
 
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="statutory.html">Statutory</a>
+                                        <a class="nav-link " href="statutory.html">Statutory</a>
                                     </li>
 
                                     <li class="nav-item">
@@ -707,7 +713,9 @@ $alumni = $stmt->fetchAll();
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="assets\hit\pdf_folder\HiTech Campus Security Audit Checklist.pdf" target="_blank">
+                                        <a class="nav-link"
+                                            href="assets\hit\pdf_folder\HiTech Campus Security Audit Checklist.pdf"
+                                            target="_blank">
                                             Campus Security Audit (PDF)
                                         </a>
                                     </li>
@@ -739,7 +747,7 @@ $alumni = $stmt->fetchAll();
                         <div class="others-option d-flex align-items-center">
                             <div class="option-item">
                                 <div class="nav-btn">
-                                    <a class='default-btn' href='https://apply.hindusthan.net/'
+                                    <a class='default-btn' href='https://admission.hindusthan.net/'
                                         target="_blank">Admission</a>
                                 </div>
                             </div>
@@ -843,10 +851,9 @@ $alumni = $stmt->fetchAll();
                                         <a class='accordion-link' href='information-technology.html'>Information
                                             Technology</a>
                                     </div>
-                                    <div class="accordion-item">
-                                        <a class='accordion-link' href='pharmaceutical-technology.html'>Pharmaceutical
-                                            Technology</a>
-                                    </div>
+
+
+
                                     <div class="accordion-item">
                                         <a class='accordion-link' href='mechanical-engineering.html'>Mechanical
                                             Engineering</a>
@@ -880,12 +887,13 @@ $alumni = $stmt->fetchAll();
                             <div class="accordion-body">
                                 <div class="accordion" id="navbarAccordionAdmissions">
                                     <div class="accordion-item">
-                                        <a class='accordion-link' href='https://apply.hindusthan.net/' target="_blank">
+                                        <a class='accordion-link' href='https://admission.hindusthan.net/'
+                                            target="_blank">
                                             Admissions
                                         </a>
                                     </div>
                                     <div class="accordion-item">
-                                        <a class='accordion-link' href='how-to-apply.html'>
+                                        <a class='accordion-link' href='admission_policy.html'>
                                             Admission Policy
                                         </a>
                                     </div>
@@ -983,18 +991,15 @@ $alumni = $stmt->fetchAll();
                                                 <div class="accordion">
                                                     <div class="accordion-item"><a class='accordion-link'
                                                             href='assets/hit/pdf_folder/Audit_pdf/Audit 2024-25.pdf'
-                                                            target="_blank">Audit
-                                                            Report
+                                                            target="_blank">Audit Report
                                                             2024 – 2025</a></div>
                                                     <div class="accordion-item"><a class='accordion-link'
                                                             href='assets/hit/pdf_folder/Audit_pdf/Audit 2023-24.pdf'
-                                                            target="_blank">Audit
-                                                            Report
+                                                            target="_blank">Audit Report
                                                             2023 – 2024</a></div>
                                                     <div class="accordion-item"><a class='accordion-link'
                                                             href='assets/hit/pdf_folder/Audit_pdf/Audit 2022-23.pdf'
-                                                            target="_blank">Audit
-                                                            Report
+                                                            target="_blank">Audit Report
                                                             2022 – 2023</a></div>
                                                     <div class="accordion-item"><a class='accordion-link'
                                                             href='assets/hit/pdf_folder/Audit_pdf/NBA EXT 2025.pdf'
@@ -1011,7 +1016,7 @@ $alumni = $stmt->fetchAll();
                         </div>
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-item ">
                         <button class="accordion-button collapsed active" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseCommittees" aria-expanded="false"
                             aria-controls="collapseCommittees">
@@ -1021,7 +1026,7 @@ $alumni = $stmt->fetchAll();
                             data-bs-parent="#navbarAccordion">
                             <div class="accordion-body">
                                 <div class="accordion" id="navbarAccordionCommittees">
-                                    <div class="accordion-item"><a class='accordion-link'
+                                    <div class="accordion-item"><a class='accordion-link '
                                             href='statutory.html'>Statutory</a></div>
                                     <div class="accordion-item"><a class='accordion-link'
                                             href='non-statutory.html'>Non-Statutory</a></div>
@@ -1031,8 +1036,8 @@ $alumni = $stmt->fetchAll();
                                             href='research-cell.html'>Research
                                             Cell</a></div>
                                     <div class="accordion-item"><a class='accordion-link'
-                                            href='assets\hit\pdf_folder\HiTech Campus Security Audit Checklist.pdf' target="_blank">Campus Security Audit
-                                            (PDF)</a></div>
+                                            href='assets\hit\pdf_folder\HiTech Campus Security Audit Checklist.pdf'
+                                            target="_blank">Campus Security Audit (PDF)</a></div>
                                     <div class="accordion-item"><a class='accordion-link active'
                                             href='alumni.php'>Alumni</a>
                                     </div>
@@ -1075,7 +1080,7 @@ $alumni = $stmt->fetchAll();
                 </div>
                 <div class="offcanvas-other-options">
                     <div class="option-item">
-                        <a class='default-btn' href='https://apply.hindusthan.net/' target="_blank">Admission</a>
+                        <a class='default-btn' href='https://admission.hindusthan.net/' target="_blank">Admission</a>
                     </div>
                 </div>
 
@@ -1376,7 +1381,7 @@ $alumni = $stmt->fetchAll();
                                     <li><a href='https://hisac.ac.in/' target="_blank"><i
                                                 class='bx bx-chevron-right'></i>
                                             College of Science & Commerce</a></li>
-                                    <li><a href='https://hindusthan.net/hice/' target="_blank"><i
+                                    <li><a href='https://hice.ac.in/' target="_blank"><i
                                                 class='bx bx-chevron-right'></i>
                                             College of Engineering</a></li>
                                 </ul>
@@ -1470,7 +1475,7 @@ $alumni = $stmt->fetchAll();
                     <i class='bx bxl-whatsapp'></i>
                     <span>WhatsApp Message</span>
                 </a>
-                <a href="https://apply.hindusthan.net/" class="contact-option">
+                <a href="https://admission.hindusthan.net/" class="contact-option">
                     <i class='bx bx-book-content'></i>
                     <span>Admission Enquiry</span>
                 </a>
