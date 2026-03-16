@@ -290,6 +290,16 @@ if (!isset($_SESSION['admin_id'])) {
                 <span>Manage Latest News</span>
             </a>
 
+            <div class="nav-category">Faculty Management</div>
+            <a class="nav-link" href="manage_faculty.php">
+                <i class="fas fa-users-viewfinder"></i>
+                <span>Manage Faculty</span>
+            </a>
+            <a class="nav-link" href="add_faculty.php">
+                <i class="fas fa-user-plus"></i>
+                <span>Add New Faculty</span>
+            </a>
+
 
             <div class="nav-category">Communication</div>
             <a class="nav-link" href="view_enquiry.php">
