@@ -1,0 +1,639 @@
+ /* ============================================================
+       SCOPED COMPONENT: .admission-popup
+       Zero global / body / * CSS — safe to drop into any page
+    ============================================================ */
+
+ .admission-popup__overlay {
+     font-family: 'Poppins', sans-serif;
+     position: fixed;
+     inset: 0;
+     background: rgba(10, 15, 40, 0.72);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 16px;
+     z-index: 9999;
+     opacity: 0;
+     visibility: hidden;
+     overflow-y: auto;
+     transition: opacity .25s ease, visibility .25s ease;
+     box-sizing: border-box;
+     will-change: opacity;
+ }
+
+ .admission-popup__overlay.show {
+     opacity: 1;
+     visibility: visible;
+ }
+
+ /* card */
+ .admission-popup__card {
+     position: relative;
+     width: 100%;
+     max-width: 480px;
+     margin: auto;
+     border-radius: 22px;
+     overflow: hidden;
+     box-shadow: 0 32px 90px rgba(0, 0, 0, .55);
+     transform: translateY(32px);
+     opacity: 0;
+     transition: transform .3s cubic-bezier(.25, .8, .25, 1), opacity .3s ease;
+     box-sizing: border-box;
+     will-change: transform, opacity;
+     backface-visibility: hidden;
+     -webkit-backface-visibility: hidden;
+ }
+
+ .admission-popup__overlay.show .admission-popup__card {
+     transform: translateY(0);
+     opacity: 1;
+ }
+
+ /* header */
+ .admission-popup__header {
+     /* background: linear-gradient(140deg,#1a237e 0%,#283593 45%,#1565c0 100%); */
+     background: #002147;
+     padding: 30px 28px 0;
+     text-align: center;
+     position: relative;
+     overflow: hidden;
+     box-sizing: border-box;
+     font-size: 0;
+ }
+
+ .admission-popup__header>* {
+     font-size: initial;
+ }
+
+ .admission-popup__header::before {
+     content: '';
+     position: absolute;
+     top: -60%;
+     left: -40%;
+     width: 80%;
+     height: 200%;
+     background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .07) 50%, transparent 60%);
+     animation: ap-shine 4s ease-in-out infinite;
+     pointer-events: none;
+ }
+
+ @keyframes ap-shine {
+
+     0%,
+     100% {
+         left: -40%;
+     }
+
+     50% {
+         left: 120%;
+     }
+ }
+
+ /* dot particles */
+ .admission-popup__dots {
+     position: absolute;
+     inset: 0;
+     pointer-events: none;
+     overflow: hidden;
+ }
+
+ .admission-popup__dots span {
+     position: absolute;
+     border-radius: 50%;
+     opacity: .18;
+     animation: ap-float var(--d) var(--dl) infinite ease-in-out;
+ }
+
+ @keyframes ap-float {
+
+     0%,
+     100% {
+         transform: translateY(0);
+     }
+
+     50% {
+         transform: translateY(-14px);
+     }
+ }
+
+ /* ribbons */
+ /* .admission-popup__ribbon-l {
+      position: absolute; top:0; left:0;
+      width:0; height:0; border-style:solid;
+      border-width:58px 58px 0 0;
+      border-color:#ffffff transparent transparent transparent;
+      z-index:1;
+    } */
+ /* .admission-popup__ribbon-l::after {
+      content:'★'; position:absolute;
+      top:-54px; left:5px; font-size:15px; color:#1a237e;
+    } */
+ .admission-popup__ribbon-r {
+     position: absolute;
+     top: 0;
+     right: 0;
+     width: 0;
+     height: 0;
+     border-style: solid;
+     border-width: 58px 0 0 58px;
+     border-color: #ffffff transparent transparent transparent;
+     z-index: 1;
+ }
+
+ /* .admission-popup__ribbon-r::after {
+      content:'★'; position:absolute;
+      top:-54px; right:5px; font-size:15px; color:#1a237e;
+    }
+  */
+ /* close */
+ .admission-popup__close {
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     ;
+     width: 40px;
+     height: 40px;
+     background: #fff;
+     border: 1.5px solid rgba(255, 255, 255, .3);
+     border-radius: 50%;
+     color: #000000;
+     font-size: 14px;
+     cursor: pointer;
+     display: grid;
+     place-items: center;
+     transition: background .2s;
+     z-index: 5;
+     padding: 0;
+ }
+
+ .admission-popup__close:hover {
+     background: rgba(255, 255, 255, .28);
+ }
+
+ /* icon ring */
+ .admission-popup__icon-ring {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 250px;
+     height: 76px;
+     /* background:rgba(255,255,255,.12); */
+     /* border:2.5px dashed rgba(255,214,0,.55); */
+     /* border-radius:50%;  */
+     position: relative;
+     z-index: 1;
+     margin-bottom: 12px;
+     animation: ap-bob 3s ease-in-out infinite;
+ }
+
+ @keyframes ap-bob {
+
+     0%,
+     100% {
+         transform: translateY(0);
+     }
+
+     50% {
+         transform: translateY(-8px);
+     }
+ }
+
+ /* header text */
+ .admission-popup__uni {
+     font-size: 11px;
+     font-weight: 600;
+     letter-spacing: .2em;
+     text-transform: uppercase;
+     color: rgba(255, 255, 255, .6);
+     margin: 0 0 5px;
+     position: relative;
+     z-index: 1;
+ }
+
+ .admission-popup__title {
+     font-size: clamp(1.65rem, 6vw, 2.3rem);
+     font-weight: 900;
+     color: #fff;
+     line-height: 1.05;
+     margin: 0 0 4px;
+     position: relative;
+     z-index: 1;
+ }
+
+ .admission-popup__title b {
+     color: #ed6f26;
+     font-weight: 900;
+ }
+
+ .admission-popup__year {
+     font-size: 13px;
+     color: rgba(255, 255, 255, .5);
+     margin: 0;
+     position: relative;
+     z-index: 1;
+ }
+
+ /* wave */
+ .admission-popup__wave {
+     display: block;
+     line-height: 0;
+     margin-top: 16px;
+ }
+
+ .admission-popup__wave svg {
+     display: block;
+     width: 100%;
+     vertical-align: bottom;
+ }
+
+ /* ── BODY ── */
+ .admission-popup__body {
+     background: #ffffff;
+     padding: 16px 20px 22px;
+     box-sizing: border-box;
+     margin-top: -1px;
+ }
+
+ /* feature grid */
+ .admission-popup__grid {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 10px;
+     margin-bottom: 12px;
+ }
+
+ .admission-popup__feat {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     background: #ffffff;
+     border: 1.5px solid #f0f0f0;
+     border-radius: 12px;
+     padding: 12px;
+     min-height: 70px;
+     box-sizing: border-box;
+     transition: border-color .2s, box-shadow .2s;
+ }
+
+ .admission-popup__feat:hover {
+     border-color: #ddd;
+     box-shadow: 0 3px 12px rgba(0, 0, 0, .06);
+ }
+
+ .admission-popup__feat-ico {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 42px;
+     height: 42px;
+     min-width: 42px;
+     background: #0d1f4e;
+     border-radius: 10px;
+     flex-shrink: 0;
+ }
+
+ .admission-popup__feat-ico svg {
+     width: 20px;
+     height: 20px;
+     display: block;
+ }
+
+ .admission-popup__feat-txt {
+     min-width: 0;
+     font-size: 12px;
+     font-weight: 700;
+     color: #0d1f4e;
+     line-height: 1.25;
+ }
+
+ .admission-popup__feat-txt small {
+     display: block;
+     font-size: 10.5px;
+     font-weight: 400;
+     color: #94a3b8;
+     margin-top: 2px;
+     white-space: nowrap;
+ }
+
+ /* secure strip */
+ .admission-popup__secure {
+     background: #f0fdf4;
+     border: 1.5px solid #86efac;
+     border-radius: 12px;
+     padding: 12px 14px;
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     margin-bottom: 12px;
+     box-sizing: border-box;
+ }
+
+ .admission-popup__secure-ico {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 42px;
+     height: 42px;
+     min-width: 42px;
+     background: #16a34a;
+     border-radius: 10px;
+     flex-shrink: 0;
+ }
+
+ .admission-popup__secure-ico svg {
+     width: 20px;
+     height: 20px;
+     display: block;
+ }
+
+ .admission-popup__secure-txt {
+     font-size: 12.5px;
+     font-weight: 700;
+     color: #15803d;
+     line-height: 1.35;
+ }
+
+ .admission-popup__secure-txt small {
+     display: block;
+     font-size: 11px;
+     font-weight: 400;
+     color: #166534;
+     margin-top: 1px;
+ }
+
+ /* payment row */
+ .admission-popup__pay-row {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     gap: 8px;
+     justify-content: center;
+     margin-bottom: 16px;
+ }
+
+ .admission-popup__pay-logo {
+     display: flex;
+     align-items: center;
+     gap: 6px;
+     background: #ffffff;
+     border: 1.5px solid #e2e8f0;
+     border-radius: 8px;
+     padding: 6px 12px;
+     font-size: 11.5px;
+     font-weight: 700;
+     color: #0d1f4e;
+     white-space: nowrap;
+     font-family: 'Poppins', sans-serif;
+     transition: border-color .2s;
+     cursor: default;
+ }
+
+ .admission-popup__pay-logo:hover {
+     border-color: #3949ab;
+ }
+
+ .admission-popup__pay-logo svg {
+     flex-shrink: 0;
+     display: block;
+ }
+
+ /* CTA */
+ .admission-popup__cta {
+     width: 100%;
+     padding: 14px;
+     background: linear-gradient(135deg, #ed6f26, #ed6f26);
+     color: #ffffff;
+     font-family: 'Poppins', sans-serif;
+     font-size: 14px;
+     font-weight: 800;
+     letter-spacing: .07em;
+     text-transform: uppercase;
+     border: none;
+     border-radius: 11px;
+     cursor: pointer;
+     box-shadow: 0 8px 22px rgba(26, 35, 126, .35);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+     margin-bottom: 10px;
+     position: relative;
+     overflow: hidden;
+     transition: transform .15s, box-shadow .2s, filter .15s;
+     box-sizing: border-box;
+ }
+
+ .admission-popup__cta::after {
+     content: '';
+     position: absolute;
+     inset: 0;
+     background: linear-gradient(135deg, rgba(255, 255, 255, .08), transparent);
+     pointer-events: none;
+ }
+
+ .admission-popup__cta svg {
+     width: 18px;
+     height: 18px;
+     flex-shrink: 0;
+     position: relative;
+     z-index: 1;
+ }
+
+ .admission-popup__cta span {
+     position: relative;
+     z-index: 1;
+ }
+
+ .admission-popup__cta:hover {
+     /* transform:translateY(-2px); filter:brightness(1.1); */
+     box-shadow: 0 12px 28px rgba(26, 35, 126, .45);
+ }
+
+ /* dismiss */
+ .admission-popup__dismiss {
+     display: block;
+     width: 100%;
+     background: none;
+     border: none;
+     font-family: 'Poppins', sans-serif;
+     font-size: 12px;
+     color: #bbb;
+     cursor: pointer;
+     padding: 4px 0;
+     transition: color .2s;
+ }
+
+ .admission-popup__dismiss:hover {
+     color: #666;
+ }
+
+ /* ── RESPONSIVE ── */
+ @media (max-width:480px) {
+     .admission-popup__overlay {
+         padding: 12px;
+     }
+
+     .admission-popup__header {
+         padding: 22px 18px 0;
+     }
+
+     .admission-popup__body {
+         padding: 13px 15px 20px;
+     }
+
+     .admission-popup__grid {
+         gap: 8px;
+     }
+
+     .admission-popup__feat {
+         padding: 10px;
+         gap: 9px;
+         min-height: 64px;
+     }
+
+     .admission-popup__feat-ico {
+         width: 38px;
+         height: 38px;
+         min-width: 38px;
+         border-radius: 9px;
+     }
+
+     .admission-popup__feat-ico svg {
+         width: 18px;
+         height: 18px;
+     }
+
+     .admission-popup__feat-txt {
+         font-size: 11.5px;
+     }
+
+     .admission-popup__feat-txt small {
+         font-size: 10px;
+     }
+
+     .admission-popup__secure {
+         padding: 10px 12px;
+         gap: 10px;
+     }
+
+     .admission-popup__secure-ico {
+         width: 38px;
+         height: 38px;
+         min-width: 38px;
+     }
+
+     .admission-popup__secure-ico svg {
+         width: 18px;
+         height: 18px;
+     }
+
+     .admission-popup__secure-txt {
+         font-size: 12px;
+     }
+
+     .admission-popup__secure-txt small {
+         font-size: 10.5px;
+     }
+
+     .admission-popup__pay-row {
+         gap: 6px;
+     }
+
+     .admission-popup__pay-logo {
+         padding: 5px 10px;
+         font-size: 11px;
+     }
+
+     .admission-popup__cta {
+         font-size: 13px;
+         padding: 13px;
+     }
+
+     .admission-popup__icon-ring {
+         width: 250px;
+         height: 62px;
+     }
+
+     .admission-popup__uni {
+         font-size: 10px;
+     }
+
+     .admission-popup__title {
+         font-size: 1.5rem;
+     }
+
+     .admission-popup__year {
+         font-size: 12px;
+     }
+ }
+
+ @media (max-width:360px) {
+     .admission-popup__overlay {
+         padding: 10px;
+     }
+
+     .admission-popup__header {
+         padding: 18px 14px 0;
+     }
+
+     .admission-popup__body {
+         padding: 12px 12px 18px;
+     }
+
+     .admission-popup__grid {
+         gap: 7px;
+     }
+
+     .admission-popup__feat {
+         padding: 9px 8px;
+         gap: 8px;
+         min-height: 58px;
+     }
+
+     .admission-popup__feat-ico {
+         width: 34px;
+         height: 34px;
+         min-width: 34px;
+         border-radius: 8px;
+     }
+
+     .admission-popup__feat-ico svg {
+         width: 16px;
+         height: 16px;
+     }
+
+     .admission-popup__feat-txt {
+         font-size: 11px;
+     }
+
+     .admission-popup__feat-txt small {
+         font-size: 9.5px;
+         white-space: normal;
+     }
+
+     .admission-popup__secure-ico {
+         width: 34px;
+         height: 34px;
+         min-width: 34px;
+     }
+
+     .admission-popup__pay-logo {
+         padding: 5px 8px;
+         font-size: 10.5px;
+         gap: 5px;
+     }
+
+     .admission-popup__cta {
+         font-size: 12.5px;
+         padding: 12px;
+     }
+
+     .admission-popup__icon-ring {
+         width: 250px;
+         height: 54px;
+     }
+
+     .admission-popup__title {
+         font-size: 1.35rem;
+     }
+ }
