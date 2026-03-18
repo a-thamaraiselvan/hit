@@ -239,11 +239,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                                 <h6 class="mega-title">Mechanical Engineering</h6>
                                                 <p class="mega-desc">Design and manufacturing of mechanical systems.</p>
                                             </a>
-                                            <a href="m-e-vlsi-design.html" class="mega-link">
-                                                <h6 class="mega-title">M.E. VLSI Design</h6>
-                                                <p class="mega-desc">Microchip architecture and system-on-chip design.
-                                                </p>
-                                            </a>
+
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="artificial-intelligence-and-data-science.html" class="mega-link">
@@ -258,10 +254,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                                 <h6 class="mega-title">Master of Business Administration</h6>
                                                 <p class="mega-desc">Business leadership and corporate strategies.</p>
                                             </a>
-                                            <a href="science-and-humanities.html" class="mega-link">
-                                                <h6 class="mega-title">Science & Humanities</h6>
-                                                <p class="mega-desc">Foundational sciences and general studies.</p>
-                                            </a>
+
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="electronics-and-communication-engineering.html" class="mega-link">
@@ -273,6 +266,11 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                             <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. Computer Science and Engineering</h6>
                                                 <p class="mega-desc">Advanced postgraduate computing logic.</p>
+                                            </a>
+                                            <a href="m-e-vlsi-design.html" class="mega-link">
+                                                <h6 class="mega-title">M.E. VLSI Design</h6>
+                                                <p class="mega-desc">Microchip architecture and system-on-chip design.
+                                                </p>
                                             </a>
                                         </div>
                                     </div>
@@ -469,10 +467,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='m-e-vlsi-design.html'>M.E. VLSI Design</a>
                                 </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='science-and-humanities.html'>Science &
-                                        Humanities</a>
-                                </div>
+                                 
                             </div>
                         </div>
                     </div>
@@ -669,12 +664,12 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                 <div class="col-lg-8">
                     <div class="form-container">
                         <?php if ($message): ?>
-                            <div class="alert alert-<?php echo $messageType; ?> alert-dismissible fade show" role="alert">
-                                <?php echo $message; ?>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
+                                <div class="alert alert-<?php echo $messageType; ?> alert-dismissible fade show" role="alert">
+                                    <?php echo $message; ?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                         <?php endif; ?>
 
                         <form method="POST" action="">

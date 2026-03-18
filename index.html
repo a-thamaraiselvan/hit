@@ -489,6 +489,56 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
 
 
         }
+
+
+        /* latest new index */
+
+        .news-ticker {
+            background: #001054;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+            overflow: hidden;
+            /* position: relative; */
+            color: #fff;
+
+        }
+
+        .news-ticker-container {
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .news-ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: ticker 40s linear infinite;
+            will-change: transform;
+        }
+
+        .news-ticker-content:hover {
+            animation-play-state: paused;
+        }
+
+        .news-ticker-item {
+            display: inline-block;
+            margin-right: 50px;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        /* latest new index end */
     </style>
 </head>
 
@@ -615,11 +665,11 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                                                 <h6 class="mega-title">Mechanical Engineering</h6>
                                                 <p class="mega-desc">Design and manufacturing of mechanical systems.</p>
                                             </a>
-                                            <a href="m-e-vlsi-design.html" class="mega-link">
+                                            <!-- <a href="m-e-vlsi-design.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. VLSI Design</h6>
                                                 <p class="mega-desc">Microchip architecture and system-on-chip design.
                                                 </p>
-                                            </a>
+                                            </a> -->
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="artificial-intelligence-and-data-science.html" class="mega-link">
@@ -634,10 +684,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                                                 <h6 class="mega-title">Master of Business Administration</h6>
                                                 <p class="mega-desc">Business leadership and corporate strategies.</p>
                                             </a>
-                                            <a href="science-and-humanities.html" class="mega-link">
-                                                <h6 class="mega-title">Science & Humanities</h6>
-                                                <p class="mega-desc">Foundational sciences and general studies.</p>
-                                            </a>
+                                            <!--   -->
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="electronics-and-communication-engineering.html" class="mega-link">
@@ -649,6 +696,11 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                                             <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. Computer Science and Engineering</h6>
                                                 <p class="mega-desc">Advanced postgraduate computing logic.</p>
+                                            </a>
+                                            <a href="m-e-vlsi-design.html" class="mega-link">
+                                                <h6 class="mega-title">M.E. VLSI Design</h6>
+                                                <p class="mega-desc">Microchip architecture and system-on-chip design.
+                                                </p>
                                             </a>
                                         </div>
                                     </div>
@@ -1026,10 +1078,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='m-e-vlsi-design.html'>M.E. VLSI Design</a>
                                 </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='science-and-humanities.html'>Science &
-                                        Humanities</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -1431,32 +1480,29 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
     </div>
 
     <!-- Start Latest News Marquee -->
-    <div class="latest-news-area">
-        <div class="container-fluid" style="padding: 0;">
+
+
+    <!-- Start News Ticker Area -->
+    <div class="news-ticker ptb-100">
+        <div class="container-fluid">
             <div class="latest-news-wrapper">
                 <div class="latest-news-title">
                     LATEST NEWS
                 </div>
-                <div class="latest-news-content">
-                    <marquee onmouseover="this.stop();" onmouseout="this.start();" scrollamount="5">
-                        <ul class="news-ticker-list">
-                            <li><span class="news-star">*</span> Revised Public Notice for Approval Process 2026-27
-                                <span class="badge rounded-pill bg-warning text-dark ms-2" style="font-weight: 500;">4
-                                    February, 2026</span> <span class="badge rounded-pill bg-danger ms-1"
-                                    style="font-weight: 500;">NEW</span>
-                            </li>
-                            <li><span class="news-star">*</span> Recognition of Maharshi Sandipani Rashtriya Veda
-                                Sanskrit Shiksha Board</li>
-                        </ul>
-                    </marquee>
+                <div class="news-ticker-container">
+                    <div class="news-ticker-content" id="newsTicker" style="font-size: 15px !important;">
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Latest News Marquee -->
+    <!-- End News Ticker Area -->
+
+
 
     <!-- Start About Us Area 2 -->
-    <div id="about" class="about-us-area-2 pt-50">
+    <div id="about" class="about-us-area-2 pt-50 ">
         <div class="container">
             <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                 <h2>About Our Institutions</h2>
@@ -1477,12 +1523,12 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
         <div class="container">
             <div class="video-play-area" data-aos="fade-up" data-aos-delay="100">
                 <div class="row align-items-center">
-                    <div class="col-lg-7 col-9">
+                    <!-- <div class="col-lg-7 col-9">
                         <div class="contant">
                             <p>Campus Tour in HIT</p>
                             <img src="assets/img/icon/shape-1.png" alt="image">
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-lg-6 col-3">
                         <a class="popup-youtube" href="https://www.youtube.com/watch?v=T2M9hSswlIs">
                             <div class="play-button">
@@ -1499,7 +1545,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
             <div class="container">
                 <div class="sub-title">
                     <!-- <i class='bx bxs-graduation'></i> -->
-                    <p>Our Best Features</p>
+                    <p>Innovate. Learn. Lead.</p>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
@@ -1514,7 +1560,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                                         <i class='bx bxs-graduation' style="font-size:35px; color: #ed6f26;"></i>
                                     </div>
                                     <h3 style="color: #002147;">Academic Excellence</h3>
-                                    <p>
+                                    <p style="text-align: justify;">
                                         Hindusthan Institute of Technology delivers quality engineering education
                                         through
                                         experienced faculty, advanced laboratories, and industry-oriented curriculum
@@ -1529,7 +1575,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                                         <i class='bx bxs-briefcase-alt-2' style="font-size:35px; color:#ed6f26;"></i>
                                     </div>
                                     <h3 style="color: #002147;">Career & Industry Opportunities</h3>
-                                    <p>
+                                    <p style="text-align: justify;">
                                         Strong industry partnerships, internships, and dedicated placement training
                                         help students gain real-world exposure and secure promising careers in
                                         leading companies.
@@ -1537,15 +1583,26 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                                 </div>
                             </div>
 
-                            <a class="default-btn" href="https://admission.hindusthan.net" target="_blank">
-                                Explore Admissions
-                            </a>
+
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
-                        <div class="image">
-                            <img src="./assets/college_images/hit.jpg" alt="Hindusthan Institute of Technology">
+                    <div class="col-lg-6 p-0 " style="margin-top: 10px;">
+                        <div class="video-section">
+                            <div class="video-wrapper">
+
+                                <video id="mainVideo" class="main-video" controls playsinline>
+                                    <source src="assets/videos/hit.mp4" type="video/mp4">
+                                </video>
+
+                                <div class="play-btn" id="playBtn">▶</div>
+
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: center;">
+                            <a class="default-btn mt-5 " href="https://admission.hindusthan.net" target="_blank">
+                                Explore Admissions
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1554,69 +1611,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
     </div>
     <!-- End Features Area -->
 
-    <!-- Start Events Area -->
-    <div class="events-area ptb-100">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up" data-aos-delay="100">
-                <div class="sub-title">
-                    <i class='bx bxs-graduation'></i>
-                    <p>News and Events</p>
-                </div>
-                <h2 class="title-anim">Recent Important Stories Updated</h2>
-            </div>
 
-            <!-- Top Event -->
-            <div id="featured-news-container">
-                <!-- Data will be loaded here dynamically -->
-
-
-
-                <!-- <div class="event lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="content">
-                        <div class="image">
-                            <img src="assets/img/all-img/events-image-1.png" alt="image">
-                        </div>
-                        <div class="text title-anim">
-                            <div class="tag">Featured News</div>
-                            <h2><a href='blog-details.html'>Celebrating Hispanic Heritage Month: Sioma Waisburd</a></h2>
-                            <span>October 06, 2024</span>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority havesu
-                                fered
-                                alteration in some form, by injected humour.</p>
-                            <div class="link"><a href='blog-details.html'><i class='bx bx-link-external'></i></a></div>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-
-            <!-- Recent Post & Event -->
-            <div class="row">
-                <div class="col-lg-8 col-12">
-                    <div class="recent-post" id="recent-news-container">
-                        <!-- Data will be loaded here dynamically -->
-                    </div>
-                    <div class="view-more-news" data-aos="fade-up" data-aos-delay="300">
-                        <a class='btn' href='news-and-blog.php'>View More News <i class='bx bx-right-arrow-alt'></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="upcoming-event">
-                        <h4 data-aos="fade-up" data-aos-delay="100">Upcoming Events</h4>
-                        <div id="upcoming-events-container">
-                            <!-- Data will be loaded here dynamically -->
-
-
-                        </div>
-                        <div class="event-dates" data-aos="fade-zoom-in" data-aos-delay="100">
-                            <a class='btn' href='news-and-blog.php'>View More Events <i
-                                    class='bx bx-right-arrow-alt'></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Events Area -->
     <!-- 4cardhover Area 2 -->
     <!-- <div class="faculty-area-2 ptb-100">
         <div class="container">
@@ -2027,6 +2022,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                             that understands the value of empathy.
                         </div>
                         <div class="quote-author">- Smt. T.R.K Sarasuwathi</div>
+                        <span style="color: #ffd42a;"></span>
                     </div>
                     <!-- Center: Image -->
                     <div class="leadership-col image-col">
@@ -2636,7 +2632,7 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
         </div>
         <!-- End placement Ticker Section-->
         <!-- Start Success Area 2 -->
-        <div class="success-area success-area-2 ptb-100">
+        <div class="success-area success-area-2 pt-100">
             <div class="container">
                 <div class="section-title section-title-2" data-aos="fade-zoom-in" data-aos-delay="100">
                     <div class="sub-title">
@@ -2726,6 +2722,59 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
             </div>
         </div>
         <!-- End Success Area 2 -->
+
+
+        <!-- Start Events Area -->
+        <div class="events-area ptb-100">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    <div class="sub-title pt-50">
+                        <i class='bx bxs-graduation'></i>
+                        <p>News and Events</p>
+                    </div>
+                    <h2 class="title-anim pb-50">Recent Important Stories Updated</h2>
+                </div>
+
+                <!-- Top Event -->
+
+                <!-- Data will be loaded here dynamically -->
+                <div id="featured-news-container">
+
+
+
+
+
+                </div>
+
+                <!-- Recent Post & Event -->
+                <div class="row">
+                    <div class="col-lg-8 col-12">
+                        <div class="recent-post" id="recent-news-container">
+                            <!-- Data will be loaded here dynamically -->
+                        </div>
+                        <div class="view-more-news" data-aos="fade-up" data-aos-delay="300">
+                            <a class='btn' href='news-and-blog.php'>View More News <i
+                                    class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="upcoming-event">
+                            <h4 data-aos="fade-up" data-aos-delay="100">Upcoming Events</h4>
+                            <div id="upcoming-events-container">
+                                <!-- Data will be loaded here dynamically -->
+
+
+                            </div>
+                            <div class="event-dates" data-aos="fade-zoom-in" data-aos-delay="100">
+                                <a class='btn' href='news-and-blog.php'>View More Events <i
+                                        class='bx bx-right-arrow-alt'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Events Area -->
 
         <!-- End Success Area 2 -->
 
@@ -3351,28 +3400,28 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                             const data = result.data;
 
                             // 1. Render Featured News
-                            if (data.featured) {
-                                const featuredCont = document.getElementById('featured-news-container');
-                                const date = new Date(data.featured.event_date);
-                                const dateStr = date.toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' });
+                            // if (data.featured) {
+                            //     const featuredCont = document.getElementById('featured-news-container');
+                            //     const date = new Date(data.featured.event_date);
+                            //     const dateStr = date.toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' });
 
-                                featuredCont.innerHTML = `
-                                <div class="event lg" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="content">
-                                        <div class="image">
-                                            <img src="${data.featured.poster ? data.featured.poster : 'assets/img/all-img/events-image-1.png'}" alt="${data.featured.event_name}" style="width: 50%;">
-                                        </div>
-                                        <div class="text title-anim">
-                                            <div class="tag">Featured News</div>
-                                            <h2><a href='blog-details.php?id=${data.featured.id}'>${data.featured.event_name}</a></h2>
-                                            <span>${dateStr}</span>
-                                            <p>${data.featured.description.substring(0, 150)}...</p>
-                                            <div class="link"><a href='blog-details.php?id=${data.featured.id}'><i class='bx bx-link-external'></i></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                            }
+                            //     featuredCont.innerHTML = `
+                            //     <div class="event lg" data-aos="fade-up" data-aos-delay="100">
+                            //         <div class="content">
+                            //             <div class="image">
+                            //                 <img src="${data.featured.poster ? data.featured.poster : 'assets/img/all-img/events-image-1.png'}" alt="${data.featured.event_name}" style="width: 50%;">
+                            //             </div>
+                            //             <div class="text title-anim">
+                            //                 <div class="tag">Featured News</div>
+                            //                 <h2><a href='blog-details.php?id=${data.featured.id}'>${data.featured.event_name}</a></h2>
+                            //                 <span>${dateStr}</span>
+                            //                 <p>${data.featured.description.substring(0, 150)}...</p>
+                            //                 <div class="link"><a href='blog-details.php?id=${data.featured.id}'><i class='bx bx-link-external'></i></a></div>
+                            //             </div>
+                            //         </div>
+                            //     </div>
+                            // `;
+                            // }
 
                             // 2. Render Recent News
                             if (data.recent && data.recent.length > 0) {
@@ -3437,6 +3486,97 @@ Hindusthan continues to evolve as a dynamic educational ecosystem that adapts to
                     .catch(error => console.error('Error fetching news:', error));
             });
         </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                const video = document.getElementById("mainVideo");
+                const playBtn = document.getElementById("playBtn");
+
+                // ▶️ PLAY BUTTON CLICK
+                playBtn.addEventListener("click", () => {
+                    video.play();
+                    playBtn.style.display = "none";
+                });
+
+                // ⏸ SHOW PLAY BUTTON WHEN PAUSED
+                video.addEventListener("pause", () => {
+                    playBtn.style.display = "flex";
+                });
+
+                // ▶️ HIDE BUTTON WHEN PLAYING
+                video.addEventListener("play", () => {
+                    playBtn.style.display = "none";
+                });
+
+                // 🔒 PAUSE WHEN TAB IS CHANGED
+                document.addEventListener("visibilitychange", () => {
+                    if (document.hidden) {
+                        video.pause();
+                    }
+                });
+
+                // 👀 PAUSE WHEN VIDEO OUT OF VIEW (SCROLL)
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            video.pause();
+                        }
+                        // OPTIONAL AUTO PLAY:
+                        // else {
+                        //     video.play();
+                        // }
+                    });
+                }, {
+                    threshold: 0.3
+                });
+
+                observer.observe(video);
+
+            });
+        </script>
+
+        <!-- script for lastest news ticker start -->
+        <script>
+            async function loadTickerNews() {
+                try {
+                    const response = await fetch('get_ticker_news.php');
+                    if (!response.ok) throw new Error('Network response was not ok');
+
+                    const news = await response.json();
+                    const ticker = document.getElementById('newsTicker');
+
+                    if (news && news.length > 0) {
+                        ticker.innerHTML = news.map(item => {
+                            let content = `🌟 ${item.content}`;
+                            if (item.link_url || item.file_path) {
+                                const link = item.link_url || item.file_path;
+                                content = `<a href="${link}" target="_blank" style="color: inherit;">${content}</a>`;
+                            }
+                            return `<span class="news-ticker-item">${content}</span>`;
+                        }).join('');
+
+                        // Duplicate content for smooth infinite scroll
+                        ticker.innerHTML += ticker.innerHTML;
+                    } else {
+                        ticker.innerHTML = '<span class="news-ticker-item">Welcome to Hindusthan Educational Institutions</span>';
+                    }
+                } catch (error) {
+                    console.error('Error loading ticker news:', error);
+                }
+            }
+
+            // Load news immediately when page loads
+            document.addEventListener('DOMContentLoaded', loadTickerNews);
+
+            // Refresh every 5 minutes
+            setInterval(loadTickerNews, 300000);
+        </script>
+
+
+        <!-- script for lastest news ticker end  -->
+
+
 
 </body>
 
