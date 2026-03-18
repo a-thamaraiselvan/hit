@@ -8631,23 +8631,123 @@ Go Top CSS
   color: var(--hit-dpt-main);
 }
 
-/* Lab Zig-Zag */
-.hit-dpt-lab-row {
+/* Lab Zig-Zag & Card */
+.hit-dpt-labs {
+  /* background-color: #f8fbff; */
+}
+
+.hit-dpt-lab-card {
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 10px;
+  text-align: justify;
+  box-shadow: 0px 0px 15px rgba(89, 89, 89, 0.5) !important;
   margin-bottom: 40px;
+  /* border: 5px solid rgba(0, 33, 71, 0.05) !important; */
+  transition: var(--hit-dpt-transition);
+  transition: 0.5s ease !important;
+}
+
+.hit-dpt-lab-row {
+  margin-bottom: 0;
+}
+
+.hit-dpt-lab-content-col {
+  padding: 0px 20px;
 }
 
 .hit-dpt-lab-content-col h3 {
   color: var(--hit-dpt-black);
   margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.hit-dpt-lab-content-col p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.hit-dpt-lab-desc-wrapper {
+  max-height: 270px; /* ~4 lines of text */
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease-in-out;
+  margin-bottom: 15px;
+}
+
+/* Fade effect for truncated text */
+.hit-dpt-lab-desc-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #fff);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.hit-dpt-lab-content-col.expanded .hit-dpt-lab-desc-wrapper {
+  max-height: 1500px; /* Large enough for detailed content */
+}
+
+.hit-dpt-lab-content-col.expanded .hit-dpt-lab-desc-wrapper::after {
+  opacity: 0;
+}
+
+.hit-dpt-lab-desc-wrapper h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 10px 0 10px;
+  color: var(--hit-dpt-black);
+}
+
+.hit-dpt-lab-desc-wrapper ul {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.hit-dpt-lab-desc-wrapper li {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 15px;
+  list-style: disc;
+}
+
+.hit-dpt-read-more {
+  color: var(--hit-dpt-main);
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  transition: var(--hit-dpt-transition);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hit-dpt-read-more i {
+  margin-left: 8px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.hit-dpt-read-more:hover {
+  color: var(--hit-dpt-black);
+}
+
+.hit-dpt-read-more:hover i {
+  transform: translateX(5px);
 }
 
 .hit-dpt-lab-img-col img {
   width: 100%;
-  /* aspect-ratio: 16 / 9; */
+  aspect-ratio: 14/9 !important;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 20px !important;
   display: block;
-  box-shadow: none !important;
 }
 
 /* Course Cards */
@@ -10129,7 +10229,7 @@ Admission Procedure Section CSS
   display: flex;
   align-items: flex-start;
   gap: 24px;
-  background: #fff;
+  background: ;
   border: 1px solid #eef0f3;
   border-radius: 16px;
   padding: 32px 30px;

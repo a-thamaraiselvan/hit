@@ -83,6 +83,21 @@ $(document).ready(function () {
       btn.html('Read More <i class="bx bx-chevron-down"></i>');
     }
   });
+
+  // Lab "Read More" Toggle
+  $(document).on('click', '.hit-dpt-read-more', function (e) {
+    e.preventDefault();
+    const $this = $(this);
+    const $contentCol = $this.closest('.hit-dpt-lab-content-col');
+
+    $contentCol.toggleClass('expanded');
+
+    if ($contentCol.hasClass('expanded')) {
+      $this.html('Read Less <i class="bx bx-left-arrow-alt"></i>');
+    } else {
+      $this.html('Read More <i class="bx bx-right-arrow-alt"></i>');
+    }
+  });
 });
 
 

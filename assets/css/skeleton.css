@@ -9,6 +9,7 @@
   display:inline-block;
   position:relative;
   overflow:hidden;
+  border-radius: 25px;
   background:var(--skeleton-bg);
 }
 

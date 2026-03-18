@@ -274,11 +274,11 @@
      box-sizing: border-box;
      transition: border-color .2s, box-shadow .2s;
  }
-
+/* 
  .admission-popup__feat:hover {
      border-color: #ddd;
      box-shadow: 0 3px 12px rgba(0, 0, 0, .06);
- }
+ } */
 
  .admission-popup__feat-ico {
      display: flex;
@@ -388,9 +388,9 @@
      cursor: default;
  }
 
- .admission-popup__pay-logo:hover {
+ /* .admission-popup__pay-logo:hover {
      border-color: #3949ab;
- }
+ } */
 
  .admission-popup__pay-logo svg {
      flex-shrink: 0;
@@ -445,7 +445,8 @@
  }
 
  .admission-popup__cta:hover {
-     /* transform:translateY(-2px); filter:brightness(1.1); */
+     transform:translateY(-2px); 
+     filter:brightness(1.1);
      box-shadow: 0 12px 28px rgba(26, 35, 126, .45);
  }
 
