@@ -445,12 +445,7 @@ $alumni = $stmt->fetchAll();
                                                     <p class="mega-desc">Design and manufacturing of mechanical systems.
                                                     </p>
                                                 </a>
-                                                <a href="m-e-vlsi-design.html" class="mega-link">
-                                                    <h6 class="mega-title">M.E. VLSI Design</h6>
-                                                    <p class="mega-desc">Microchip architecture and system-on-chip
-                                                        design.
-                                                    </p>
-                                                </a>
+                                                
                                             </div>
                                             <div class="col-lg-4 col-md-6 mega-col">
                                                 <a href="artificial-intelligence-and-data-science.html"
@@ -468,10 +463,7 @@ $alumni = $stmt->fetchAll();
                                                     <p class="mega-desc">Business leadership and corporate strategies.
                                                     </p>
                                                 </a>
-                                                <a href="science-and-humanities.html" class="mega-link">
-                                                    <h6 class="mega-title">Science & Humanities</h6>
-                                                    <p class="mega-desc">Foundational sciences and general studies.</p>
-                                                </a>
+                                                
                                             </div>
                                             <div class="col-lg-4 col-md-6 mega-col">
                                                 <a href="electronics-and-communication-engineering.html"
@@ -485,6 +477,12 @@ $alumni = $stmt->fetchAll();
                                                 <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                     <h6 class="mega-title">M.E. Computer Science and Engineering</h6>
                                                     <p class="mega-desc">Advanced postgraduate computing logic.</p>
+                                                </a>
+                                                <a href="m-e-vlsi-design.html" class="mega-link">
+                                                    <h6 class="mega-title">M.E. VLSI Design</h6>
+                                                    <p class="mega-desc">Microchip architecture and system-on-chip
+                                                        design.
+                                                    </p>
                                                 </a>
                                             </div>
                                         </div>

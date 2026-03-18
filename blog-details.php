@@ -307,11 +307,7 @@ $shareText = rawurlencode("Check this out");
                                                 <h6 class="mega-title">Mechanical Engineering</h6>
                                                 <p class="mega-desc">Design and manufacturing of mechanical systems.</p>
                                             </a>
-                                            <a href="m-e-vlsi-design.html" class="mega-link">
-                                                <h6 class="mega-title">M.E. VLSI Design</h6>
-                                                <p class="mega-desc">Microchip architecture and system-on-chip design.
-                                                </p>
-                                            </a>
+
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="artificial-intelligence-and-data-science.html" class="mega-link">
@@ -326,10 +322,7 @@ $shareText = rawurlencode("Check this out");
                                                 <h6 class="mega-title">Master of Business Administration</h6>
                                                 <p class="mega-desc">Business leadership and corporate strategies.</p>
                                             </a>
-                                            <a href="science-and-humanities.html" class="mega-link">
-                                                <h6 class="mega-title">Science & Humanities</h6>
-                                                <p class="mega-desc">Foundational sciences and general studies.</p>
-                                            </a>
+
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="electronics-and-communication-engineering.html" class="mega-link">
@@ -341,6 +334,11 @@ $shareText = rawurlencode("Check this out");
                                             <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. Computer Science and Engineering</h6>
                                                 <p class="mega-desc">Advanced postgraduate computing logic.</p>
+                                            </a>
+                                            <a href="m-e-vlsi-design.html" class="mega-link">
+                                                <h6 class="mega-title">M.E. VLSI Design</h6>
+                                                <p class="mega-desc">Microchip architecture and system-on-chip design.
+                                                </p>
                                             </a>
                                         </div>
                                     </div>
@@ -719,10 +717,7 @@ $shareText = rawurlencode("Check this out");
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='m-e-vlsi-design.html'>M.E. VLSI Design</a>
                                 </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='science-and-humanities.html'>Science &
-                                        Humanities</a>
-                                </div>
+                                 
                             </div>
                         </div>
                     </div>
@@ -961,14 +956,14 @@ $shareText = rawurlencode("Check this out");
                         <?php echo date('F d, Y', strtotime($news['event_date'])); ?></span>
                     <span><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($news['venue']); ?></span>
                     <?php if ($news['chief_guest']): ?>
-                        <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></span>
+                            <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></span>
                     <?php endif; ?>
                 </div>
             </div>
 
             <?php if ($news['poster']): ?>
-                <img src="<?php echo htmlspecialchars($news['poster']); ?>"
-                    alt="<?php echo htmlspecialchars($news['title']); ?>" class="news-poster">
+                    <img src="<?php echo htmlspecialchars($news['poster']); ?>"
+                        alt="<?php echo htmlspecialchars($news['title']); ?>" class="news-poster">
             <?php endif; ?>
 
             <div class="row">
@@ -1015,10 +1010,10 @@ $shareText = rawurlencode("Check this out");
                             <?php echo date('F d, Y', strtotime($news['event_date'])); ?></p>
                         <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($news['venue']); ?></p>
                         <?php if ($news['event_name']): ?>
-                            <p><i class="fas fa-bookmark"></i> <?php echo htmlspecialchars($news['event_name']); ?></p>
+                                <p><i class="fas fa-bookmark"></i> <?php echo htmlspecialchars($news['event_name']); ?></p>
                         <?php endif; ?>
                         <?php if ($news['chief_guest']): ?>
-                            <p><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></p>
+                                <p><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></p>
                         <?php endif; ?>
                     </div>
                 </div>

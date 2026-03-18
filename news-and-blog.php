@@ -474,11 +474,7 @@ require_once 'admin/includes/db.php';
                                                 <h6 class="mega-title">Mechanical Engineering</h6>
                                                 <p class="mega-desc">Design and manufacturing of mechanical systems.</p>
                                             </a>
-                                            <a href="m-e-vlsi-design.html" class="mega-link">
-                                                <h6 class="mega-title">M.E. VLSI Design</h6>
-                                                <p class="mega-desc">Microchip architecture and system-on-chip design.
-                                                </p>
-                                            </a>
+
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="artificial-intelligence-and-data-science.html" class="mega-link">
@@ -493,10 +489,7 @@ require_once 'admin/includes/db.php';
                                                 <h6 class="mega-title">Master of Business Administration</h6>
                                                 <p class="mega-desc">Business leadership and corporate strategies.</p>
                                             </a>
-                                            <a href="science-and-humanities.html" class="mega-link">
-                                                <h6 class="mega-title">Science & Humanities</h6>
-                                                <p class="mega-desc">Foundational sciences and general studies.</p>
-                                            </a>
+
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="electronics-and-communication-engineering.html" class="mega-link">
@@ -508,6 +501,11 @@ require_once 'admin/includes/db.php';
                                             <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. Computer Science and Engineering</h6>
                                                 <p class="mega-desc">Advanced postgraduate computing logic.</p>
+                                            </a>
+                                            <a href="m-e-vlsi-design.html" class="mega-link">
+                                                <h6 class="mega-title">M.E. VLSI Design</h6>
+                                                <p class="mega-desc">Microchip architecture and system-on-chip design.
+                                                </p>
                                             </a>
                                         </div>
                                     </div>
@@ -886,10 +884,7 @@ require_once 'admin/includes/db.php';
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='m-e-vlsi-design.html'>M.E. VLSI Design</a>
                                 </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='science-and-humanities.html'>Science &
-                                        Humanities</a>
-                                </div>
+                                 
                             </div>
                         </div>
                     </div>
@@ -1187,32 +1182,32 @@ require_once 'admin/includes/db.php';
                     $stmt = $conn->query("SELECT * FROM news_events WHERE is_special = 1 LIMIT 1");
                     $special_event = $stmt->fetch();
                     if ($special_event): ?>
-                        <div class="special-event mb-5">
-                            <div class="news-item" style="border: 2px solid #ff6b00;">
-                                <img src="<?php echo $special_event['poster'] ? htmlspecialchars($special_event['poster']) : 'assets/images/default-event.jpg'; ?>"
-                                    class="news-image" alt="<?php echo htmlspecialchars($special_event['event_name']); ?>">
-                                <div class="news-content">
-                                    <span class="news-tag" style="background: #ff6b00;">Special Event</span>
-                                    <a href="blog-details.php?id=<?php echo $special_event['id']; ?>" class="news-title">
-                                        <?php echo htmlspecialchars($special_event['event_name']); ?>
-                                    </a>
-                                    <div class="news-date">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <?php echo date('F d, Y', strtotime($special_event['event_date'])); ?>
-                                    </div>
-                                    <p class="news-description">
-                                        <?php echo nl2br(htmlspecialchars(substr($special_event['description'], 0, 150))); ?>...
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a href="blog-details.php?id=<?php echo $special_event['id']; ?>"
-                                            class="btn btn btn-sm" style="color: #ff6b00; border-color: #ff6b00;">
-                                            View More <i class="fas fa-arrow-right ms-1"></i>
+                            <div class="special-event mb-5">
+                                <div class="news-item" style="border: 2px solid #ff6b00;">
+                                    <img src="<?php echo $special_event['poster'] ? htmlspecialchars($special_event['poster']) : 'assets/images/default-event.jpg'; ?>"
+                                        class="news-image" alt="<?php echo htmlspecialchars($special_event['event_name']); ?>">
+                                    <div class="news-content">
+                                        <span class="news-tag" style="background: #ff6b00;">Special Event</span>
+                                        <a href="blog-details.php?id=<?php echo $special_event['id']; ?>" class="news-title">
+                                            <?php echo htmlspecialchars($special_event['event_name']); ?>
                                         </a>
-                                        <i class="fas fa-share-alt share-icon"></i>
+                                        <div class="news-date">
+                                            <i class="far fa-calendar-alt"></i>
+                                            <?php echo date('F d, Y', strtotime($special_event['event_date'])); ?>
+                                        </div>
+                                        <p class="news-description">
+                                            <?php echo nl2br(htmlspecialchars(substr($special_event['description'], 0, 150))); ?>...
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <a href="blog-details.php?id=<?php echo $special_event['id']; ?>"
+                                                class="btn btn btn-sm" style="color: #ff6b00; border-color: #ff6b00;">
+                                                View More <i class="fas fa-arrow-right ms-1"></i>
+                                            </a>
+                                            <i class="fas fa-share-alt share-icon"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     <?php endif; ?>
 
 
@@ -1258,62 +1253,62 @@ require_once 'admin/includes/db.php';
                                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)):
                                     $event_date = strtotime($row['event_date']);
                                     ?>
-                                    <div class="news-item">
-                                        <img src="<?php echo $row['poster'] ? htmlspecialchars($row['poster']) : 'assets/images/default-event.jpg'; ?>"
-                                            class="news-image" alt="<?php echo htmlspecialchars($row['event_name']); ?>">
-                                        <div class="news-content">
-                                            <span class="news-tag">Featured News</span>
-                                            <a href="blog-details.php?id=<?php echo $row['id']; ?>" class="news-title">
-                                                <?php echo htmlspecialchars($row['event_name']); ?>
-                                            </a>
-                                            <div class="news-date">
-                                                <i class="far fa-calendar-alt"></i>
-                                                <?php echo date('d', $event_date) . ' ' . date('M', $event_date); ?>
-                                            </div>
-                                            <p class="news-description">
-                                                <?php echo nl2br(htmlspecialchars(substr($row['description'], 0, 150))); ?>...
-                                            </p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <a href="blog-details.php?id=<?php echo $row['id']; ?>"
-                                                    class="btn btn btn-sm" style="color: #ff6b00; border-color: #ff6b00;">
-                                                    View More <i class="fas fa-arrow-right ms-1"></i>
+                                        <div class="news-item">
+                                            <img src="<?php echo $row['poster'] ? htmlspecialchars($row['poster']) : 'assets/images/default-event.jpg'; ?>"
+                                                class="news-image" alt="<?php echo htmlspecialchars($row['event_name']); ?>">
+                                            <div class="news-content">
+                                                <span class="news-tag">Featured News</span>
+                                                <a href="blog-details.php?id=<?php echo $row['id']; ?>" class="news-title">
+                                                    <?php echo htmlspecialchars($row['event_name']); ?>
                                                 </a>
-                                                <i class="fas fa-share-alt share-icon"></i>
+                                                <div class="news-date">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                    <?php echo date('d', $event_date) . ' ' . date('M', $event_date); ?>
+                                                </div>
+                                                <p class="news-description">
+                                                    <?php echo nl2br(htmlspecialchars(substr($row['description'], 0, 150))); ?>...
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <a href="blog-details.php?id=<?php echo $row['id']; ?>"
+                                                        class="btn btn btn-sm" style="color: #ff6b00; border-color: #ff6b00;">
+                                                        View More <i class="fas fa-arrow-right ms-1"></i>
+                                                    </a>
+                                                    <i class="fas fa-share-alt share-icon"></i>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                 <?php endwhile; ?>
 
                                 <!-- Pagination for Latest News -->
                                 <?php if ($total_pages > 1): ?>
-                                    <nav aria-label="Page navigation" class="mt-4" id="latest-pagination">
-                                        <ul class="pagination justify-content-center">
-                                            <?php if ($page > 1): ?>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#" data-page="<?php echo $page - 1; ?>"
-                                                        data-container="latest" aria-label="Previous">
-                                                        <span aria-hidden="true">&laquo;</span>
-                                                    </a>
-                                                </li>
-                                            <?php endif; ?>
+                                        <nav aria-label="Page navigation" class="mt-4" id="latest-pagination">
+                                            <ul class="pagination justify-content-center">
+                                                <?php if ($page > 1): ?>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" data-page="<?php echo $page - 1; ?>"
+                                                                data-container="latest" aria-label="Previous">
+                                                                <span aria-hidden="true">&laquo;</span>
+                                                            </a>
+                                                        </li>
+                                                <?php endif; ?>
 
-                                            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                                                <li class="page-item <?php echo $i === $page ? 'active' : ''; ?>">
-                                                    <a class="page-link" href="#" data-page="<?php echo $i; ?>"
-                                                        data-container="latest"><?php echo $i; ?></a>
-                                                </li>
-                                            <?php endfor; ?>
+                                                <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                                                        <li class="page-item <?php echo $i === $page ? 'active' : ''; ?>">
+                                                            <a class="page-link" href="#" data-page="<?php echo $i; ?>"
+                                                                data-container="latest"><?php echo $i; ?></a>
+                                                        </li>
+                                                <?php endfor; ?>
 
-                                            <?php if ($page < $total_pages): ?>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#" data-page="<?php echo $page + 1; ?>"
-                                                        data-container="latest" aria-label="Next">
-                                                        <span aria-hidden="true">&raquo;</span>
-                                                    </a>
-                                                </li>
-                                            <?php endif; ?>
-                                        </ul>
-                                    </nav>
+                                                <?php if ($page < $total_pages): ?>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" data-page="<?php echo $page + 1; ?>"
+                                                                data-container="latest" aria-label="Next">
+                                                                <span aria-hidden="true">&raquo;</span>
+                                                            </a>
+                                                        </li>
+                                                <?php endif; ?>
+                                            </ul>
+                                        </nav>
                                 <?php endif; ?>
                             </div>
 
@@ -1342,56 +1337,56 @@ require_once 'admin/includes/db.php';
 
                             <div class="news-container hidden" id="past-news">
                                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                                    <div class="news-item">
-                                        <img src="<?php echo $row['poster'] ? htmlspecialchars($row['poster']) : 'assets/images/default-event.jpg'; ?>"
-                                            class="news-image" alt="<?php echo htmlspecialchars($row['event_name']); ?>">
-                                        <div class="news-content">
-                                            <span class="news-tag">Past Event</span>
-                                            <a href="blog-details.php?id=<?php echo $row['id']; ?>" class="news-title">
-                                                <?php echo htmlspecialchars($row['event_name']); ?>
-                                            </a>
-                                            <div class="news-date">
-                                                <i class="far fa-calendar-alt"></i>
-                                                <?php echo date('F d, Y', strtotime($row['event_date'])); ?>
+                                        <div class="news-item">
+                                            <img src="<?php echo $row['poster'] ? htmlspecialchars($row['poster']) : 'assets/images/default-event.jpg'; ?>"
+                                                class="news-image" alt="<?php echo htmlspecialchars($row['event_name']); ?>">
+                                            <div class="news-content">
+                                                <span class="news-tag">Past Event</span>
+                                                <a href="blog-details.php?id=<?php echo $row['id']; ?>" class="news-title">
+                                                    <?php echo htmlspecialchars($row['event_name']); ?>
+                                                </a>
+                                                <div class="news-date">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                    <?php echo date('F d, Y', strtotime($row['event_date'])); ?>
+                                                </div>
+                                                <p class="news-description">
+                                                    <?php echo nl2br(htmlspecialchars(substr($row['description'], 0, 150))); ?>...
+                                                </p>
+                                                <i class="fas fa-share-alt share-icon"></i>
                                             </div>
-                                            <p class="news-description">
-                                                <?php echo nl2br(htmlspecialchars(substr($row['description'], 0, 150))); ?>...
-                                            </p>
-                                            <i class="fas fa-share-alt share-icon"></i>
                                         </div>
-                                    </div>
                                 <?php endwhile; ?>
 
                                 <!-- Pagination for Past News -->
                                 <?php if ($past_total_pages > 1): ?>
-                                    <nav aria-label="Page navigation" class="mt-4" id="past-pagination">
-                                        <ul class="pagination justify-content-center">
-                                            <?php if ($past_page > 1): ?>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#" data-page="<?php echo $past_page - 1; ?>"
-                                                        data-container="past" aria-label="Previous">
-                                                        <span aria-hidden="true">&laquo;</span>
-                                                    </a>
-                                                </li>
-                                            <?php endif; ?>
+                                        <nav aria-label="Page navigation" class="mt-4" id="past-pagination">
+                                            <ul class="pagination justify-content-center">
+                                                <?php if ($past_page > 1): ?>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" data-page="<?php echo $past_page - 1; ?>"
+                                                                data-container="past" aria-label="Previous">
+                                                                <span aria-hidden="true">&laquo;</span>
+                                                            </a>
+                                                        </li>
+                                                <?php endif; ?>
 
-                                            <?php for ($i = 1; $i <= $past_total_pages; $i++): ?>
-                                                <li class="page-item <?php echo $i === $past_page ? 'active' : ''; ?>">
-                                                    <a class="page-link" href="#" data-page="<?php echo $i; ?>"
-                                                        data-container="past"><?php echo $i; ?></a>
-                                                </li>
-                                            <?php endfor; ?>
+                                                <?php for ($i = 1; $i <= $past_total_pages; $i++): ?>
+                                                        <li class="page-item <?php echo $i === $past_page ? 'active' : ''; ?>">
+                                                            <a class="page-link" href="#" data-page="<?php echo $i; ?>"
+                                                                data-container="past"><?php echo $i; ?></a>
+                                                        </li>
+                                                <?php endfor; ?>
 
-                                            <?php if ($past_page < $past_total_pages): ?>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#" data-page="<?php echo $past_page + 1; ?>"
-                                                        data-container="past" aria-label="Next">
-                                                        <span aria-hidden="true">&raquo;</span>
-                                                    </a>
-                                                </li>
-                                            <?php endif; ?>
-                                        </ul>
-                                    </nav>
+                                                <?php if ($past_page < $past_total_pages): ?>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" data-page="<?php echo $past_page + 1; ?>"
+                                                                data-container="past" aria-label="Next">
+                                                                <span aria-hidden="true">&raquo;</span>
+                                                            </a>
+                                                        </li>
+                                                <?php endif; ?>
+                                            </ul>
+                                        </nav>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -1411,20 +1406,20 @@ require_once 'admin/includes/db.php';
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $event_date = strtotime($row['event_date']);
                                     ?>
-                                    <div class="event-item">
-                                        <div class="event-date">
-                                            <div class="month"><?php echo date('M', $event_date); ?></div>
-                                            <div class="day"><?php echo date('d', $event_date); ?></div>
+                                        <div class="event-item">
+                                            <div class="event-date">
+                                                <div class="month"><?php echo date('M', $event_date); ?></div>
+                                                <div class="day"><?php echo date('d', $event_date); ?></div>
+                                            </div>
+                                            <div class="event-info">
+                                                <h4><?php echo htmlspecialchars($row['event_name']); ?></h4>
+                                                <p><i class="fas fa-map-marker-alt"></i>
+                                                    <?php echo htmlspecialchars($row['venue']); ?></p>
+                                            </div>
+                                            <a href="blog-details.php?id=<?php echo $row['id']; ?>" class="event-link">
+                                                <i class="fas fa-arrow-right"></i>
+                                            </a>
                                         </div>
-                                        <div class="event-info">
-                                            <h4><?php echo htmlspecialchars($row['event_name']); ?></h4>
-                                            <p><i class="fas fa-map-marker-alt"></i>
-                                                <?php echo htmlspecialchars($row['venue']); ?></p>
-                                        </div>
-                                        <a href="blog-details.php?id=<?php echo $row['id']; ?>" class="event-link">
-                                            <i class="fas fa-arrow-right"></i>
-                                        </a>
-                                    </div>
                                 <?php } ?>
                                 <!-- <div class="text-center mt-4">
                                     <a href="all-events.php" class="btn btn" style="color: #ff6b00; border-color: #ff6b00;">View More Events →</a>
