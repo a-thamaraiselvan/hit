@@ -18,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($name) || empty($email) || empty($department) || empty($year_of_passing) || empty($mobile) || empty($current_position)) {
         $message = "All fields marked with * are required.";
         $messageType = "danger";
-    } else {
+    }
+    else {
         try {
             $sql = "INSERT INTO alumni_form (name, email, department, year_of_passing, mobile, current_position, message) VALUES (:name, :email, :department, :year_of_passing, :mobile, :current_position, :message)";
             $stmt = $conn->prepare($sql);
@@ -36,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: " . $_SERVER['PHP_SELF'] . "?status=success");
             exit();
 
-        } catch (PDOException $e) {
+        }
+        catch (PDOException $e) {
             $message = "Error: " . $e->getMessage();
             $messageType = "danger";
         }
@@ -839,10 +841,10 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                             <ul>
                                 <div id="map" class="map-pd">
                                     <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62661.52189754748!2d76.99315200000001!3d11.012712!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265d0f0e202dd%3A0x6c1cb249318c77f!2shicas!5e0!3m2!1sen!2sin!4v1746593040542!5m2!1sen!2sin"
-                                        width="600" height="450" style="border-radius:20px 20px 20px 20px;"
-                                        allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28364.026242912434!2d76.997067!3d10.894546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85abaa31dcfa9%3A0x72d5daed0d228046!2sHindusthan%20Institute%20of%20Technology!5e1!3m2!1sen!2sus!4v1772600967447!5m2!1sen!2sus"
+                                            width="600" height="450" style="border-radius:20px 20px 20px 20px;"
+                                            allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </ul>
                         </div>

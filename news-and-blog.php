@@ -1225,28 +1225,28 @@ require_once 'admin/includes/db.php';
                     <div class="row">
                         <div class="col-lg-8">
                             <?php
-                            // INITIAL LOAD: LATEST (UPCOMING) NEWS (same logic as get_news.php)
-                            $page = isset($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-                            $items_per_page = 3;
-                            $offset = ($page - 1) * $items_per_page;
+// INITIAL LOAD: LATEST (UPCOMING) NEWS (same logic as get_news.php)
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$items_per_page = 3;
+$offset = ($page - 1) * $items_per_page;
 
-                            $total_stmt = $conn->query("
+$total_stmt = $conn->query("
                                 SELECT COUNT(*) FROM news_events 
                                 WHERE event_date >= CURDATE()
                             ");
-                            $total_items = (int) $total_stmt->fetchColumn();
-                            $total_pages = (int) ceil($total_items / $items_per_page);
+$total_items = (int)$total_stmt->fetchColumn();
+$total_pages = (int)ceil($total_items / $items_per_page);
 
-                            $stmt = $conn->prepare("
+$stmt = $conn->prepare("
                                 SELECT * FROM news_events 
                                 WHERE event_date >= CURDATE()
                                 ORDER BY event_date ASC
                                 LIMIT :limit OFFSET :offset
                             ");
-                            $stmt->bindValue(':limit', $items_per_page, PDO::PARAM_INT);
-                            $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
-                            $stmt->execute();
-                            ?>
+$stmt->bindValue(':limit', $items_per_page, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+$stmt->execute();
+?>
 
                             <!-- Latest News Container -->
                             <div class="news-container" id="latest-news">
@@ -1314,26 +1314,26 @@ require_once 'admin/includes/db.php';
 
                             <!-- Past News Container -->
                             <?php
-                            $past_page = isset($_GET['past_page']) ? max(1, (int) $_GET['past_page']) : 1;
-                            $past_offset = ($past_page - 1) * $items_per_page;
+$past_page = isset($_GET['past_page']) ? max(1, (int)$_GET['past_page']) : 1;
+$past_offset = ($past_page - 1) * $items_per_page;
 
-                            $past_total_stmt = $conn->query("
+$past_total_stmt = $conn->query("
                                 SELECT COUNT(*) FROM news_events 
                                 WHERE event_date < CURDATE()
                             ");
-                            $past_total_items = (int) $past_total_stmt->fetchColumn();
-                            $past_total_pages = (int) ceil($past_total_items / $items_per_page);
+$past_total_items = (int)$past_total_stmt->fetchColumn();
+$past_total_pages = (int)ceil($past_total_items / $items_per_page);
 
-                            $stmt = $conn->prepare("
+$stmt = $conn->prepare("
                                 SELECT * FROM news_events 
                                 WHERE event_date < CURDATE()
                                 ORDER BY event_date DESC
                                 LIMIT :limit OFFSET :offset
                             ");
-                            $stmt->bindValue(':limit', $items_per_page, PDO::PARAM_INT);
-                            $stmt->bindValue(':offset', $past_offset, PDO::PARAM_INT);
-                            $stmt->execute();
-                            ?>
+$stmt->bindValue(':limit', $items_per_page, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $past_offset, PDO::PARAM_INT);
+$stmt->execute();
+?>
 
                             <div class="news-container hidden" id="past-news">
                                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
@@ -1396,8 +1396,8 @@ require_once 'admin/includes/db.php';
                             <div class="upcoming-events">
                                 <h3>Upcoming Events</h3>
                                 <?php
-                                $current_date = date('Y-m-d');
-                                $stmt = $conn->query("
+$current_date = date('Y-m-d');
+$stmt = $conn->query("
                                     SELECT * FROM news_events 
                                     WHERE event_date >= '$current_date'
                                     ORDER BY event_date ASC
@@ -1537,10 +1537,10 @@ require_once 'admin/includes/db.php';
                             <ul>
                                 <div id="map" class="map-pd">
                                     <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62661.52189754748!2d76.99315200000001!3d11.012712!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265d0f0e202dd%3A0x6c1cb249318c77f!2shicas!5e0!3m2!1sen!2sin!4v1746593040542!5m2!1sen!2sin"
-                                        width="600" height="450" style="border-radius:20px 20px 20px 20px;"
-                                        allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28364.026242912434!2d76.997067!3d10.894546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85abaa31dcfa9%3A0x72d5daed0d228046!2sHindusthan%20Institute%20of%20Technology!5e1!3m2!1sen!2sus!4v1772600967447!5m2!1sen!2sus"
+                                            width="600" height="450" style="border-radius:20px 20px 20px 20px;"
+                                            allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </ul>
                         </div>
