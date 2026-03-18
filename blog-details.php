@@ -2,7 +2,7 @@
 require_once 'admin/includes/db.php';
 
 // Get news ID from URL
-$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 // Fetch news details
 $stmt = $conn->prepare("SELECT * FROM news_events WHERE id = ?");
@@ -957,14 +957,16 @@ $shareText = rawurlencode("Check this out");
                     <span><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($news['venue']); ?></span>
                     <?php if ($news['chief_guest']): ?>
                             <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></span>
-                    <?php endif; ?>
+                    <?php
+endif; ?>
                 </div>
             </div>
 
             <?php if ($news['poster']): ?>
                     <img src="<?php echo htmlspecialchars($news['poster']); ?>"
                         alt="<?php echo htmlspecialchars($news['title']); ?>" class="news-poster">
-            <?php endif; ?>
+            <?php
+endif; ?>
 
             <div class="row">
                 <div class="col-lg-8">
@@ -1011,10 +1013,12 @@ $shareText = rawurlencode("Check this out");
                         <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($news['venue']); ?></p>
                         <?php if ($news['event_name']): ?>
                                 <p><i class="fas fa-bookmark"></i> <?php echo htmlspecialchars($news['event_name']); ?></p>
-                        <?php endif; ?>
+                        <?php
+endif; ?>
                         <?php if ($news['chief_guest']): ?>
                                 <p><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></p>
-                        <?php endif; ?>
+                        <?php
+endif; ?>
                     </div>
                 </div>
             </div>
@@ -1126,10 +1130,10 @@ $shareText = rawurlencode("Check this out");
                             <ul>
                                 <div id="map" class="map-pd">
                                     <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62661.52189754748!2d76.99315200000001!3d11.012712!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265d0f0e202dd%3A0x6c1cb249318c77f!2shicas!5e0!3m2!1sen!2sin!4v1746593040542!5m2!1sen!2sin"
-                                        width="600" height="450" style="border-radius:20px 20px 20px 20px;"
-                                        allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28364.026242912434!2d76.997067!3d10.894546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85abaa31dcfa9%3A0x72d5daed0d228046!2sHindusthan%20Institute%20of%20Technology!5e1!3m2!1sen!2sus!4v1772600967447!5m2!1sen!2sus"
+                                            width="600" height="450" style="border-radius:20px 20px 20px 20px;"
+                                            allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </ul>
                         </div>
