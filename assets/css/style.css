@@ -461,7 +461,7 @@ Banner Area CSS
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  aspect-ratio: 1920 / 580;
+  aspect-ratio: 1920 / 900;
   max-height: 750px;
   position: relative;
 }
@@ -9620,7 +9620,7 @@ Features Area CSS
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  aspect-ratio: 1920 / 580;
+  aspect-ratio: 1920 / 900;
   max-height: 750px;
   position: relative;
   z-index: 1;
