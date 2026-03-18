@@ -8653,7 +8653,11 @@ Go Top CSS
 }
 
 .hit-dpt-lab-content-col {
-  padding: 0px 20px;
+  padding: 10px 40px;
+}
+
+.hit-dpt-lab-img-col {
+  padding: 9px 0px 0px 20px;
 }
 
 .hit-dpt-lab-content-col h3 {
@@ -9580,7 +9584,7 @@ Features Area CSS
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  aspect-ratio: 1920 / 900;
+  aspect-ratio: 1920 / 650;
   max-height: 750px;
   position: relative;
   z-index: 1;
