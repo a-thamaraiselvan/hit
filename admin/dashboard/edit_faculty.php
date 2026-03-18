@@ -7,20 +7,20 @@ checkLogin();
 $departments = [
     'aeronautical' => 'Aeronautical Engineering',
     'ai-ds' => 'Artificial Intelligence and Data Science',
-    'agricultural' => 'Agricultural Engineering',
-    'biomedical' => 'Biomedical Engineering',
+    // 'agricultural' => 'Agricultural Engineering',
+    // 'biomedical' => 'Biomedical Engineering',
     'cse' => 'Computer Science and Engineering',
     'ece' => 'Electronics and Communication Engineering',
-    'eee' => 'Electrical and Electronics Engineering',
+    // 'eee' => 'Electrical and Electronics Engineering',
     'it' => 'Information Technology',
     'me-cse' => 'M.E. Computer Science and Engineering',
     'me-vlsi' => 'M.E. VLSI Design',
     'mba' => 'Master of Business Administration',
     'mechanical' => 'Mechanical Engineering',
-    'mechatronics' => 'Mechatronics Engineering',
-    'pharmaceutical' => 'Pharmaceutical Technology',
-    'food-tech' => 'Food Technology',
-    's-h' => 'Science and Humanities'
+    // 'mechatronics' => 'Mechatronics Engineering',
+    // 'pharmaceutical' => 'Pharmaceutical Technology',
+    // 'food-tech' => 'Food Technology',
+    // 's-h' => 'Science and Humanities'
 ];
 
 if (!isset($_GET['id'])) {
@@ -60,27 +60,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Handle file upload if new image provided
     if (isset($_FILES["faculty_image"]) && $_FILES["faculty_image"]["error"] == 0) {
-        $dept_folder = "../../uploads/department/" . $department . "/faculty_image_folder/";
-        if (!file_exists($dept_folder)) {
-            mkdir($dept_folder, 0777, true);
-        }
-        
         $file_extension = strtolower(pathinfo($_FILES["faculty_image"]["name"], PATHINFO_EXTENSION));
-        $check = getimagesize($_FILES["faculty_image"]["tmp_name"]);
+        $allowed_extensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
         
-        if ($check !== false) {
-            $file_name = slugify($name) . "." . $file_extension;
-            $target_file = $dept_folder . $file_name;
-            
-            // Compression logic
-            $source = null;
-            if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
-                $source = imagecreatefromjpeg($_FILES["faculty_image"]["tmp_name"]);
-            } elseif ($file_extension == 'png') {
-                $source = imagecreatefrompng($_FILES["faculty_image"]["tmp_name"]);
+        if (!in_array($file_extension, $allowed_extensions)) {
+            $error = "Only JPG, JPEG, PNG, WEBP, and GIF images are allowed.";
+        } else {
+            $dept_folder = "../../uploads/department/" . $department . "/faculty_image_folder/";
+            if (!file_exists($dept_folder)) {
+                mkdir($dept_folder, 0777, true);
             }
+            $check = getimagesize($_FILES["faculty_image"]["tmp_name"]);
             
-            if ($source) {
+            if ($check !== false) {
+                $file_name = slugify($name) . "." . $file_extension;
+                $target_file = $dept_folder . $file_name;
+                
+                // Compression logic
+                $source = null;
+                if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
+                    $source = imagecreatefromjpeg($_FILES["faculty_image"]["tmp_name"]);
+                } elseif ($file_extension == 'png') {
+                    $source = imagecreatefrompng($_FILES["faculty_image"]["tmp_name"]);
+                } elseif ($file_extension == 'webp') {
+                    $source = imagecreatefromwebp($_FILES["faculty_image"]["tmp_name"]);
+                } elseif ($file_extension == 'gif') {
+                    $source = imagecreatefromgif($_FILES["faculty_image"]["tmp_name"]);
+                }
+                
+                if ($source) {
                 // Delete old image file if it exists and is different
                 if ($faculty['image_path'] && file_exists("../../" . $faculty['image_path'])) {
                     // Only delete if it's in the department folders (to avoid deleting shared assets if any)
@@ -105,9 +113,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 
                 $new_image = imagecreatetruecolor($new_width, $new_height);
-                if ($file_extension == 'png') {
+                if ($file_extension == 'png' || $file_extension == 'webp') {
                     imagealphablending($new_image, false);
                     imagesavealpha($new_image, true);
+                } elseif ($file_extension == 'gif') {
+                    $transparent = imagecolorallocatealpha($new_image, 255, 255, 255, 127);
+                    imagefilledrectangle($new_image, 0, 0, $new_width, $new_height, $transparent);
                 }
                 
                 imagecopyresampled($new_image, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
@@ -115,24 +126,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
                     $quality = $_FILES["faculty_image"]["size"] > 2 * 1024 * 1024 ? 50 : 80;
                     imagejpeg($new_image, $target_file, $quality);
-                } else {
+                } elseif ($file_extension == 'png') {
                     imagepng($new_image, $target_file, 9);
+                } elseif ($file_extension == 'webp') {
+                    $quality = $_FILES["faculty_image"]["size"] > 2 * 1024 * 1024 ? 50 : 80;
+                    imagewebp($new_image, $target_file, $quality);
+                } elseif ($file_extension == 'gif') {
+                    imagegif($new_image, $target_file);
                 }
                 
                 imagedestroy($new_image);
                 imagedestroy($source);
                 $image_path = "uploads/department/" . $department . "/faculty_image_folder/" . $file_name;
             }
+            } else {
+                $error = "File is not a valid image.";
+            }
         }
     }
     
-    try {
-        $stmt = $conn->prepare("UPDATE faculty SET name=?, designation=?, experience=?, qualification=?, specialization=?, joined_date=?, association=?, email=?, department=?, about=?, image_path=?, priority=? WHERE id=?");
-        $stmt->execute([$name, $designation, $experience, $qualification, $specialization, $joined_date, $association, $email, $department, $about, $image_path, $priority, $id]);
-        header("Location: manage_faculty.php?dept=" . $department . "&msg=Faculty updated successfully");
-        exit();
-    } catch (PDOException $e) {
-        $error = "Database Error: " . $e->getMessage();
+    if (!isset($error)) {
+        try {
+            $stmt = $conn->prepare("UPDATE faculty SET name=?, designation=?, experience=?, qualification=?, specialization=?, joined_date=?, association=?, email=?, department=?, about=?, image_path=?, priority=? WHERE id=?");
+            $stmt->execute([$name, $designation, $experience, $qualification, $specialization, $joined_date, $association, $email, $department, $about, $image_path, $priority, $id]);
+            header("Location: manage_faculty.php?dept=" . $department . "&msg=Faculty updated successfully");
+            exit();
+        } catch (PDOException $e) {
+            $error = "Database Error: " . $e->getMessage();
+        }
     }
 }
 
@@ -214,7 +235,7 @@ ob_start();
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Faculty Image (Leave blank to keep current)</label>
+                            <label class="form-label">Faculty Image (Leave blank to keep current & Allowed formats: JPG, JPEG, PNG)</label>
                             <div class="mb-2">
                                 <img src="../../<?php echo $faculty['image_path']; ?>" alt="" style="width: 100px; height: 100px; object-fit: cover; border: 1px solid #ddd;">
                             </div>

@@ -153,8 +153,8 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                     <div class="top-left-items">
                         <ul>
                             <li><i class='bx bxs-time'></i> Mon - Sat : 9:00 AM - 06:00 PM</li>
-                            <li><i class='bx bxs-envelope'></i> <a href="mailto:info@hindusthan.net">contact :
-                                    info@hindusthan.net</a></li>
+                            <li><i class='bx bxs-envelope'></i> <a href="mailto:hit.office@hindusthan.net">contact :
+                                    hit.office@hindusthan.net</a></li>
                         </ul>
                     </div>
                 </div>
@@ -467,7 +467,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='m-e-vlsi-design.html'>M.E. VLSI Design</a>
                                 </div>
-                                 
+
                             </div>
                         </div>
                     </div>
@@ -562,7 +562,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                 <ul class="contact-info list-style">
                     <li>
                         <i class="bx bxs-envelope"></i>
-                        <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
+                        <a href="mailto:hit.office@hindusthan.net">contact : hit.office@hindusthan.net</a>
                     </li>
                     <li>
                         <i class="bx bxs-time"></i>
@@ -620,7 +620,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                             516-0885</a></li>
                     <li>
                         <i class="bx bxs-envelope"></i>
-                        <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
+                        <a href="mailto:hit.office@hindusthan.net">contact : hit.office@hindusthan.net</a>
                     </li>
                     <li>
                         <i class="bx bxs-map"></i>
@@ -664,12 +664,12 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                 <div class="col-lg-8">
                     <div class="form-container">
                         <?php if ($message): ?>
-                                <div class="alert alert-<?php echo $messageType; ?> alert-dismissible fade show" role="alert">
-                                    <?php echo $message; ?>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
+                            <div class="alert alert-<?php echo $messageType; ?> alert-dismissible fade show" role="alert">
+                                <?php echo $message; ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
                         <?php endif; ?>
 
                         <form method="POST" action="">
@@ -781,8 +781,8 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                         style="color: white;"> +91 80983 33333</a>
                                 </div>
                                 <div style="color: white;">
-                                    <i class="bx bxs-envelope"></i> <a href="mailto:info@hindusthan.net"
-                                        style="color: white;"> info@hindusthan.net</a>
+                                    <i class="bx bxs-envelope"></i> <a href="mailto:hit.office@hindusthan.net"
+                                        style="color: white;"> hit.office@hindusthan.net</a>
                                 </div>
 
                             </ul>

@@ -445,7 +445,7 @@ $alumni = $stmt->fetchAll();
                                                     <p class="mega-desc">Design and manufacturing of mechanical systems.
                                                     </p>
                                                 </a>
-                                                
+
                                             </div>
                                             <div class="col-lg-4 col-md-6 mega-col">
                                                 <a href="artificial-intelligence-and-data-science.html"
@@ -463,7 +463,7 @@ $alumni = $stmt->fetchAll();
                                                     <p class="mega-desc">Business leadership and corporate strategies.
                                                     </p>
                                                 </a>
-                                                
+
                                             </div>
                                             <div class="col-lg-4 col-md-6 mega-col">
                                                 <a href="electronics-and-communication-engineering.html"
@@ -1060,7 +1060,7 @@ $alumni = $stmt->fetchAll();
                     <ul class="contact-info list-style">
                         <li>
                             <i class="bx bxs-envelope"></i>
-                            <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
+                            <a href="mailto:hit.office@hindusthan.net">contact : hit.office@hindusthan.net</a>
                         </li>
                         <li>
                             <i class="bx bxs-time"></i>
@@ -1121,7 +1121,7 @@ $alumni = $stmt->fetchAll();
                                 516-0885</a></li>
                         <li>
                             <i class="bx bxs-envelope"></i>
-                            <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
+                            <a href="mailto:hit.office@hindusthan.net">contact : hit.office@hindusthan.net</a>
                         </li>
                         <li>
                             <i class="bx bxs-map"></i>
@@ -1342,8 +1342,8 @@ $alumni = $stmt->fetchAll();
                                         <a href="tel:+91 80983 33333" style="color: white;">+91 80983 33333</a>
                                     </div>
                                     <div>
-                                        <a href="mailto:info@hindusthan.net"
-                                            style="color: white;">info@hindusthan.net</a>
+                                        <a href="mailto:hit.office@hindusthan.net"
+                                            style="color: white;">hit.office@hindusthan.net</a>
                                     </div>
 
                                 </ul>

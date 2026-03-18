@@ -451,11 +451,11 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class='nav-link active' href='contact-us.html'>
                                 Contact
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="others-option d-flex align-items-center">
                         <div class="option-item">
@@ -767,7 +767,7 @@
                 <ul class="contact-info list-style">
                     <li>
                         <i class="bx bxs-envelope"></i>
-                        <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
+                        <a href="mailto:hit.office@hindusthan.net">contact : hit.office@hindusthan.net</a>
                     </li>
                     <li>
                         <i class="bx bxs-time"></i>
@@ -826,7 +826,7 @@
                             516-0885</a></li>
                     <li>
                         <i class="bx bxs-envelope"></i>
-                        <a href="mailto:info@hindusthan.net">info@hindusthan.net</a>
+                        <a href="mailto:hit.office@hindusthan.net">hit.office@hindusthan.net</a>
 
                     </li>
                     <li>
@@ -878,12 +878,14 @@
                                 queries.
                                 Feel free to reach out — we’re just a call or message away!</p>
                             <p>For verifications, please email <a
-                                    href="mailto:info@hindusthan.net">info@hindusthan.net</a>
+                                    href="mailto:hit.office@hindusthan.net">hit.office@hindusthan.net</a>
                         </div>
 
-
+                        <div id="formMessage"></div>
                         <div class="contact-form">
-                            <form id="contactForm" onsubmit="return validateAndSubmitForm(event)">
+                            <form id="contactForm" action="save_enquiry.php" method="POST"
+                                onsubmit="return validateForm()">
+                                <!-- <form id="contactForm" onsubmit="return validateAndSubmitForm(event)"> -->
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
@@ -968,7 +970,7 @@
                                     Coimbatore - 641028 & Valley Campus, Pollachi Highway, Coimbatore -
                                     641032, Tamilnadu, India.</li>
                                 <li><i class='bx bxs-envelope'></i><a
-                                        href="mailto:info@hindusthan.net">info@hindusthan.net</a>
+                                        href="mailto:hit.office@hindusthan.net">hit.office@hindusthan.net</a>
                                 </li>
                             </ul>
                         </div>
@@ -1025,8 +1027,8 @@
                                         style="color: white;"> +91 80983 33333</a>
                                 </div>
                                 <div style="color: white;">
-                                    <i class="bx bxs-envelope"></i> <a href="mailto:info@hindusthan.net"
-                                        style="color: white;"> info@hindusthan.net</a>
+                                    <i class="bx bxs-envelope"></i> <a href="mailto:hit.office@hindusthan.net"
+                                        style="color: white;"> hit.office@hindusthan.net</a>
                                 </div>
 
                             </ul>
@@ -1140,22 +1142,22 @@
     <!-- End Footer Area -->
 
     <!-- Response Modal -->
-    <div class="modal fade" id="responseModal" tabindex="-1" aria-labelledby="responseModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="responseModal" tabindex="-1" aria-labelledby="responseModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="responseModalLabel">Enquiry Message</h5>
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                   
                 </div>
                 <div class="modal-body" id="responseModalBody">
-                    <!-- Message will be inserted here -->
+                  
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="go-top active">
         <i class="bx bx-up-arrow-alt"></i>
@@ -1194,7 +1196,7 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/messagefloating.js"></script>
     <script src="assets/js/custom.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -1252,46 +1254,38 @@
             return isValid;
         }
 
-        function validateAndSubmitForm(event) {
-            event.preventDefault();
 
-            if (validateForm()) {
-                const formData = new FormData(document.getElementById('contactForm'));
+    </script>
 
-                fetch('save_enquiry.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        // Show modal with response message
-                        const modalBody = document.getElementById('responseModalBody');
-                        if (data.status === 'success') {
-                            modalBody.innerHTML = '<div class="alert alert-success">Enquiry submitted successfully!</div>';
-                            // Clear form
-                            document.getElementById('contactForm').reset();
-                        } else {
-                            modalBody.innerHTML = '<div class="alert alert-danger">Error submitting enquiry. Please try again.</div>';
-                        }
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const status = params.get("status");
 
-                        // Show the modal
-                        const responseModal = new bootstrap.Modal(document.getElementById('responseModal'));
-                        responseModal.show();
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        // Show error in modal
-                        const modalBody = document.getElementById('responseModalBody');
-                        modalBody.innerHTML = '<div class="alert alert-danger">An unexpected error occurred. Please try again later.</div>';
+        if (status === "success") {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Enquiry submitted successfully!',
+                confirmButtonColor: '#3085d6'
+            });
+        } else if (status === "error") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops!',
+                text: 'Something went wrong. Please try again.',
+                confirmButtonColor: '#d33'
+            });
+        }
 
-                        const responseModal = new bootstrap.Modal(document.getElementById('responseModal'));
-                        responseModal.show();
-                    });
-            }
-
-            return false;
+        // Remove ?status from URL
+        if (window.history.replaceState) {
+            const url = window.location.origin + window.location.pathname;
+            window.history.replaceState({}, document.title, url);
         }
     </script>
+
+
+
 </body>
 
 </html>
