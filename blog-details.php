@@ -717,7 +717,7 @@ $shareText = rawurlencode("Check this out");
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='m-e-vlsi-design.html'>M.E. VLSI Design</a>
                                 </div>
-                                 
+
                             </div>
                         </div>
                     </div>
@@ -898,7 +898,7 @@ $shareText = rawurlencode("Check this out");
                 <ul class="contact-info list-style">
                     <li>
                         <i class="bx bxs-envelope"></i>
-                        <a href="mailto:info@hindusthan.net">contact : info@hindusthan.net</a>
+                        <a href="mailto:hit.office@hindusthan.net">contact : hit.office@hindusthan.net</a>
                     </li>
                     <li>
                         <i class="bx bxs-time"></i>
@@ -956,17 +956,15 @@ $shareText = rawurlencode("Check this out");
                         <?php echo date('F d, Y', strtotime($news['event_date'])); ?></span>
                     <span><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($news['venue']); ?></span>
                     <?php if ($news['chief_guest']): ?>
-                            <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></span>
-                    <?php
-endif; ?>
+                        <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></span>
+                    <?php endif; ?>
                 </div>
             </div>
 
             <?php if ($news['poster']): ?>
-                    <img src="<?php echo htmlspecialchars($news['poster']); ?>"
-                        alt="<?php echo htmlspecialchars($news['title']); ?>" class="news-poster">
-            <?php
-endif; ?>
+                <img src="<?php echo htmlspecialchars($news['poster']); ?>"
+                    alt="<?php echo htmlspecialchars($news['title']); ?>" class="news-poster">
+            <?php endif; ?>
 
             <div class="row">
                 <div class="col-lg-8">
@@ -1012,13 +1010,11 @@ endif; ?>
                             <?php echo date('F d, Y', strtotime($news['event_date'])); ?></p>
                         <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($news['venue']); ?></p>
                         <?php if ($news['event_name']): ?>
-                                <p><i class="fas fa-bookmark"></i> <?php echo htmlspecialchars($news['event_name']); ?></p>
-                        <?php
-endif; ?>
+                            <p><i class="fas fa-bookmark"></i> <?php echo htmlspecialchars($news['event_name']); ?></p>
+                        <?php endif; ?>
                         <?php if ($news['chief_guest']): ?>
-                                <p><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></p>
-                        <?php
-endif; ?>
+                            <p><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -1071,8 +1067,8 @@ endif; ?>
                                         style="color: white;"> +91 80983 33333</a>
                                 </div>
                                 <div style="color: white;">
-                                    <i class="bx bxs-envelope"></i> <a href="mailto:info@hindusthan.net"
-                                        style="color: white;"> info@hindusthan.net</a>
+                                    <i class="bx bxs-envelope"></i> <a href="mailto:hit.office@hindusthan.net"
+                                        style="color: white;"> hit.office@hindusthan.net</a>
                                 </div>
 
                             </ul>

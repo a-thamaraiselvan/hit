@@ -49,59 +49,77 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_FILES["faculty_image"]) && $_FILES["faculty_image"]["error"] == 0) {
         $file_extension = strtolower(pathinfo($_FILES["faculty_image"]["name"], PATHINFO_EXTENSION));
-        $check = getimagesize($_FILES["faculty_image"]["tmp_name"]);
+        $allowed_extensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
 
-        if ($check !== false) {
-            $file_name = slugify($name) . "." . $file_extension;
-            $target_file = $dept_folder . $file_name;
-
-            // Compression logic
-            $source = null;
-            if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
-                $source = imagecreatefromjpeg($_FILES["faculty_image"]["tmp_name"]);
-            } elseif ($file_extension == 'png') {
-                $source = imagecreatefrompng($_FILES["faculty_image"]["tmp_name"]);
-            }
-
-            if ($source) {
-                $width = imagesx($source);
-                $height = imagesy($source);
-
-                // Resize if needed or if over 2MB
-                $max_dim = 800;
-                if ($_FILES["faculty_image"]["size"] > $max_size) {
-                    $max_dim = 600;
-                }
-
-                if ($width > $height) {
-                    $new_width = $max_dim;
-                    $new_height = floor($height * ($max_dim / $width));
-                } else {
-                    $new_height = $max_dim;
-                    $new_width = floor($width * ($max_dim / $height));
-                }
-
-                $new_image = imagecreatetruecolor($new_width, $new_height);
-                if ($file_extension == 'png') {
-                    imagealphablending($new_image, false);
-                    imagesavealpha($new_image, true);
-                }
-
-                imagecopyresampled($new_image, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-
-                if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
-                    $quality = $_FILES["faculty_image"]["size"] > $max_size ? 50 : 80;
-                    imagejpeg($new_image, $target_file, $quality);
-                } else {
-                    imagepng($new_image, $target_file, 9);
-                }
-
-                imagedestroy($new_image);
-                imagedestroy($source);
-                $image_path = "uploads/department/" . $department . "/faculty_image_folder/" . $file_name;
-            }
+        if (!in_array($file_extension, $allowed_extensions)) {
+            $error = "Only JPG, JPEG, PNG, WEBP, and GIF images are allowed.";
         } else {
-            $error = "File is not a valid image.";
+            $check = getimagesize($_FILES["faculty_image"]["tmp_name"]);
+
+            if ($check !== false) {
+                $file_name = slugify($name) . "." . $file_extension;
+                $target_file = $dept_folder . $file_name;
+
+                // Compression logic
+                $source = null;
+                if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
+                    $source = imagecreatefromjpeg($_FILES["faculty_image"]["tmp_name"]);
+                } elseif ($file_extension == 'png') {
+                    $source = imagecreatefrompng($_FILES["faculty_image"]["tmp_name"]);
+                } elseif ($file_extension == 'webp') {
+                    $source = imagecreatefromwebp($_FILES["faculty_image"]["tmp_name"]);
+                } elseif ($file_extension == 'gif') {
+                    $source = imagecreatefromgif($_FILES["faculty_image"]["tmp_name"]);
+                }
+
+                if ($source) {
+                    $width = imagesx($source);
+                    $height = imagesy($source);
+
+                    // Resize if needed or if over 2MB
+                    $max_dim = 800;
+                    if ($_FILES["faculty_image"]["size"] > $max_size) {
+                        $max_dim = 600;
+                    }
+
+                    if ($width > $height) {
+                        $new_width = $max_dim;
+                        $new_height = floor($height * ($max_dim / $width));
+                    } else {
+                        $new_height = $max_dim;
+                        $new_width = floor($width * ($max_dim / $height));
+                    }
+
+                    $new_image = imagecreatetruecolor($new_width, $new_height);
+                    if ($file_extension == 'png' || $file_extension == 'webp') {
+                        imagealphablending($new_image, false);
+                        imagesavealpha($new_image, true);
+                    } elseif ($file_extension == 'gif') {
+                        $transparent = imagecolorallocatealpha($new_image, 255, 255, 255, 127);
+                        imagefilledrectangle($new_image, 0, 0, $new_width, $new_height, $transparent);
+                    }
+
+                    imagecopyresampled($new_image, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+
+                    if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
+                        $quality = $_FILES["faculty_image"]["size"] > $max_size ? 50 : 80;
+                        imagejpeg($new_image, $target_file, $quality);
+                    } elseif ($file_extension == 'png') {
+                        imagepng($new_image, $target_file, 9);
+                    } elseif ($file_extension == 'webp') {
+                        $quality = $_FILES["faculty_image"]["size"] > $max_size ? 50 : 80;
+                        imagewebp($new_image, $target_file, $quality);
+                    } elseif ($file_extension == 'gif') {
+                        imagegif($new_image, $target_file);
+                    }
+
+                    imagedestroy($new_image);
+                    imagedestroy($source);
+                    $image_path = "uploads/department/" . $department . "/faculty_image_folder/" . $file_name;
+                }
+            } else {
+                $error = "File is not a valid image.";
+            }
         }
     } else {
         $error = "Please upload a faculty image.";
@@ -205,7 +223,8 @@ ob_start();
                         <div class="mb-3">
                             <label class="form-label">Faculty Image</label>
                             <input type="file" name="faculty_image" class="form-control" accept="image/*" required>
-                            <div class="form-text">Images over 2MB will be automatically compressed.</div>
+                            <div class="form-text">Images over 2MB will be automatically compressed & Allowed formats:
+                                JPG, JPEG, PNG.</div>
                         </div>
 
                         <div class="mb-4">
