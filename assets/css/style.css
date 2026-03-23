@@ -9615,7 +9615,7 @@ Features Area CSS
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  aspect-ratio: 1920 / 650;
+  aspect-ratio: 1920 / 580;
   max-height: 750px;
   position: relative;
   z-index: 1;
@@ -14087,5 +14087,113 @@ NBA DCP Section CSS
 
 /* ===== VIDEO SECTION END ===== */
 
+/* ==========================================================================
+   Innovate Section Animated Background (Similar to Departments)
+   ========================================================================== */
 
+/* 1. Main container setup for the animated background */
+.innovate-animated-bg {
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Ensures animations stay within the section */
+}
 
+/* 2. Soft background shapes (Top-left & Bottom-right fading gradients) */
+.innovate-animated-bg::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 250px;
+    height: 250px;
+    /* Dotted radial background for texture */
+    background-image: radial-gradient(#ed6f26 2.5px, transparent 2.5px);
+    background-size: 25px 25px;
+    opacity: 0.1; /* Subtle visibility */
+    z-index: -1; /* Behind text */
+}
+
+.innovate-animated-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    /* Soft glowing gradient */
+    background: radial-gradient(circle, rgba(237, 111, 38, 0.08) 0%, transparent 65%);
+    z-index: -1;
+}
+
+/* 3. The rotating decorative pattern element */
+.innovate-bg-pattern {
+    position: absolute;
+    top: 15%;
+    right: 8%;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed rgba(237, 111, 38, 0.25); /* Orange dashed border */
+    border-radius: 50%;
+    z-index: -1;
+    /* Smooth continuous rotation */
+    animation: rotateInnovatePattern 25s linear infinite;
+}
+
+/* 4. Secondary floating shape inside the animating pattern */
+.innovate-bg-pattern::after {
+    content: '';
+    position: absolute;
+    bottom: -50vh;
+    left: -75vw;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, rgba(237, 111, 38, 0.15), transparent);
+    border-radius: 16px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+/* Keyframes for the rotation animation */
+@keyframes rotateInnovatePattern {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 5. Responsive Adjustments */
+@media (max-width: 991px) {
+    /* Scale down elements for tablet */
+    .innovate-bg-pattern {
+        width: 90px;
+        height: 90px;
+        right: 5%;
+    }
+    
+    .innovate-bg-pattern::after {
+        width: 60px;
+        height: 60px;
+        bottom: -30vh;
+        left: -50vw;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Scale down and reposition elements for mobile */
+    .innovate-bg-pattern {
+        width: 70px;
+        height: 70px;
+        top: 5%;
+        right: -10px; /* Hide slightly off-screen to save space */
+    }
+    
+    .innovate-animated-bg::before {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .innovate-animated-bg::after {
+        width: 250px;
+        height: 250px;
+        bottom: -50px;
+        right: -50px;
+    }
+}

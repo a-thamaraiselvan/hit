@@ -68,11 +68,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $dept_folder = "../../uploads/department/" . $department . "/faculty_image_folder/";
             if (!file_exists($dept_folder)) {
-                mkdir($dept_folder, 0777, true);
+                if (!mkdir($dept_folder, 0777, true)) {
+                    $error = "Failed to create directory. Please check server folder permissions for 'uploads/department/'.";
+                }
             }
-            $check = getimagesize($_FILES["faculty_image"]["tmp_name"]);
-            
-            if ($check !== false) {
+
+            if (!isset($error)) {
+                $check = getimagesize($_FILES["faculty_image"]["tmp_name"]);
+                
+                if ($check !== false) {
                 $file_name = slugify($name) . "." . $file_extension;
                 $target_file = $dept_folder . $file_name;
                 
@@ -97,50 +101,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     }
                 }
 
-                $width = imagesx($source);
-                $height = imagesy($source);
-                $max_dim = 800;
-                if ($_FILES["faculty_image"]["size"] > 2 * 1024 * 1024) {
-                    $max_dim = 600;
+                    $width = imagesx($source);
+                    $height = imagesy($source);
+                    
+                    // Resize if needed or if over 2MB
+                    $max_dim = 800;
+                    if ($_FILES["faculty_image"]["size"] > 2 * 1024 * 1024) {
+                        $max_dim = 600;
+                    }
+                    
+                    if ($width > $height) {
+                        $new_width = $max_dim;
+                        $new_height = floor($height * ($max_dim / $width));
+                    } else {
+                        $new_height = $max_dim;
+                        $new_width = floor($width * ($max_dim / $height));
+                    }
+                    
+                    $new_image = imagecreatetruecolor($new_width, $new_height);
+                    if ($file_extension == 'png' || $file_extension == 'webp') {
+                        imagealphablending($new_image, false);
+                        imagesavealpha($new_image, true);
+                    } elseif ($file_extension == 'gif') {
+                        $transparent = imagecolorallocatealpha($new_image, 255, 255, 255, 127);
+                        imagefilledrectangle($new_image, 0, 0, $new_width, $new_height, $transparent);
+                    }
+                    
+                    imagecopyresampled($new_image, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+                    
+                    $success = false;
+                    if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
+                        $quality = $_FILES["faculty_image"]["size"] > 2 * 1024 * 1024 ? 50 : 80;
+                        $success = imagejpeg($new_image, $target_file, $quality);
+                    } elseif ($file_extension == 'png') {
+                        $success = imagepng($new_image, $target_file, 9);
+                    } elseif ($file_extension == 'webp') {
+                        $quality = $_FILES["faculty_image"]["size"] > 2 * 1024 * 1024 ? 50 : 80;
+                        $success = imagewebp($new_image, $target_file, $quality);
+                    } elseif ($file_extension == 'gif') {
+                        $success = imagegif($new_image, $target_file);
+                    }
+                    
+                    imagedestroy($new_image);
+                    imagedestroy($source);
+                    
+                    if ($success) {
+                        $image_path = "uploads/department/" . $department . "/faculty_image_folder/" . $file_name;
+                    } else {
+                        $error = "Failed to save image. Please check write permissions on the live server.";
+                    }
                 }
-                
-                if ($width > $height) {
-                    $new_width = $max_dim;
-                    $new_height = floor($height * ($max_dim / $width));
-                } else {
-                    $new_height = $max_dim;
-                    $new_width = floor($width * ($max_dim / $height));
-                }
-                
-                $new_image = imagecreatetruecolor($new_width, $new_height);
-                if ($file_extension == 'png' || $file_extension == 'webp') {
-                    imagealphablending($new_image, false);
-                    imagesavealpha($new_image, true);
-                } elseif ($file_extension == 'gif') {
-                    $transparent = imagecolorallocatealpha($new_image, 255, 255, 255, 127);
-                    imagefilledrectangle($new_image, 0, 0, $new_width, $new_height, $transparent);
-                }
-                
-                imagecopyresampled($new_image, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-                
-                if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
-                    $quality = $_FILES["faculty_image"]["size"] > 2 * 1024 * 1024 ? 50 : 80;
-                    imagejpeg($new_image, $target_file, $quality);
-                } elseif ($file_extension == 'png') {
-                    imagepng($new_image, $target_file, 9);
-                } elseif ($file_extension == 'webp') {
-                    $quality = $_FILES["faculty_image"]["size"] > 2 * 1024 * 1024 ? 50 : 80;
-                    imagewebp($new_image, $target_file, $quality);
-                } elseif ($file_extension == 'gif') {
-                    imagegif($new_image, $target_file);
-                }
-                
-                imagedestroy($new_image);
-                imagedestroy($source);
-                $image_path = "uploads/department/" . $department . "/faculty_image_folder/" . $file_name;
-            }
             } else {
                 $error = "File is not a valid image.";
+            }
             }
         }
     }

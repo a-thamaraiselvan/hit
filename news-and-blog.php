@@ -380,7 +380,7 @@ require_once 'admin/includes/db.php';
                 <div class="col-lg-7 col-12 col-xm-12">
                     <div class="top-right-items">
                         <ul>
-                            <li><a href='#'>Exam Result Even Sem</a></li>
+                            <!-- <li><a href='#'>Exam Result Even Sem</a></li> -->
                             <!-- <li><a href='student-activities.html'>Students</a></li> -->
                             <!-- <li><a href='alumni.php'>Alumni</a></li> -->
                             <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li>
@@ -1178,10 +1178,10 @@ require_once 'admin/includes/db.php';
 
 
                     <?php
-                    // Display special event if exists
-                    $stmt = $conn->query("SELECT * FROM news_events WHERE is_special = 1 LIMIT 1");
-                    $special_event = $stmt->fetch();
-                    if ($special_event): ?>
+// Display special event if exists
+$stmt = $conn->query("SELECT * FROM news_events WHERE is_special = 1 LIMIT 1");
+$special_event = $stmt->fetch();
+if ($special_event): ?>
                         <div class="special-event mb-5">
                             <div class="news-item" style="border: 2px solid #ff6b00;">
                                 <img src="<?php echo $special_event['poster'] ? htmlspecialchars($special_event['poster']) : 'assets/images/default-event.jpg'; ?>"
@@ -1208,7 +1208,8 @@ require_once 'admin/includes/db.php';
                                 </div>
                             </div>
                         </div>
-                    <?php endif; ?>
+                    <?php
+endif; ?>
 
 
                     <div class="toggle-container">
@@ -1225,34 +1226,34 @@ require_once 'admin/includes/db.php';
                     <div class="row">
                         <div class="col-lg-8">
                             <?php
-                            // INITIAL LOAD: LATEST (UPCOMING) NEWS (same logic as get_news.php)
-                            $page = isset($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-                            $items_per_page = 3;
-                            $offset = ($page - 1) * $items_per_page;
+// INITIAL LOAD: LATEST (UPCOMING) NEWS (same logic as get_news.php)
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$items_per_page = 3;
+$offset = ($page - 1) * $items_per_page;
 
-                            $total_stmt = $conn->query("
+$total_stmt = $conn->query("
                                 SELECT COUNT(*) FROM news_events 
                                 WHERE event_date >= CURDATE()
                             ");
-                            $total_items = (int) $total_stmt->fetchColumn();
-                            $total_pages = (int) ceil($total_items / $items_per_page);
+$total_items = (int)$total_stmt->fetchColumn();
+$total_pages = (int)ceil($total_items / $items_per_page);
 
-                            $stmt = $conn->prepare("
+$stmt = $conn->prepare("
                                 SELECT * FROM news_events 
                                 WHERE event_date >= CURDATE()
                                 ORDER BY event_date ASC
                                 LIMIT :limit OFFSET :offset
                             ");
-                            $stmt->bindValue(':limit', $items_per_page, PDO::PARAM_INT);
-                            $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
-                            $stmt->execute();
-                            ?>
+$stmt->bindValue(':limit', $items_per_page, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+$stmt->execute();
+?>
 
                             <!-- Latest News Container -->
                             <div class="news-container" id="latest-news">
                                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)):
-                                    $event_date = strtotime($row['event_date']);
-                                    ?>
+    $event_date = strtotime($row['event_date']);
+?>
                                     <div class="news-item">
                                         <img src="<?php echo $row['poster'] ? htmlspecialchars($row['poster']) : 'assets/images/default-event.jpg'; ?>"
                                             class="news-image" alt="<?php echo htmlspecialchars($row['event_name']); ?>">
@@ -1277,7 +1278,8 @@ require_once 'admin/includes/db.php';
                                             </div>
                                         </div>
                                     </div>
-                                <?php endwhile; ?>
+                                <?php
+endwhile; ?>
 
                                 <!-- Pagination for Latest News -->
                                 <?php if ($total_pages > 1): ?>
@@ -1290,14 +1292,16 @@ require_once 'admin/includes/db.php';
                                                         <span aria-hidden="true">&laquo;</span>
                                                     </a>
                                                 </li>
-                                            <?php endif; ?>
+                                            <?php
+    endif; ?>
 
                                             <?php for ($i = 1; $i <= $total_pages; $i++): ?>
                                                 <li class="page-item <?php echo $i === $page ? 'active' : ''; ?>">
                                                     <a class="page-link" href="#" data-page="<?php echo $i; ?>"
                                                         data-container="latest"><?php echo $i; ?></a>
                                                 </li>
-                                            <?php endfor; ?>
+                                            <?php
+    endfor; ?>
 
                                             <?php if ($page < $total_pages): ?>
                                                 <li class="page-item">
@@ -1306,34 +1310,36 @@ require_once 'admin/includes/db.php';
                                                         <span aria-hidden="true">&raquo;</span>
                                                     </a>
                                                 </li>
-                                            <?php endif; ?>
+                                            <?php
+    endif; ?>
                                         </ul>
                                     </nav>
-                                <?php endif; ?>
+                                <?php
+endif; ?>
                             </div>
 
                             <!-- Past News Container -->
                             <?php
-                            $past_page = isset($_GET['past_page']) ? max(1, (int) $_GET['past_page']) : 1;
-                            $past_offset = ($past_page - 1) * $items_per_page;
+$past_page = isset($_GET['past_page']) ? max(1, (int)$_GET['past_page']) : 1;
+$past_offset = ($past_page - 1) * $items_per_page;
 
-                            $past_total_stmt = $conn->query("
+$past_total_stmt = $conn->query("
                                 SELECT COUNT(*) FROM news_events 
                                 WHERE event_date < CURDATE()
                             ");
-                            $past_total_items = (int) $past_total_stmt->fetchColumn();
-                            $past_total_pages = (int) ceil($past_total_items / $items_per_page);
+$past_total_items = (int)$past_total_stmt->fetchColumn();
+$past_total_pages = (int)ceil($past_total_items / $items_per_page);
 
-                            $stmt = $conn->prepare("
+$stmt = $conn->prepare("
                                 SELECT * FROM news_events 
                                 WHERE event_date < CURDATE()
                                 ORDER BY event_date DESC
                                 LIMIT :limit OFFSET :offset
                             ");
-                            $stmt->bindValue(':limit', $items_per_page, PDO::PARAM_INT);
-                            $stmt->bindValue(':offset', $past_offset, PDO::PARAM_INT);
-                            $stmt->execute();
-                            ?>
+$stmt->bindValue(':limit', $items_per_page, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $past_offset, PDO::PARAM_INT);
+$stmt->execute();
+?>
 
                             <div class="news-container hidden" id="past-news">
                                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
@@ -1355,7 +1361,8 @@ require_once 'admin/includes/db.php';
                                             <i class="fas fa-share-alt share-icon"></i>
                                         </div>
                                     </div>
-                                <?php endwhile; ?>
+                                <?php
+endwhile; ?>
 
                                 <!-- Pagination for Past News -->
                                 <?php if ($past_total_pages > 1): ?>
@@ -1368,14 +1375,16 @@ require_once 'admin/includes/db.php';
                                                         <span aria-hidden="true">&laquo;</span>
                                                     </a>
                                                 </li>
-                                            <?php endif; ?>
+                                            <?php
+    endif; ?>
 
                                             <?php for ($i = 1; $i <= $past_total_pages; $i++): ?>
                                                 <li class="page-item <?php echo $i === $past_page ? 'active' : ''; ?>">
                                                     <a class="page-link" href="#" data-page="<?php echo $i; ?>"
                                                         data-container="past"><?php echo $i; ?></a>
                                                 </li>
-                                            <?php endfor; ?>
+                                            <?php
+    endfor; ?>
 
                                             <?php if ($past_page < $past_total_pages): ?>
                                                 <li class="page-item">
@@ -1384,10 +1393,12 @@ require_once 'admin/includes/db.php';
                                                         <span aria-hidden="true">&raquo;</span>
                                                     </a>
                                                 </li>
-                                            <?php endif; ?>
+                                            <?php
+    endif; ?>
                                         </ul>
                                     </nav>
-                                <?php endif; ?>
+                                <?php
+endif; ?>
                             </div>
                         </div>
 
@@ -1396,16 +1407,16 @@ require_once 'admin/includes/db.php';
                             <div class="upcoming-events">
                                 <h3>Upcoming Events</h3>
                                 <?php
-                                $current_date = date('Y-m-d');
-                                $stmt = $conn->query("
+$current_date = date('Y-m-d');
+$stmt = $conn->query("
                                     SELECT * FROM news_events 
                                     WHERE event_date >= '$current_date'
                                     ORDER BY event_date ASC
                                     LIMIT 10
                                 ");
-                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    $event_date = strtotime($row['event_date']);
-                                    ?>
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $event_date = strtotime($row['event_date']);
+?>
                                     <div class="event-item">
                                         <div class="event-date">
                                             <div class="month"><?php echo date('M', $event_date); ?></div>
@@ -1420,7 +1431,8 @@ require_once 'admin/includes/db.php';
                                             <i class="fas fa-arrow-right"></i>
                                         </a>
                                     </div>
-                                <?php } ?>
+                                <?php
+}?>
                                 <!-- <div class="text-center mt-4">
                                     <a href="all-events.php" class="btn btn" style="color: #ff6b00; border-color: #ff6b00;">View More Events →</a>
                                 </div> -->
@@ -1435,12 +1447,12 @@ require_once 'admin/includes/db.php';
 
     <!-- Start Footer Area -->
     <div class="footer-area">
-        <div class="footer-top-info pb-100">
+        <div class="footer-top-info ptb-100">
             <div class="content">
-                <div class="image">
+                <!-- <div class="image">
                     <img src="assets/hindusthan_images/hindusthan_logo.png" style="height: 80px;width: 80px;"
                         alt="image">
-                </div>
+                </div> -->
 
                 <p>Hindusthan offers an inclusive, welcoming campus where students learn with purpose, explore with
                     confidence, and embrace opportunities that shape their future.</p>
@@ -1467,8 +1479,7 @@ require_once 'admin/includes/db.php';
                                         src="assets/college_logos/hindusthan_logo_white.png"
                                         style="height:auto !important; width:auto !important; max-height:50px; margin-bottom: 20px; align-items: center;">
                                 </div>
-                                <p>City Campus, Nava India, Avinashi Road, Coimbatore - 641028 & Valley Campus, Pollachi
-                                    Highway, Coimbatore - 641032, Tamilnadu, India.</p>
+                                <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</p>
                                 <div style="color: white;">
                                     <i class="bx bxs-phone-call"></i> <a href="tel:+91 422 - 4440555"
                                         style="color: white;"> +91 422 - 4440555</a>
@@ -1521,13 +1532,11 @@ require_once 'admin/includes/db.php';
                         <div class="footer-widget">
                             <h4>Quick Links</h4>
                             <ul>
-                                <li><a href='how-to-apply.html'><i class='bx bx-chevron-right'></i> Apply For
-                                        Admissions</a></li>
+                                <li><a href='admission_policy.html'><i class='bx bx-chevron-right'></i> Admission Policy</a></li>
                                 <li><a href='about-us.html'><i class='bx bx-chevron-right'></i> About us</a></li>
-                                <li><a href='undergraduate.html'><i class='bx bx-chevron-right'></i> UG Course</a></li>
-                                <li><a href='graduate.html'><i class='bx bx-chevron-right'></i> PG Course</a></li>
-                                <li><a href='the-campus-experience.html'><i class='bx bx-chevron-right'></i> Campus
-                                        Experience</a></li>
+                                <li><a href='facilities.html'><i class='bx bx-chevron-right'></i> Facilities</a></li>
+                                <li><a href='about_placement.html'><i class='bx bx-chevron-right'></i> Placements</a></li>
+                                <li><a href='news-and-blog.php'><i class='bx bx-chevron-right'></i> News & Blogs</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1536,12 +1545,12 @@ require_once 'admin/includes/db.php';
                             <h4>Location</h4>
                             <ul>
                                 <div id="map" class="map-pd">
-                                    <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62661.52189754748!2d76.99315200000001!3d11.012712!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265d0f0e202dd%3A0x6c1cb249318c77f!2shicas!5e0!3m2!1sen!2sin!4v1746593040542!5m2!1sen!2sin"
-                                        width="600" height="450" style="border-radius:20px 20px 20px 20px;"
-                                        allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28364.026242912434!2d76.997067!3d10.894546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85abaa31dcfa9%3A0x72d5daed0d228046!2sHindusthan%20Institute%20of%20Technology!5e1!3m2!1sen!2sus!4v1772600967447!5m2!1sen!2sus"
+                                            width="600" height="450" style="border-radius:20px 20px 20px 20px;"
+                                            allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
                             </ul>
                         </div>
                     </div>

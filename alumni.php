@@ -348,7 +348,7 @@ $alumni = $stmt->fetchAll();
                     <div class="col-lg-7 col-12 col-xm-12">
                         <div class="top-right-items">
                             <ul>
-                                <li><a href='#'>Exam Result Even Sem</a></li>
+                                <!-- <li><a href='#'>Exam Result Even Sem</a></li> -->
                                 <!-- <li><a href='student-activities.html'>Students</a></li> -->
                                 <!-- <li><a href='alumni.php'>Alumni</a></li> -->
                                 <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li>
@@ -1202,18 +1202,18 @@ $alumni = $stmt->fetchAll();
                 <div class="swiper team-swiper">
                     <div class="swiper-wrapper">
                         <?php foreach ($alumni as $alum):
-                            $id = htmlspecialchars($alum['id'] ?? spl_object_hash((object) $alum));
-                            $name = htmlspecialchars($alum['name'] ?? '—');
-                            $role = htmlspecialchars($alum['current_position'] ?? '');
-                            $company = htmlspecialchars($alum['company'] ?? '');
-                            $course = htmlspecialchars($alum['course'] ?? '');
-                            $year = htmlspecialchars($alum['graduation_year'] ?? '');
-                            $desc = trim($alum['message'] ?? '');
-                            $linkedin = htmlspecialchars($alum['linkedin_url'] ?? '');
-                            $email = htmlspecialchars($alum['email'] ?? '');
-                            $phone = htmlspecialchars($alum['phone'] ?? '');
-                            $photo = !empty($alum['photo']) ? htmlspecialchars($alum['photo']) : 'assets/img/default-avatar.jpg';
-                            ?>
+    $id = htmlspecialchars($alum['id'] ?? spl_object_hash((object)$alum));
+    $name = htmlspecialchars($alum['name'] ?? '—');
+    $role = htmlspecialchars($alum['current_position'] ?? '');
+    $company = htmlspecialchars($alum['company'] ?? '');
+    $course = htmlspecialchars($alum['course'] ?? '');
+    $year = htmlspecialchars($alum['graduation_year'] ?? '');
+    $desc = trim($alum['message'] ?? '');
+    $linkedin = htmlspecialchars($alum['linkedin_url'] ?? '');
+    $email = htmlspecialchars($alum['email'] ?? '');
+    $phone = htmlspecialchars($alum['phone'] ?? '');
+    $photo = !empty($alum['photo']) ? htmlspecialchars($alum['photo']) : 'assets/img/default-avatar.jpg';
+?>
                             <div class="swiper-slide" role="group" aria-label="<?php echo $name; ?>">
                                 <article class="member-card" aria-labelledby="member-<?php echo $id; ?>">
                                     <div class="member-photo" aria-hidden="false">
@@ -1229,38 +1229,43 @@ $alumni = $stmt->fetchAll();
                                             <?php echo $name; ?>
                                         </div>
                                         <?php if ($role): ?>
-                                            <div class="member-role"><?php echo $role; ?></div><?php endif; ?>
+                                            <div class="member-role"><?php echo $role; ?></div><?php
+    endif; ?>
 
                                         <div class="member-desc" id="desc-<?php echo $id; ?>">
                                             <?php
-                                            if (!empty($desc)) {
-                                                echo nl2br(htmlspecialchars($desc));
-                                            } else {
-                                                $parts = [];
-                                                if ($company)
-                                                    $parts[] = $company;
-                                                if ($course)
-                                                    $parts[] = $course;
-                                                if ($year)
-                                                    $parts[] = ($year ? "Class of $year" : '');
-                                                echo htmlspecialchars(implode(' • ', array_filter($parts)));
-                                            }
-                                            ?>
+    if (!empty($desc)) {
+        echo nl2br(htmlspecialchars($desc));
+    }
+    else {
+        $parts = [];
+        if ($company)
+            $parts[] = $company;
+        if ($course)
+            $parts[] = $course;
+        if ($year)
+            $parts[] = ($year ? "Class of $year" : '');
+        echo htmlspecialchars(implode(' • ', array_filter($parts)));
+    }
+?>
                                         </div>
                                         <div class="member-meta" aria-hidden="false">
                                             <span style=" font-weight: 700 !important;">Company :</span>
                                             <?php if ($company): ?>
-                                                <div><?php echo htmlspecialchars($company); ?></div><?php endif; ?>
+                                                <div><?php echo htmlspecialchars($company); ?></div><?php
+    endif; ?>
                                         </div>
 
 
                                         <div class="member-meta" aria-hidden="false"><span
                                                 style=" font-weight: 700 !important;">Studied Department:</span>
                                             <?php if ($course): ?>
-                                                <div><?php echo htmlspecialchars($course); ?></div><?php endif; ?>
+                                                <div><?php echo htmlspecialchars($course); ?></div><?php
+    endif; ?>
                                             <?php if ($year): ?>
                                                 <div><span style="color: #ed6f26;"><?php echo htmlspecialchars($year); ?></span>
-                                                </div><?php endif; ?>
+                                                </div><?php
+    endif; ?>
                                         </div>
                                     </div>
 
@@ -1277,13 +1282,15 @@ $alumni = $stmt->fetchAll();
                                                         d="M7.5 7.5H12V10.2C12.7 9.15 14.2 7.5 17.1 7.5C21.4 7.5 24 10.1 24 15.3V24H19V16.2C19 14.1 18.5 12.3 16 12.3C13.5 12.3 12.9 13.9 12.9 16V24H7.5V7.5Z" />
                                                 </svg>
                                             </a>
-                                        <?php endif; ?>
+                                        <?php
+    endif; ?>
 
 
                                     </div>
                                 </article>
                             </div>
-                        <?php endforeach; ?>
+                        <?php
+endforeach; ?>
                     </div>
 
                     <!-- pagination + nav -->
@@ -1301,12 +1308,12 @@ $alumni = $stmt->fetchAll();
 
         <!-- Start Footer Area -->
         <div class="footer-area">
-            <div class="footer-top-info pb-100">
+            <div class="footer-top-info ptb-100">
                 <div class="content">
-                    <div class="image">
+                    <!-- <div class="image">
                         <img src="assets/hindusthan_images/hindusthan_logo.png" style="height: 80px;width: 80px;"
                             alt="image">
-                    </div>
+                    </div> -->
 
                     <p>Hindusthan offers an inclusive, welcoming campus where students learn with purpose, explore with
                         confidence, and embrace opportunities that shape their future.</p>
@@ -1406,7 +1413,7 @@ $alumni = $stmt->fetchAll();
                                 <ul>
                                     <div id="map" class="map-pd">
                                         <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62661.52189754748!2d76.99315200000001!3d11.012712!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265d0f0e202dd%3A0x6c1cb249318c77f!2shicas!5e0!3m2!1sen!2sin!4v1746593040542!5m2!1sen!2sin"
+                                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28364.026242912434!2d76.997067!3d10.894546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85abaa31dcfa9%3A0x72d5daed0d228046!2sHindusthan%20Institute%20of%20Technology!5e1!3m2!1sen!2sus!4v1772600967447!5m2!1sen!2sus"
                                             width="600" height="450" style="border-radius:20px 20px 20px 20px;"
                                             allowfullscreen="" loading="lazy"
                                             referrerpolicy="no-referrer-when-downgrade"></iframe>
