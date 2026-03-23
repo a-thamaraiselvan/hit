@@ -54,9 +54,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!in_array($file_extension, $allowed_extensions)) {
             $error = "Only JPG, JPEG, PNG, WEBP, and GIF images are allowed.";
         } else {
-            $check = getimagesize($_FILES["faculty_image"]["tmp_name"]);
+            $dept_folder = "../../uploads/department/" . $department . "/faculty_image_folder/";
+            if (!file_exists($dept_folder)) {
+                if (!mkdir($dept_folder, 0777, true)) {
+                    $error = "Failed to create directory. Please check server folder permissions for 'uploads/department/'.";
+                }
+            }
 
-            if ($check !== false) {
+            if (!isset($error)) {
+                $check = getimagesize($_FILES["faculty_image"]["tmp_name"]);
+
+                if ($check !== false) {
                 $file_name = slugify($name) . "." . $file_extension;
                 $target_file = $dept_folder . $file_name;
 
@@ -101,24 +109,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     imagecopyresampled($new_image, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
 
+                    $success = false;
                     if ($file_extension == 'jpg' || $file_extension == 'jpeg') {
                         $quality = $_FILES["faculty_image"]["size"] > $max_size ? 50 : 80;
-                        imagejpeg($new_image, $target_file, $quality);
+                        $success = imagejpeg($new_image, $target_file, $quality);
                     } elseif ($file_extension == 'png') {
-                        imagepng($new_image, $target_file, 9);
+                        $success = imagepng($new_image, $target_file, 9);
                     } elseif ($file_extension == 'webp') {
                         $quality = $_FILES["faculty_image"]["size"] > $max_size ? 50 : 80;
-                        imagewebp($new_image, $target_file, $quality);
+                        $success = imagewebp($new_image, $target_file, $quality);
                     } elseif ($file_extension == 'gif') {
-                        imagegif($new_image, $target_file);
+                        $success = imagegif($new_image, $target_file);
                     }
 
                     imagedestroy($new_image);
                     imagedestroy($source);
-                    $image_path = "uploads/department/" . $department . "/faculty_image_folder/" . $file_name;
+
+                    if ($success) {
+                        $image_path = "uploads/department/" . $department . "/faculty_image_folder/" . $file_name;
+                    } else {
+                        $error = "Failed to save image. Please check write permissions on the live server.";
+                    }
                 }
             } else {
                 $error = "File is not a valid image.";
+            }
             }
         }
     } else {

@@ -380,7 +380,7 @@ require_once 'admin/includes/db.php';
                 <div class="col-lg-7 col-12 col-xm-12">
                     <div class="top-right-items">
                         <ul>
-                            <li><a href='#'>Exam Result Even Sem</a></li>
+                            <!-- <li><a href='#'>Exam Result Even Sem</a></li> -->
                             <!-- <li><a href='student-activities.html'>Students</a></li> -->
                             <!-- <li><a href='alumni.php'>Alumni</a></li> -->
                             <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li>
@@ -1178,10 +1178,10 @@ require_once 'admin/includes/db.php';
 
 
                     <?php
-                    // Display special event if exists
-                    $stmt = $conn->query("SELECT * FROM news_events WHERE is_special = 1 LIMIT 1");
-                    $special_event = $stmt->fetch();
-                    if ($special_event): ?>
+// Display special event if exists
+$stmt = $conn->query("SELECT * FROM news_events WHERE is_special = 1 LIMIT 1");
+$special_event = $stmt->fetch();
+if ($special_event): ?>
                         <div class="special-event mb-5">
                             <div class="news-item" style="border: 2px solid #ff6b00;">
                                 <img src="<?php echo $special_event['poster'] ? htmlspecialchars($special_event['poster']) : 'assets/images/default-event.jpg'; ?>"
@@ -1208,7 +1208,8 @@ require_once 'admin/includes/db.php';
                                 </div>
                             </div>
                         </div>
-                    <?php endif; ?>
+                    <?php
+endif; ?>
 
 
                     <div class="toggle-container">
@@ -1251,8 +1252,8 @@ $stmt->execute();
                             <!-- Latest News Container -->
                             <div class="news-container" id="latest-news">
                                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)):
-                                    $event_date = strtotime($row['event_date']);
-                                    ?>
+    $event_date = strtotime($row['event_date']);
+?>
                                     <div class="news-item">
                                         <img src="<?php echo $row['poster'] ? htmlspecialchars($row['poster']) : 'assets/images/default-event.jpg'; ?>"
                                             class="news-image" alt="<?php echo htmlspecialchars($row['event_name']); ?>">
@@ -1277,7 +1278,8 @@ $stmt->execute();
                                             </div>
                                         </div>
                                     </div>
-                                <?php endwhile; ?>
+                                <?php
+endwhile; ?>
 
                                 <!-- Pagination for Latest News -->
                                 <?php if ($total_pages > 1): ?>
@@ -1290,14 +1292,16 @@ $stmt->execute();
                                                         <span aria-hidden="true">&laquo;</span>
                                                     </a>
                                                 </li>
-                                            <?php endif; ?>
+                                            <?php
+    endif; ?>
 
                                             <?php for ($i = 1; $i <= $total_pages; $i++): ?>
                                                 <li class="page-item <?php echo $i === $page ? 'active' : ''; ?>">
                                                     <a class="page-link" href="#" data-page="<?php echo $i; ?>"
                                                         data-container="latest"><?php echo $i; ?></a>
                                                 </li>
-                                            <?php endfor; ?>
+                                            <?php
+    endfor; ?>
 
                                             <?php if ($page < $total_pages): ?>
                                                 <li class="page-item">
@@ -1306,10 +1310,12 @@ $stmt->execute();
                                                         <span aria-hidden="true">&raquo;</span>
                                                     </a>
                                                 </li>
-                                            <?php endif; ?>
+                                            <?php
+    endif; ?>
                                         </ul>
                                     </nav>
-                                <?php endif; ?>
+                                <?php
+endif; ?>
                             </div>
 
                             <!-- Past News Container -->
@@ -1355,7 +1361,8 @@ $stmt->execute();
                                             <i class="fas fa-share-alt share-icon"></i>
                                         </div>
                                     </div>
-                                <?php endwhile; ?>
+                                <?php
+endwhile; ?>
 
                                 <!-- Pagination for Past News -->
                                 <?php if ($past_total_pages > 1): ?>
@@ -1368,14 +1375,16 @@ $stmt->execute();
                                                         <span aria-hidden="true">&laquo;</span>
                                                     </a>
                                                 </li>
-                                            <?php endif; ?>
+                                            <?php
+    endif; ?>
 
                                             <?php for ($i = 1; $i <= $past_total_pages; $i++): ?>
                                                 <li class="page-item <?php echo $i === $past_page ? 'active' : ''; ?>">
                                                     <a class="page-link" href="#" data-page="<?php echo $i; ?>"
                                                         data-container="past"><?php echo $i; ?></a>
                                                 </li>
-                                            <?php endfor; ?>
+                                            <?php
+    endfor; ?>
 
                                             <?php if ($past_page < $past_total_pages): ?>
                                                 <li class="page-item">
@@ -1384,10 +1393,12 @@ $stmt->execute();
                                                         <span aria-hidden="true">&raquo;</span>
                                                     </a>
                                                 </li>
-                                            <?php endif; ?>
+                                            <?php
+    endif; ?>
                                         </ul>
                                     </nav>
-                                <?php endif; ?>
+                                <?php
+endif; ?>
                             </div>
                         </div>
 
@@ -1403,9 +1414,9 @@ $stmt = $conn->query("
                                     ORDER BY event_date ASC
                                     LIMIT 10
                                 ");
-                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    $event_date = strtotime($row['event_date']);
-                                    ?>
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $event_date = strtotime($row['event_date']);
+?>
                                     <div class="event-item">
                                         <div class="event-date">
                                             <div class="month"><?php echo date('M', $event_date); ?></div>
@@ -1420,7 +1431,8 @@ $stmt = $conn->query("
                                             <i class="fas fa-arrow-right"></i>
                                         </a>
                                     </div>
-                                <?php } ?>
+                                <?php
+}?>
                                 <!-- <div class="text-center mt-4">
                                     <a href="all-events.php" class="btn btn" style="color: #ff6b00; border-color: #ff6b00;">View More Events →</a>
                                 </div> -->
@@ -1435,12 +1447,12 @@ $stmt = $conn->query("
 
     <!-- Start Footer Area -->
     <div class="footer-area">
-        <div class="footer-top-info pb-100">
+        <div class="footer-top-info ptb-100">
             <div class="content">
-                <div class="image">
+                <!-- <div class="image">
                     <img src="assets/hindusthan_images/hindusthan_logo.png" style="height: 80px;width: 80px;"
                         alt="image">
-                </div>
+                </div> -->
 
                 <p>Hindusthan offers an inclusive, welcoming campus where students learn with purpose, explore with
                     confidence, and embrace opportunities that shape their future.</p>
@@ -1467,8 +1479,7 @@ $stmt = $conn->query("
                                         src="assets/college_logos/hindusthan_logo_white.png"
                                         style="height:auto !important; width:auto !important; max-height:50px; margin-bottom: 20px; align-items: center;">
                                 </div>
-                                <p>City Campus, Nava India, Avinashi Road, Coimbatore - 641028 & Valley Campus, Pollachi
-                                    Highway, Coimbatore - 641032, Tamilnadu, India.</p>
+                                <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</p>
                                 <div style="color: white;">
                                     <i class="bx bxs-phone-call"></i> <a href="tel:+91 422 - 4440555"
                                         style="color: white;"> +91 422 - 4440555</a>
@@ -1521,13 +1532,11 @@ $stmt = $conn->query("
                         <div class="footer-widget">
                             <h4>Quick Links</h4>
                             <ul>
-                                <li><a href='how-to-apply.html'><i class='bx bx-chevron-right'></i> Apply For
-                                        Admissions</a></li>
+                                <li><a href='admission_policy.html'><i class='bx bx-chevron-right'></i> Admission Policy</a></li>
                                 <li><a href='about-us.html'><i class='bx bx-chevron-right'></i> About us</a></li>
-                                <li><a href='undergraduate.html'><i class='bx bx-chevron-right'></i> UG Course</a></li>
-                                <li><a href='graduate.html'><i class='bx bx-chevron-right'></i> PG Course</a></li>
-                                <li><a href='the-campus-experience.html'><i class='bx bx-chevron-right'></i> Campus
-                                        Experience</a></li>
+                                <li><a href='facilities.html'><i class='bx bx-chevron-right'></i> Facilities</a></li>
+                                <li><a href='about_placement.html'><i class='bx bx-chevron-right'></i> Placements</a></li>
+                                <li><a href='news-and-blog.php'><i class='bx bx-chevron-right'></i> News & Blogs</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1536,12 +1545,12 @@ $stmt = $conn->query("
                             <h4>Location</h4>
                             <ul>
                                 <div id="map" class="map-pd">
-                                    <iframe
+                                        <iframe
                                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28364.026242912434!2d76.997067!3d10.894546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85abaa31dcfa9%3A0x72d5daed0d228046!2sHindusthan%20Institute%20of%20Technology!5e1!3m2!1sen!2sus!4v1772600967447!5m2!1sen!2sus"
                                             width="600" height="450" style="border-radius:20px 20px 20px 20px;"
                                             allowfullscreen="" loading="lazy"
                                             referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
+                                    </div>
                             </ul>
                         </div>
                     </div>

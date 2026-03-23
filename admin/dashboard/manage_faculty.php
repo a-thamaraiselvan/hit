@@ -20,7 +20,7 @@ $departments = [
     // 'mechatronics' => 'Mechatronics Engineering',
     // 'pharmaceutical' => 'Pharmaceutical Technology',
     // 'food-tech' => 'Food Technology',
-    's-h' => 'Science and Humanities'
+    // 's-h' => 'Science and Humanities'
 ];
 
 $selected_dept = isset($_GET['dept']) ? $_GET['dept'] : 'aeronautical';
