@@ -19,7 +19,7 @@ if (!isset($_SESSION['admin_id'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="icon" href="../../assets/hindusthan_images/hindusthan_logo.png" type="image/png">
+    <link rel="icon" href="../../assets/hindusthan_images/hindusthan_logo1.png" type="image/png">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../assets/css/style.css">
@@ -40,8 +40,8 @@ if (!isset($_SESSION['admin_id'])) {
         :root {
             --sidebar-width: 250px;
             --header-height: 60px;
-            --primary-color: rgb(0, 0, 0);
-            --hover-color: #34495e;
+            --primary-color: rgba(15, 12, 56, 1);
+            --hover-color: #34495eff;
             --active-color: #ed6f26;
         }
 
@@ -126,7 +126,7 @@ if (!isset($_SESSION['admin_id'])) {
         .user-profile img {
             width: 45px;
             height: 45px;
-            border-radius: 50%;
+            /* border-radius: 50%; */
             margin-right: 15px;
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
@@ -256,7 +256,8 @@ if (!isset($_SESSION['admin_id'])) {
 
         <div class="sidebar-header">
             <div class="user-profile">
-                <img src="../../assets/hindusthan_images/hindusthan_logo.png" alt="HECT Profile">
+                
+                <img src="../../assets/hindusthan_images/finallogos_HIT.png" alt="HECT Profile">
 
 
                 <div class="user-info">
@@ -323,10 +324,10 @@ if (!isset($_SESSION['admin_id'])) {
 
 
             <div class="nav-category">Media & Settings</div>
-            <a class="nav-link" href="media.php">
+            <!-- <a class="nav-link" href="media.php">
                 <i class="fas fa-images"></i>
                 <span>Media Library</span>
-            </a>
+            </a> -->
             <a class="nav-link" href="profile.php">
                 <i class="fas fa-profile"></i>
                 <span>Profile</span>
