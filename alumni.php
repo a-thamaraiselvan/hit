@@ -1340,8 +1340,7 @@ endforeach; ?>
                                             src="assets/college_logos/hindusthan_logo_white.png"
                                             style="height:auto !important; width:auto !important; max-height:50px; margin-bottom: 20px; align-items: center;">
                                     </div>
-                                    <p>City Campus, Nava India, Avinashi Road, Coimbatore - 641028 & Valley Campus,
-                                        Pollachi Highway, Coimbatore - 641032, Tamilnadu, India.</p>
+                                    <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</p>
                                     <div>
                                         <a href="tel:+91 422 - 4440555" style="color: #868786;">+91 422 - 4440555</a>
                                     </div>

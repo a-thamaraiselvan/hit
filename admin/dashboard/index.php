@@ -11,7 +11,8 @@ try {
         'admin_users' => 0,
         'enquiries' => 0,
         'news_events' => 0,
-        'alumni' => 0
+        'alumni' => 0,
+        'faculty' => 0
 
     ];
 
@@ -26,6 +27,9 @@ try {
 
     $stmt = $conn->query("SELECT COUNT(*) as count FROM alumni");
     $stats['alumni'] = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+
+     $stmt = $conn->query("SELECT COUNT(*) as count FROM faculty");
+     $stats['faculty'] = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
 
   
 } catch(PDOException $e) {
@@ -81,6 +85,15 @@ ob_start();
                 <h5 class="card-title">Alumni</h5>
                 <h2 class="card-text"><?php echo $stats['alumni']; ?></h2>
                 <a href="manage_alumni.php" class="btn btn-light">View Alumni</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h5 class="card-title">faculty</h5>
+                <h2 class="card-text"><?php echo $stats['faculty']; ?></h2>
+                <a href="manage_faculty.php" class="btn btn-light">View faculties</a>
             </div>
         </div>
     </div>
