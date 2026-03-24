@@ -21,7 +21,8 @@ $sql = "SELECT e.*, CASE WHEN er.id IS NOT NULL THEN 1 ELSE 0 END as is_replied
 // Add status filter
 if ($status === 'replied') {
     $sql .= " AND er.id IS NOT NULL";
-} else {
+}
+else {
     $sql .= " AND er.id IS NULL";
 }
 
@@ -31,7 +32,7 @@ if ($search) {
 if ($filter) {
     $sql .= " AND DATE(e.created_at) = :filter";
 }
-$sql .= " GROUP BY e.id ORDER BY e.created_at DESC";
+$sql .= " ORDER BY e.created_at DESC";
 
 $stmt = $conn->prepare($sql);
 if ($search) {
@@ -83,13 +84,13 @@ ob_start();
             <!-- Toggle Buttons -->
           <div class="d-flex justify-content-end">
             <div class="btn-group me-2 mb-4" role="group" aria-label="Toggle view">
-                <input type="radio" class="btn-check" name="viewType" id="pendingView" value="pending" <?php echo (!isset($_GET['status']) || $_GET['status'] === 'pending') ? 'checked' : ''; ?>>
+                <input type="radio" class="btn-check" name="viewType" id="pendingView" value="pending" <?php echo(!isset($_GET['status']) || $_GET['status'] === 'pending') ? 'checked' : ''; ?>>
                 <label class="btn btn-outline-warning" for="pendingView">
                     <i class="fas fa-clock me-1"></i> Pending
                     <span class="badge bg-warning ms-1" id="pendingCount">0</span>
                 </label>
 
-                <input type="radio" class="btn-check" name="viewType" id="repliedView" value="replied" <?php echo (isset($_GET['status']) && $_GET['status'] === 'replied') ? 'checked' : ''; ?>>
+                <input type="radio" class="btn-check" name="viewType" id="repliedView" value="replied" <?php echo(isset($_GET['status']) && $_GET['status'] === 'replied') ? 'checked' : ''; ?>>
                 <label class="btn btn-outline-success" for="repliedView">
                     <i class="fas fa-check-circle me-1"></i> Replied
                     <span class="badge bg-success ms-1" id="repliedCount">0</span>
@@ -114,7 +115,7 @@ ob_start();
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+                                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
                                 <tr>
                                     <td class="py-3"><?php echo $row['id']; ?></td>
                                     <td class="py-3"><?php echo htmlspecialchars($row['name']); ?></td>
@@ -143,11 +144,13 @@ ob_start();
 
 
                                     <td class="py-3">
-                                        <?php if($row['is_replied']): ?>
+                                        <?php if ($row['is_replied']): ?>
                                             <span class="badge bg-success"><i class="fas fa-check me-1"></i>Replied</span>
-                                        <?php else: ?>
+                                        <?php
+    else: ?>
                                             <span class="badge bg-danger"><i class="fas fa-times me-1"></i>Not Replied</span>
-                                        <?php endif; ?>
+                                        <?php
+    endif; ?>
                                     </td>
 
 
@@ -243,7 +246,8 @@ ob_start();
                                         </div>
                                     </div>
                                 </div>
-                                <?php endwhile; ?>
+                                <?php
+endwhile; ?>
                             </tbody>
                         </table>
                     </div>
