@@ -10,10 +10,10 @@ try {
     $stats = [
         'admin_users' => 0,
         'enquiries' => 0,
+        'grievances' => 0,
         'news_events' => 0,
         'alumni' => 0,
         'faculty' => 0
-
     ];
 
     $stmt = $conn->query("SELECT COUNT(*) as count FROM admin_users");
@@ -21,6 +21,9 @@ try {
 
     $stmt = $conn->query("SELECT COUNT(*) as count FROM enquiries");
     $stats['enquiries'] = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+
+    $stmt = $conn->query("SELECT COUNT(*) as count FROM student_grievances");
+    $stats['grievances'] = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
 
     $stmt = $conn->query("SELECT COUNT(*) as count FROM news_events");
     $stats['news_events'] = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
@@ -76,6 +79,15 @@ ob_start();
                 <h5 class="card-title">Enquiries</h5>
                 <h2 class="card-text"><?php echo $stats['enquiries']; ?></h2>
                 <a href="view_enquiry.php" class="btn btn-light">View Enquiries</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card bg-danger text-white">
+            <div class="card-body">
+                <h5 class="card-title">Student Grievances</h5>
+                <h2 class="card-text"><?php echo $stats['grievances']; ?></h2>
+                <a href="view_grievance.php" class="btn btn-light">View Grievances</a>
             </div>
         </div>
     </div>

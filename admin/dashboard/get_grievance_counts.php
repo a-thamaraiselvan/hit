@@ -6,12 +6,12 @@ require_once '../includes/functions.php';
 checkLogin();
 
 // Get pending count
-$stmt = $conn->prepare("SELECT COUNT(DISTINCT e.id) as count FROM enquiries e LEFT JOIN enquiry_replies er ON e.id = er.enquiry_id WHERE er.id IS NULL");
+$stmt = $conn->prepare("SELECT COUNT(DISTINCT e.id) as count FROM student_grievances e LEFT JOIN grievance_replies er ON e.id = er.grievance_id WHERE er.id IS NULL");
 $stmt->execute();
 $pending = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
 
 // Get replied count
-$stmt = $conn->prepare("SELECT COUNT(DISTINCT e.id) as count FROM enquiries e LEFT JOIN enquiry_replies er ON e.id = er.enquiry_id WHERE er.id IS NOT NULL");
+$stmt = $conn->prepare("SELECT COUNT(DISTINCT e.id) as count FROM student_grievances e LEFT JOIN grievance_replies er ON e.id = er.grievance_id WHERE er.id IS NOT NULL");
 $stmt->execute();
 $replied = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
 

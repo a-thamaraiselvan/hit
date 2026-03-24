@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'admin/includes/db.php';
 
 $message = '';
@@ -315,7 +315,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class='nav-link' href='contact-us.html'>
+                            <a class='nav-link' href='contact-us.php'>
                                 Contact
                             </a>
                         </li>
@@ -554,7 +554,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <a class='accordion-link without-icon' href='contact-us.html'>
+                    <a class='accordion-link without-icon' href='contact-us.php'>
                         Contact Us
                     </a>
                 </div>
