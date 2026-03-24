@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'admin/includes/db.php';
 
 // Get news ID from URL
@@ -217,7 +217,7 @@ $shareText = rawurlencode("Check this out");
                             <!-- <li><a href='student-activities.html'>Students</a></li> -->
                             <!-- <li><a href='alumni.php'>Alumni</a></li> -->
                             <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li>
-                            <li><a href='contact-us.html'>contact-us</a></li>
+                            <li><a href='contact-us.php'>contact-us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -588,7 +588,7 @@ $shareText = rawurlencode("Check this out");
                         </li>
 
                         <!-- <li class="nav-item">
-                            <a class='nav-link' href='contact-us.html'>
+                            <a class='nav-link' href='contact-us.php'>
                                 Contact
                             </a>
                         </li> -->
@@ -888,7 +888,7 @@ $shareText = rawurlencode("Check this out");
                 </div>
 
                 <div class="accordion-item">
-                    <a class='accordion-link without-icon' href='contact-us.html'>
+                    <a class='accordion-link without-icon' href='contact-us.php'>
                         Contact Us
                     </a>
                 </div>

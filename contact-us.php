@@ -1,3 +1,113 @@
+<?php
+session_start();
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // CSRF check
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        header("Location: contact-us.php?status=error");
+        exit();
+    }
+
+    // Google reCAPTCHA Verification (Production Keys)
+    $recaptcha_secret = '6LejcI0sAAAAAEiPnJqr-iudKWDQOLK_jON7PwUo';
+    $recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
+    
+    if (empty($recaptcha_response)) {
+        header("Location: contact-us.php?status=recaptcha_error");
+        exit();
+    }
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+        'secret' => $recaptcha_secret,
+        'response' => $recaptcha_response
+    ]));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    
+    $recaptcha_result = json_decode($response);
+    if (!$recaptcha_result || !$recaptcha_result->success) {
+        header("Location: contact-us.php?status=recaptcha_error");
+        exit();
+    }
+
+    $conn = new mysqli("localhost", "root", "", "hit");
+    if ($conn->connect_error) {
+        header("Location: contact-us.php?status=error");
+        exit();
+    }
+
+    $form_type = $_POST['form_type'] ?? 'contact';
+    $date = date('Y-m-d H:i:s');
+
+    if ($form_type === 'contact') {
+        // Handle Contact Form
+        $name = trim(strip_tags($_POST['name'] ?? ''));
+        $email = trim(filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL));
+        $phone = trim(strip_tags($_POST['phone'] ?? ''));
+        $subject = trim(strip_tags($_POST['subject'] ?? ''));
+        $message = trim(strip_tags($_POST['message'] ?? ''));
+
+        if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            header("Location: contact-us.php?status=error");
+            exit();
+        }
+
+        $sql = "INSERT INTO enquiries (name, email, phone, subject, message, created_at) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        if ($stmt) {
+            $stmt->bind_param("ssssss", $name, $email, $phone, $subject, $message, $date);
+            if ($stmt->execute()) {
+                header("Location: contact-us.php?status=success");
+            } else {
+                header("Location: contact-us.php?status=error");
+            }
+            $stmt->close();
+        } else {
+            header("Location: contact-us.php?status=error");
+        }
+    } elseif ($form_type === 'grievance') {
+        // Handle Grievance Form
+        $name = trim(strip_tags($_POST['g_name'] ?? ''));
+        $roll_number = trim(strip_tags($_POST['g_roll_number'] ?? ''));
+        $department = trim(strip_tags($_POST['g_department'] ?? ''));
+        $mobile_number = trim(strip_tags($_POST['g_mobile_number'] ?? ''));
+        $email = trim(filter_var($_POST['g_email'] ?? '', FILTER_SANITIZE_EMAIL));
+        $grievance_type = trim(strip_tags($_POST['g_grievance_type'] ?? ''));
+        $query = trim(strip_tags($_POST['g_query'] ?? ''));
+
+        if (empty($name) || empty($roll_number) || empty($department) || empty($mobile_number) || empty($email) || empty($grievance_type) || empty($query) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            header("Location: contact-us.php?status=error");
+            exit();
+        }
+
+        $sql = "INSERT INTO student_grievances (name, roll_number, department, mobile_number, email, grievance_type, query, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        if ($stmt) {
+            $stmt->bind_param("ssssssss", $name, $roll_number, $department, $mobile_number, $email, $grievance_type, $query, $date);
+            if ($stmt->execute()) {
+                header("Location: contact-us.php?status=success");
+            } else {
+                header("Location: contact-us.php?status=error");
+            }
+            $stmt->close();
+        } else {
+            header("Location: contact-us.php?status=error");
+        }
+    } else {
+        header("Location: contact-us.php?status=error");
+    }
+
+    $conn->close();
+    exit();
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -20,6 +130,9 @@
 
     <title>Hindusthan Institute of Technology | Top Engineering College in Coimbatore</title>
     <link rel="icon" type="image/png" href="assets/hindusthan_images/hindusthan.png">
+
+    <!-- Google reCAPTCHA API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -54,7 +167,7 @@
                             <!-- <li><a href='student-activities.html'>Students</a></li> -->
                             <!-- <li><a href='alumni.php'>Alumni</a></li> -->
                             <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li>
-                            <li><a href='contact-us.html'>Contact Us</a></li>
+                            <li><a href='contact-us.php'>Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -150,12 +263,7 @@
                                                 <p class="mega-desc">Design and manufacturing of
                                                     mechanical systems.</p>
                                             </a>
-                                            <a href="m-e-vlsi-design.html" class="mega-link">
-                                                <h6 class="mega-title">M.E. VLSI Design</h6>
-                                                <p class="mega-desc">Microchip architecture and
-                                                    system-on-chip design.
-                                                </p>
-                                            </a>
+                                            
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="artificial-intelligence-and-data-science.html" class="mega-link">
@@ -175,11 +283,7 @@
                                                 <p class="mega-desc">Business leadership and corporate
                                                     strategies.</p>
                                             </a>
-                                            <a href="science-and-humanities.html" class="mega-link">
-                                                <h6 class="mega-title">Science & Humanities</h6>
-                                                <p class="mega-desc">Foundational sciences and general
-                                                    studies.</p>
-                                            </a>
+                                            
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="electronics-and-communication-engineering.html" class="mega-link">
@@ -188,16 +292,18 @@
                                                 <p class="mega-desc">Circuit design and electronic
                                                     devices.</p>
                                             </a>
-                                            <a href="pharmaceutical-technology.html" class="mega-link">
-                                                <h6 class="mega-title">Pharmaceutical Technology</h6>
-                                                <p class="mega-desc">Drug formulation, analysis, and
-                                                    healthcare.</p>
-                                            </a>
+                                            
                                             <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. Computer Science and
                                                     Engineering</h6>
                                                 <p class="mega-desc">Advanced postgraduate computing
                                                     logic.</p>
+                                            </a>
+                                            <a href="m-e-vlsi-design.html" class="mega-link">
+                                                <h6 class="mega-title">M.E. VLSI Design</h6>
+                                                <p class="mega-desc">Microchip architecture and
+                                                    system-on-chip design.
+                                                </p>
                                             </a>
                                         </div>
                                     </div>
@@ -452,7 +558,7 @@
                         </li>
 
                         <!-- <li class="nav-item">
-                            <a class='nav-link active' href='contact-us.html'>
+                            <a class='nav-link active' href='contact-us.php'>
                                 Contact
                             </a>
                         </li> -->
@@ -583,10 +689,7 @@
                                     <a class='accordion-link' href='m-e-vlsi-design.html'>M.E. VLSI
                                         Design</a>
                                 </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='science-and-humanities.html'>Science
-                                        & Humanities</a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -757,7 +860,7 @@
                 </div>
 
                 <div class="accordion-item">
-                    <a class='accordion-link without-icon active' href='contact-us.html'>
+                    <a class='accordion-link without-icon active' href='contact-us.php'>
                         Contact Us
                     </a>
                 </div>
@@ -873,71 +976,173 @@
                 <div class="col-lg-8">
                     <div class="contact-content">
                         <div class="header-content">
-                            <h2>Connect With Hindusthan</h2>
-                            <p>Our team is here to support you with all your admission and academic
-                                queries.
-                                Feel free to reach out — we’re just a call or message away!</p>
-                            <p>For verifications, please email <a
-                                    href="mailto:hit.office@hindusthan.net">hit.office@hindusthan.net</a>
+                            <h2>Get in Touch / Submit a Grievance</h2>
+                            <p>Please select the type of form you want to submit. Based on your selection, the form fields will update accordingly.</p>
+                            <p>For verifications, please email <a href="mailto:hit.office@hindusthan.net">hit.office@hindusthan.net</a></p>
                         </div>
 
                         <div id="formMessage"></div>
                         <div class="contact-form">
-                            <form id="contactForm" action="save_enquiry.php" method="POST"
-                                onsubmit="return validateForm()">
-                                <!-- <form id="contactForm" onsubmit="return validateAndSubmitForm(event)"> -->
+                            <form id="contactForm" action="contact-us.php" method="POST" onsubmit="return validateForm()">
+                                <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+                                
                                 <div class="row">
+                                    <div class="col-lg-12 col-md-12 mb-4">
+                                        <!-- <div class="form-group">
+                                            <label style="font-weight:bold; color:black;">Select Form Type <span style="color:red;">*</span></label>
+                                            <select name="form_type" id="form_type" class="form-control" onchange="toggleFormFields()" style="height: 50px;">
+                                                <option value="contact" selected>Contact Form</option>
+                                                <option value="grievance">Student Grievance</option>
+                                            </select>
+                                            <small style="color:red; display:block; margin-top:5px; font-weight:600;">
+                                                * If you are a student and want to raise a complaint, please select "Student Grievance." The form will automatically change to collect the required details.
+                                            </small>
+                                        </div> -->
+                                        <div style="margin-bottom:20px;">
+                                        <label style="font-weight:600; color:#000; display:block; margin-bottom:8px;">
+                                            Select Form Type <span style="color:red;">*</span>
+                                        </label>
+
+                                        <div style="position:relative;">
+                                            <select name="form_type" id="form_type" onchange="toggleFormFields()"
+                                                style="width:100%; height:50px; padding:0 45px 0 15px; border:1px solid #ccc; border-radius:8px; font-size:16px; appearance:none; -webkit-appearance:none; -moz-appearance:none; background:#fff; cursor:pointer;">
+                                                
+                                                <option value="contact" selected>Contact Form</option>
+                                                <option value="grievance">Student Grievance</option>
+                                            </select>
+
+                                            <!-- Arrow -->
+                                            <span style="position:absolute; right:15px; top:50%; transform:translateY(-50%); pointer-events:none; font-size:14px; color:#555;">
+                                                ▼
+                                            </span>
+                                        </div>
+
+                                        <small style="color:red; display:block; margin-top:6px; font-weight:500; font-size:13px;">
+                                            * If you are a student and want to raise a complaint, please select "Student Grievance."
+                                        </small>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <!-- Contact Form Fields -->
+                                <div class="row" id="contact-fields">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="nameError"
-                                                style="color: red; display: none;">Please enter your
-                                                name</span>
-                                            <input type="text" name="name" id="name" class="form-control"
-                                                placeholder="Name">
+                                            <span class="error-message" id="nameError" style="color: red; display: none;">Please enter your name</span>
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
-                                        <span class="error-message" id="emailError"
-                                            style="color: red; display: none;">Please enter a valid
-                                            email address</span>
-
                                         <div class="form-group">
-                                            <input type="email" name="email" id="email" class="form-control"
-                                                placeholder="Email">
+                                            <span class="error-message" id="emailError" style="color: red; display: none;">Please enter a valid email address</span>
+                                            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="phoneError"
-                                                style="color: red; display: none;">Please enter a valid
-                                                10-digit phone number</span>
-
-                                            <input type="text" name="phone" id="phone" class="form-control"
-                                                placeholder="Phone">
+                                            <span class="error-message" id="phoneError" style="color: red; display: none;">Please enter a valid 10-digit phone number</span>
+                                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="subjectError"
-                                                style="color: red; display: none;">Please enter the
-                                                subject</span>
-
-                                            <input type="text" name="subject" id="subject" class="form-control"
-                                                placeholder="Subject">
+                                            <span class="error-message" id="subjectError" style="color: red; display: none;">Please enter the subject</span>
+                                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <span class="error-message" id="messageError"
-                                                style="color: red; display: none;">Please enter your
-                                                message</span>
-
-                                            <textarea name="message" id="message" class="form-control"
-                                                placeholder="Your Message"></textarea>
+                                            <span class="error-message" id="messageError" style="color: red; display: none;">Please enter your message</span>
+                                            <textarea name="message" id="message" class="form-control" placeholder="Your Message"></textarea>
                                         </div>
                                     </div>
+                                </div>
+
+                                <!-- Student Grievance Form Fields -->
+                                <div class="row" id="grievance-fields" style="display: none;">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <span class="error-message" id="gNameError" style="color: red; display: none;">Please enter your name</span>
+                                            <input type="text" name="g_name" id="g_name" class="form-control" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <span class="error-message" id="gRollError" style="color: red; display: none;">Please enter your roll number</span>
+                                            <input type="text" name="g_roll_number" id="g_roll_number" class="form-control" placeholder="Roll Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <span class="error-message" id="gDeptError" style="color: red; display: none;">Please enter your department</span>
+                                            <input type="text" name="g_department" id="g_department" class="form-control" placeholder="Department">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <span class="error-message" id="gMobileError" style="color: red; display: none;">Please enter a valid mobile number</span>
+                                            <input type="text" name="g_mobile_number" id="g_mobile_number" class="form-control" placeholder="Mobile Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <span class="error-message" id="gEmailError" style="color: red; display: none;">Please enter a valid email</span>
+                                            <input type="email" name="g_email" id="g_email" class="form-control" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+    <div style="margin-bottom:20px;">
+
+        <!-- Error Message -->
+        <span id="gTypeError"
+            style="color:red; display:none; font-size:13px; margin-bottom:6px; font-weight:500;">
+            Please select grievance type
+        </span>
+
+        <!-- Custom Dropdown -->
+        <div style="position:relative;">
+            <select name="g_grievance_type" id="g_grievance_type"
+                style="width:100%; height:50px; padding:0 45px 0 15px; border:1px solid #ccc; border-radius:8px; font-size:15px; appearance:none; -webkit-appearance:none; -moz-appearance:none; background:#fff; cursor:pointer;">
+                
+                <option value="" disabled selected>Select Type of Grievance</option>
+                <option value="Admission">Grievance related to Admission</option>
+                <option value="Discrimination SC/ST">Complaints on discrimination by students from SC/ST Categories</option>
+                <option value="Women Redressal">Complaints on Women redressal</option>
+                <option value="Victimization">Grievance related to Victimization</option>
+                <option value="Attendance">Grievance related to Attendance</option>
+                <option value="Fee Charging">Grievance related to charging of fees</option>
+                <option value="Evaluation Process">Grievance regarding non-transparent or unfair evaluation process</option>
+                <option value="AICTE Norms">Non-observation of AICTE norms and standards</option>
+                <option value="Document Return">Refusal to return documents such as certificates</option>
+                <option value="Harassment">Harassment by fellow students or teachers</option>
+                <option value="Scholarships">Non-payment or Delay in payment of scholarships</option>
+                <option value="Timetable">Grievance related to timetable scheduling</option>
+                <option value="Lab/Library Rules">Violation of lab/library rules</option>
+                <option value="Hostel and Mess">Institute hostel and mess related issues</option>
+                <option value="Administration Maintenance">General administration and maintenance related issues</option>
+            </select>
+
+            <!-- Arrow -->
+            <span style="position:absolute; right:15px; top:50%; transform:translateY(-50%); pointer-events:none; font-size:14px; color:#555;">
+                ▼
+            </span>
+        </div>
+
+    </div>
+</div>
                                     <div class="col-lg-12 col-md-12">
-                                        <button type="submit" class="default-btn">Send Message</button>
+                                        <div class="form-group">
+                                            <span class="error-message" id="gQueryError" style="color: red; display: none;">Please enter your query</span>
+                                            <textarea name="g_query" id="g_query" class="form-control" placeholder="Your Query"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <!-- Google reCAPTCHA Widget -->
+                                        <div class="g-recaptcha mb-3" data-sitekey="6LejcI0sAAAAANBbwHXGRa3dpOirsLj9BaZo6iPZ"></div>
+                                        <button type="submit" class="default-btn">Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -1175,7 +1380,7 @@
                 <i class='bx bx-book-content'></i>
                 <span>Admission Enquiry</span>
             </a>
-            <a href="contact-us.html" class="contact-option">
+            <a href="contact-us.php" class="contact-option">
                 <i class='bx bx-envelope'></i>
                 <span>Quick Contact</span>
             </a>
@@ -1197,54 +1402,119 @@
 
 
     <script>
+        function toggleFormFields() {
+            const formType = document.getElementById('form_type').value;
+            if (formType === 'contact') {
+                document.getElementById('contact-fields').style.display = 'flex';
+                document.getElementById('grievance-fields').style.display = 'none';
+            } else {
+                document.getElementById('contact-fields').style.display = 'none';
+                document.getElementById('grievance-fields').style.display = 'flex';
+            }
+        }
+
         function validateForm() {
             let isValid = true;
+            const formType = document.getElementById('form_type').value;
 
-            // Name validation
-            const name = document.getElementById('name');
-            if (!name.value.trim()) {
-                document.getElementById('nameError').style.display = 'block';
-                isValid = false;
+            if (formType === 'contact') {
+                // Name validation
+                const name = document.getElementById('name');
+                if (!name.value.trim()) {
+                    document.getElementById('nameError').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('nameError').style.display = 'none';
+                }
+
+                // Email validation
+                const email = document.getElementById('email');
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value.trim() || !emailPattern.test(email.value)) {
+                    document.getElementById('emailError').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('emailError').style.display = 'none';
+                }
+
+                // Phone validation
+                const phone = document.getElementById('phone');
+                const phonePattern = /^[0-9]{10}$/;
+                if (!phone.value.trim() || !phonePattern.test(phone.value)) {
+                    document.getElementById('phoneError').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('phoneError').style.display = 'none';
+                }
+
+                // Subject validation
+                const subject = document.getElementById('subject');
+                if (!subject.value.trim()) {
+                    document.getElementById('subjectError').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('subjectError').style.display = 'none';
+                }
+
+                // Message validation
+                const message = document.getElementById('message');
+                if (!message.value.trim()) {
+                    document.getElementById('messageError').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('messageError').style.display = 'none';
+                }
             } else {
-                document.getElementById('nameError').style.display = 'none';
+                // Grievance validation
+                const gName = document.getElementById('g_name');
+                if (!gName.value.trim()) {
+                    document.getElementById('gNameError').style.display = 'block'; isValid = false;
+                } else { document.getElementById('gNameError').style.display = 'none'; }
+                
+                const gRoll = document.getElementById('g_roll_number');
+                if (!gRoll.value.trim()) {
+                    document.getElementById('gRollError').style.display = 'block'; isValid = false;
+                } else { document.getElementById('gRollError').style.display = 'none'; }
+                
+                const gDept = document.getElementById('g_department');
+                if (!gDept.value.trim()) {
+                    document.getElementById('gDeptError').style.display = 'block'; isValid = false;
+                } else { document.getElementById('gDeptError').style.display = 'none'; }
+                
+                const gMobile = document.getElementById('g_mobile_number');
+                const mobilePattern = /^[0-9]{10}$/;
+                if (!gMobile.value.trim() || !mobilePattern.test(gMobile.value)) {
+                    document.getElementById('gMobileError').style.display = 'block'; isValid = false;
+                } else { document.getElementById('gMobileError').style.display = 'none'; }
+                
+                const gEmail = document.getElementById('g_email');
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!gEmail.value.trim() || !emailPattern.test(gEmail.value)) {
+                    document.getElementById('gEmailError').style.display = 'block'; isValid = false;
+                } else { document.getElementById('gEmailError').style.display = 'none'; }
+                
+                const gType = document.getElementById('g_grievance_type');
+                if (!gType.value) {
+                    document.getElementById('gTypeError').style.display = 'block'; isValid = false;
+                } else { document.getElementById('gTypeError').style.display = 'none'; }
+                
+                const gQuery = document.getElementById('g_query');
+                if (!gQuery.value.trim()) {
+                    document.getElementById('gQueryError').style.display = 'block'; isValid = false;
+                } else { document.getElementById('gQueryError').style.display = 'none'; }
             }
 
-            // Email validation
-            const email = document.getElementById('email');
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email.value.trim() || !emailPattern.test(email.value)) {
-                document.getElementById('emailError').style.display = 'block';
+            // reCAPTCHA validation
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse.length === 0) {
+                // Not checked
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Verification Required',
+                    text: 'Please check the reCAPTCHA box to proceed.',
+                    confirmButtonColor: '#3085d6'
+                });
                 isValid = false;
-            } else {
-                document.getElementById('emailError').style.display = 'none';
-            }
-
-            // Phone validation
-            const phone = document.getElementById('phone');
-            const phonePattern = /^[0-9]{10}$/;
-            if (!phone.value.trim() || !phonePattern.test(phone.value)) {
-                document.getElementById('phoneError').style.display = 'block';
-                isValid = false;
-            } else {
-                document.getElementById('phoneError').style.display = 'none';
-            }
-
-            // Subject validation
-            const subject = document.getElementById('subject');
-            if (!subject.value.trim()) {
-                document.getElementById('subjectError').style.display = 'block';
-                isValid = false;
-            } else {
-                document.getElementById('subjectError').style.display = 'none';
-            }
-
-            // Message validation
-            const message = document.getElementById('message');
-            if (!message.value.trim()) {
-                document.getElementById('messageError').style.display = 'block';
-                isValid = false;
-            } else {
-                document.getElementById('messageError').style.display = 'none';
             }
 
             return isValid;
@@ -1263,6 +1533,13 @@
                 title: 'Success!',
                 text: 'Enquiry submitted successfully!',
                 confirmButtonColor: '#3085d6'
+            });
+        } else if (status === "recaptcha_error") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Verification Failed',
+                text: 'Please complete the reCAPTCHA to verify you are human.',
+                confirmButtonColor: '#d33'
             });
         } else if (status === "error") {
             Swal.fire({

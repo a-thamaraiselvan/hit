@@ -307,6 +307,10 @@ if (!isset($_SESSION['admin_id'])) {
                 <i class="fas fa-envelope"></i>
                 <span>View Enquiries</span>
             </a>
+            <a class="nav-link" href="view_grievance.php">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>View Grievances</span>
+            </a>
 
             <div class="nav-category">Alumni Maintanance</div>
             <a class="nav-link" href="add_alumni.php">

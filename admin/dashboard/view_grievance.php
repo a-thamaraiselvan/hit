@@ -18,13 +18,13 @@ $sql = "SELECT e.*,
                er.reply_message, 
                er.sent_at as reply_sent_at,
                CASE WHEN er.id IS NOT NULL THEN 1 ELSE 0 END as is_replied 
-        FROM enquiries e 
+        FROM student_grievances e 
         LEFT JOIN (
-            SELECT r1.* FROM enquiry_replies r1
+            SELECT r1.* FROM grievance_replies r1
             INNER JOIN (
-                SELECT MAX(id) as max_id FROM enquiry_replies GROUP BY enquiry_id
+                SELECT MAX(id) as max_id FROM grievance_replies GROUP BY grievance_id
             ) r2 ON r1.id = r2.max_id
-        ) er ON e.id = er.enquiry_id 
+        ) er ON e.id = er.grievance_id 
         WHERE 1=1";
 
 // Add status filter
@@ -36,7 +36,7 @@ else {
 }
 
 if ($search) {
-    $sql .= " AND (e.name LIKE :search OR e.email LIKE :search OR e.subject LIKE :search)";
+    $sql .= " AND (e.name LIKE :search OR e.email LIKE :search OR e.roll_number LIKE :search OR e.department LIKE :search)";
 }
 if ($filter) {
     $sql .= " AND DATE(e.created_at) = :filter";
@@ -61,7 +61,7 @@ ob_start();
     <div class="row">
         <main class="col-md-12 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
-                <h2><i class="fas fa-envelope-open-text me-2"></i>Enquiries Management</h2>
+                <h2><i class="fas fa-exclamation-circle me-2"></i>Student Grievances</h2>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
                         <button type="button" class="btn btn-sm btn-outline-secondary" id="exportBtn">
@@ -76,14 +76,14 @@ ob_start();
                 <div class="card-body">
                     <form class="row g-3" method="GET">
                         <div class="col-md-4">
-                            <input type="text" class="form-control" name="search" placeholder="Search by name, email or subject" value="<?php echo htmlspecialchars($search); ?>">
+                            <input type="text" class="form-control" name="search" placeholder="Search by name, email, roll no..." value="<?php echo htmlspecialchars($search); ?>">
                         </div>
                         <div class="col-md-4">
                             <input type="date" class="form-control" name="filter" value="<?php echo $filter; ?>">
                         </div>
                         <div class="col-md-4">
                             <button type="submit" class="btn btn-primary me-2">Search</button>
-                            <a href="view_enquiry.php" class="btn btn-secondary">Reset</a>
+                            <a href="view_grievance.php" class="btn btn-secondary">Reset</a>
                         </div>
                         <input type="hidden" name="status" value="<?php echo htmlspecialchars($status); ?>">
                     </form>
@@ -114,10 +114,9 @@ ob_start();
                                 <tr>
                                     <th class="py-3"><i class="fas fa-hashtag me-1"></i>ID</th>
                                     <th class="py-3"><i class="fas fa-user me-1"></i>Name</th>
-                                    <th class="py-3"><i class="fas fa-envelope me-1"></i>Email</th>
-                                    <th class="py-3"><i class="fas fa-phone me-1"></i>Phone</th>
-                                    <th class="py-3"><i class="fas fa-tag me-1"></i>Subject</th>
-                                    <th class="py-3"><i class="fas fa-comment-alt me-1"></i>Message</th>
+                                    <th class="py-3"><i class="fas fa-id-card me-1"></i>Roll No</th>
+                                    <th class="py-3"><i class="fas fa-graduation-cap me-1"></i>Dept</th>
+                                    <th class="py-3"><i class="fas fa-tag me-1"></i>Type</th>
                                     <th class="py-3"><i class="fas fa-calendar me-1"></i>Date</th>
                                     <th class="py-3"><i class="fas fa-check-circle me-1"></i>Status</th>
                                     <th class="py-3"><i class="fas fa-cog me-1"></i>Action</th>
@@ -128,21 +127,33 @@ ob_start();
                                 <tr>
                                     <td class="py-3"><?php echo $row['id']; ?></td>
                                     <td class="py-3"><?php echo htmlspecialchars($row['name']); ?></td>
-                                    <td class="py-3" >
-                                        <a href="mailto:<?php echo htmlspecialchars($row['email']); ?>" class="text-decoration-none" style="color:#ed6f26">
-                                            <?php echo htmlspecialchars($row['email']); ?>
-                                        </a>
-                                    </td>
+                                    <td class="py-3"><?php echo htmlspecialchars($row['roll_number']); ?></td>
+                                    <td class="py-3"><?php echo htmlspecialchars($row['department']); ?></td>
                                     <td class="py-3">
-                                        <a href="tel:<?php echo htmlspecialchars($row['phone']); ?>" class="text-decoration-none" style="color:#ed6f26">
-                                            <?php echo htmlspecialchars($row['phone']); ?>
-                                        </a>
-                                    </td>
-                                    <td class="py-3"><?php echo htmlspecialchars($row['subject']); ?></td>
-                                    <td class="py-3">
-                                        <span class="text-truncate d-inline-block" style="max-width: 200px;" 
-                                              data-bs-toggle="tooltip" title="<?php echo htmlspecialchars($row['message']); ?>">
-                                            <?php echo htmlspecialchars($row['message']); ?>
+                                        <?php 
+                                            // Map short values to full descriptions
+                                            $grievance_descriptions = [
+                                                "Admission" => "Grievance related to Admission",
+                                                "Discrimination SC/ST" => "Complaints on discrimination by students from SC/ST Categories",
+                                                "Women Redressal" => "Complaints on Women redressal",
+                                                "Victimization" => "Grievance related to Victimization",
+                                                "Attendance" => "Grievance related to Attendance",
+                                                "Fee Charging" => "Grievance related to charging of fees",
+                                                "Evaluation Process" => "Grievance regarding non-transparent or unfair evaluation process",
+                                                "AICTE Norms" => "Non-observation of AICTE norms and standards",
+                                                "Document Return" => "Refusal to return documents such as certificates",
+                                                "Harassment" => "Harassment by fellow students or teachers",
+                                                "Scholarships" => "Non-payment or Delay in payment of scholarships",
+                                                "Timetable" => "Grievance related to timetable scheduling",
+                                                "Lab/Library Rules" => "Violation of lab/library rules",
+                                                "Hostel and Mess" => "Institute hostel and mess related issues",
+                                                "Administration Maintenance" => "General administration and maintenance related issues"
+                                            ];
+                                            $gType = $row['grievance_type'];
+                                            $fullDesc = isset($grievance_descriptions[$gType]) ? $grievance_descriptions[$gType] : $gType;
+                                        ?>
+                                        <span class="badge bg-secondary" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars($fullDesc); ?>">
+                                            <?php echo htmlspecialchars($gType); ?>
                                         </span>
                                     </td>
                                     <td class="py-3">
@@ -150,22 +161,13 @@ ob_start();
                                             <?php echo date('M d, Y', strtotime($row['created_at'])); ?>
                                         </span>
                                     </td>
-
-
                                     <td class="py-3">
                                         <?php if ($row['is_replied']): ?>
                                             <span class="badge bg-success"><i class="fas fa-check me-1"></i>Replied</span>
-                                        <?php
-    else: ?>
-                                            <span class="badge bg-danger"><i class="fas fa-times me-1"></i>Not Replied</span>
-                                        <?php
-    endif; ?>
+                                        <?php else: ?>
+                                            <span class="badge bg-danger"><i class="fas fa-times me-1"></i>Pending</span>
+                                        <?php endif; ?>
                                     </td>
-
-
-
-  
-
                                     <td class="py-3">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-info me-1" 
@@ -176,9 +178,9 @@ ob_start();
                                                     data-bs-toggle="modal" data-bs-target="#replyModal<?php echo $row['id']; ?>">
                                                 <i class="fas fa-paper-plane"></i>
                                             </button>
-                                            <a href="../actions/delete_enquiry.php?id=<?php echo $row['id']; ?>" 
+                                            <a href="../actions/delete_grievance.php?id=<?php echo $row['id']; ?>" 
                                                class="btn btn-sm btn-danger" 
-                                               onclick="return confirm('Are you sure you want to delete this enquiry?')">
+                                               onclick="return confirm('Are you sure you want to delete this grievance?')">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -190,7 +192,7 @@ ob_start();
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Enquiry Details</h5>
+                                                <h5 class="modal-title">Grievance Details</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                             </div>
                                             <div class="modal-body">
@@ -199,24 +201,32 @@ ob_start();
                                                     <p><?php echo htmlspecialchars($row['name']); ?></p>
                                                 </div>
                                                 <div class="mb-3">
+                                                    <label class="fw-bold"><i class="fas fa-id-card me-2"></i>Roll Number:</label>
+                                                    <p><?php echo htmlspecialchars($row['roll_number']); ?></p>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="fw-bold"><i class="fas fa-graduation-cap me-2"></i>Department:</label>
+                                                    <p><?php echo htmlspecialchars($row['department']); ?></p>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="fw-bold"><i class="fas fa-phone me-2"></i>Mobile:</label>
+                                                    <p><?php echo htmlspecialchars($row['mobile_number']); ?></p>
+                                                </div>
+                                                <div class="mb-3">
                                                     <label class="fw-bold"><i class="fas fa-envelope me-2"></i>Email:</label>
                                                     <p><?php echo htmlspecialchars($row['email']); ?></p>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="fw-bold"><i class="fas fa-phone me-2"></i>Phone:</label>
-                                                    <p><?php echo htmlspecialchars($row['phone']); ?></p>
+                                                    <label class="fw-bold"><i class="fas fa-tag me-2"></i>Type of Grievance:</label>
+                                                    <p><span class="badge bg-secondary"><?php echo htmlspecialchars($row['grievance_type']); ?></span></p>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="fw-bold"><i class="fas fa-tag me-2"></i>Subject:</label>
-                                                    <p><?php echo htmlspecialchars($row['subject']); ?></p>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="fw-bold"><i class="fas fa-comment-alt me-2"></i>Message:</label>
-                                                    <p><?php echo nl2br(htmlspecialchars($row['message'])); ?></p>
+                                                    <label class="fw-bold"><i class="fas fa-comment-alt me-2"></i>Query:</label>
+                                                    <p><?php echo nl2br(htmlspecialchars($row['query'])); ?></p>
                                                 </div>
                                                 
                                                 <?php if ($row['is_replied']): 
-                                                    $replyStmt = $conn->prepare("SELECT * FROM enquiry_replies WHERE enquiry_id = ? ORDER BY sent_at DESC");
+                                                    $replyStmt = $conn->prepare("SELECT * FROM grievance_replies WHERE grievance_id = ? ORDER BY sent_at DESC");
                                                     $replyStmt->execute([$row['id']]);
                                                     $all_replies = $replyStmt->fetchAll(PDO::FETCH_ASSOC);
                                                 ?>
@@ -258,12 +268,12 @@ ob_start();
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Reply to Enquiry</h5>
+                                                <h5 class="modal-title">Reply to Grievance</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                             </div>
-                                            <form action="../actions/send_reply.php" method="POST">
+                                            <form action="../actions/send_grievance_reply.php" method="POST">
                                                 <div class="modal-body">
-                                                    <input type="hidden" name="enquiry_id" value="<?php echo $row['id']; ?>">
+                                                    <input type="hidden" name="grievance_id" value="<?php echo $row['id']; ?>">
                                                     <input type="hidden" name="recipient_email" value="<?php echo htmlspecialchars($row['email']); ?>">
                                                     <input type="hidden" name="recipient_name" value="<?php echo htmlspecialchars($row['name']); ?>">
                                                     
@@ -274,7 +284,7 @@ ob_start();
                                                     
                                                     <div class="mb-3">
                                                         <label class="form-label">Subject:</label>
-                                                        <input type="text" class="form-control" name="subject" value="Reply for : <?php echo htmlspecialchars($row['subject']); ?>" required>
+                                                        <input type="text" class="form-control" name="subject" value="Regarding Grievance: <?php echo htmlspecialchars($row['grievance_type']); ?>" required>
                                                     </div>
                                                     
                                                     <div class="mb-3">
@@ -290,8 +300,7 @@ ob_start();
                                         </div>
                                     </div>
                                 </div>
-                                <?php
-endwhile; ?>
+                                <?php endwhile; ?>
                             </tbody>
                         </table>
                     </div>
@@ -355,12 +364,12 @@ endwhile; ?>
 
             // Customize based on message content
             if (message.toLowerCase().includes('deleted')) {
-                successTitle.textContent = 'Enquiry Deleted!';
-                successMessage.textContent = 'The enquiry has been deleted successfully.';
+                successTitle.textContent = 'Grievance Deleted!';
+                successMessage.textContent = 'The grievance has been deleted successfully.';
                 successIcon.className = 'fas fa-trash-alt fa-3x text-success mb-3';
             } else if (message.toLowerCase().includes('reply sent')) {
                 successTitle.textContent = 'Email Sent Successfully!';
-                successMessage.textContent = 'Your reply has been sent and the enquiry has been marked as responded.';
+                successMessage.textContent = 'Your reply has been sent and the grievance has been marked as responded.';
                 successIcon.className = 'fas fa-envelope-open-text fa-3x text-success mb-3';
             } else {
                 successTitle.textContent = 'Success!';
@@ -409,14 +418,13 @@ document.addEventListener('DOMContentLoaded', function() {
         let url = window.URL.createObjectURL(blob);
         let a = document.createElement('a');
         a.href = url;
-        a.download = 'enquiries_' + new Date().toISOString().slice(0,10) + '.xls';
+        a.download = 'student_grievances_' + new Date().toISOString().slice(0,10) + '.xls';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
     });
 });
-
 
 document.addEventListener('DOMContentLoaded', function() {
     // Handle toggle buttons
@@ -429,15 +437,13 @@ document.addEventListener('DOMContentLoaded', function() {
             urlParams.set('status', this.value);
             
             // Redirect with all parameters
-            window.location.href = 'view_enquiry.php?' + urlParams.toString();
+            window.location.href = 'view_grievance.php?' + urlParams.toString();
         });
     });
 
-
-
     // Update counters
     function updateCounters() {
-        fetch('get_enquiry_counts.php')
+        fetch('get_grievance_counts.php')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('pendingCount').textContent = data.pending;
@@ -451,7 +457,3 @@ document.addEventListener('DOMContentLoaded', function() {
 $content = ob_get_clean();
 require_once '../includes/layout.php';
 ?>
-
-
-
-           
