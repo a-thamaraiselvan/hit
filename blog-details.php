@@ -19,7 +19,7 @@ if (!$news) {
 
 <?php
 // Force the domain + https for ALL share URLs
-$baseDomain = "https://hindusthan.net";
+$baseDomain = "https://hit.edu.in";
 
 // Get current page path (e.g. /news.php?id=5)
 $currentPath = $_SERVER['REQUEST_URI'];
@@ -1062,12 +1062,12 @@ endif; ?>
                                 </div>
                                 <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</p>
                                 <div style="color: white;">
-                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 422 - 4440555"
-                                        style="color: white;"> +91 422 - 4440555</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 9715260118"
+                                        style="color: white;"> +91 9715260118</a>
                                 </div>
                                 <div style="color: white;">
-                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 80983 33333"
-                                        style="color: white;"> +91 80983 33333</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 9047010006"
+                                        style="color: white;"> +91 9047010006</a>
                                 </div>
                                 <div style="color: white;">
                                     <i class="bx bxs-envelope"></i> <a href="mailto:hit.office@hindusthan.net"

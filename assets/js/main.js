@@ -230,10 +230,18 @@
 	});
 
 	// Preloader
-	$(window).on('load', function () {
-		$('#preloader').delay(350).fadeOut('slow'); // fade out the preloader background
-		$('body').delay(350).css({ 'overflow': 'visible' }); // show the body content
-	});
+	// $(window).on('load', function () {
+	// 	$('#preloader').delay(350).fadeOut('slow'); // fade out the preloader background
+	// 	$('body').delay(350).css({ 'overflow': 'visible' }); // show the body content
+	// });
+		// 	$(window).on('load', function () {
+		// 	$('#preloader').delay(100).fadeOut(200); // faster fade
+		// 	$('body').delay(100).css({ 'overflow': 'visible' });
+		// });
+			$(window).on('load', function () {
+				$('#preloader').fadeOut(100);
+				$('body').css({ 'overflow': 'visible' });
+			});
 
 	// Go to Top
 	$(function(){

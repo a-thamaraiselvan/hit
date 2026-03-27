@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Google reCAPTCHA Verification (Production Keys)
     $recaptcha_secret = '6LejcI0sAAAAAEiPnJqr-iudKWDQOLK_jON7PwUo';
     $recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
-    
+
     if (empty($recaptcha_response)) {
         header("Location: contact-us.php?status=recaptcha_error");
         exit();
     }
-    
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
     curl_setopt($ch, CURLOPT_POST, 1);
@@ -30,18 +30,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
     curl_close($ch);
-    
+
     $recaptcha_result = json_decode($response);
     if (!$recaptcha_result || !$recaptcha_result->success) {
         header("Location: contact-us.php?status=recaptcha_error");
         exit();
     }
 
-    $conn = new mysqli("localhost", "root", "", "hit");
+    require_once 'admin/includes/config.php';
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if ($conn->connect_error) {
         header("Location: contact-us.php?status=error");
         exit();
     }
+
 
     $form_type = $_POST['form_type'] ?? 'contact';
     $date = date('Y-m-d H:i:s');
@@ -65,14 +67,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bind_param("ssssss", $name, $email, $phone, $subject, $message, $date);
             if ($stmt->execute()) {
                 header("Location: contact-us.php?status=success");
-            } else {
+            }
+            else {
                 header("Location: contact-us.php?status=error");
             }
             $stmt->close();
-        } else {
+        }
+        else {
             header("Location: contact-us.php?status=error");
         }
-    } elseif ($form_type === 'grievance') {
+    }
+    elseif ($form_type === 'grievance') {
         // Handle Grievance Form
         $name = trim(strip_tags($_POST['g_name'] ?? ''));
         $roll_number = trim(strip_tags($_POST['g_roll_number'] ?? ''));
@@ -93,14 +98,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bind_param("ssssssss", $name, $roll_number, $department, $mobile_number, $email, $grievance_type, $query, $date);
             if ($stmt->execute()) {
                 header("Location: contact-us.php?status=success");
-            } else {
+            }
+            else {
                 header("Location: contact-us.php?status=error");
             }
             $stmt->close();
-        } else {
+        }
+        else {
             header("Location: contact-us.php?status=error");
         }
-    } else {
+    }
+    else {
         header("Location: contact-us.php?status=error");
     }
 
@@ -1164,11 +1172,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         <div class="info-details">
                             <ul>
-                                <li><i class='bx bxs-phone-call'></i> General tel - <a href="tel:+91 422 - 4440555">91
+                                <li><i class='bx bxs-phone-call'></i> General tel - <a href="tel:+91 9715260118">91
                                         422 - 4440555</a></li>
                                 <li><i class='bx bxs-phone-call'></i> Mobile - <a href="tel:+91 98431 33333">91 98431
                                         33333</a></li>
-                                <li><i class='bx bxs-phone-call'></i> Mobile - <a href="tel:+91 80983 33333"> 91 80983
+                                <li><i class='bx bxs-phone-call'></i> Mobile - <a href="tel:+91 9047010006"> 91 80983
                                         33333</a></li>
                                 <!-- <li><i class='bx bxs-phone-call'></i> Student Account Inquiries - <a href="tel:+18554750885"> (849) 516-0885</a>(Option 5)</li> -->
                                 <li><i class='bx bxs-map'></i>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</li>
@@ -1220,12 +1228,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </div>
                                 <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</p>
                                 <div style="color: white;">
-                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 422 - 4440555"
-                                        style="color: white;"> +91 422 - 4440555</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 9715260118"
+                                        style="color: white;"> +91 9715260118</a>
                                 </div>
                                 <div style="color: white;">
-                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 80983 33333"
-                                        style="color: white;"> +91 80983 33333</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 9047010006"
+                                        style="color: white;"> +91 9047010006</a>
                                 </div>
                                 <div style="color: white;">
                                     <i class="bx bxs-envelope"></i> <a href="mailto:hit.office@hindusthan.net"
@@ -1270,22 +1278,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-md-6">
-                        <div class="footer-widget">
-                            <h4>Quick Links</h4>
-                            <ul>
-                                <li><a href='how-to-apply.html'><i class='bx bx-chevron-right'></i>
-                                        Apply For Admissions</a></li>
-                                <li><a href='about-us.html'><i class='bx bx-chevron-right'></i> About
-                                        us</a></li>
-                                <li><a href='undergraduate.html'><i class='bx bx-chevron-right'></i> UG
-                                        Course</a></li>
-                                <li><a href='graduate.html'><i class='bx bx-chevron-right'></i> PG
-                                        Course</a></li>
-                                <li><a href='the-campus-experience.html'><i class='bx bx-chevron-right'></i> Campus
-                                        Experience</a></li>
-                            </ul>
+                            <div class="footer-widget">
+                                <h4>Quick Links</h4>
+                                <ul>
+                                    <li><a href='admission_policy.html'><i class='bx bx-chevron-right'></i> Admission
+                                            Policy</a></li>
+                                    <li><a href='about-us.html'><i class='bx bx-chevron-right'></i> About us</a></li>
+                                    <li><a href='facilities.html'><i class='bx bx-chevron-right'></i> Facilities</a>
+                                    </li>
+                                    <li><a href='about_placement.html'><i class='bx bx-chevron-right'></i>
+                                            Placements</a></li>
+                                    <li><a href='news-and-blog.php'><i class='bx bx-chevron-right'></i> News & Blogs</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
                     <div class="col-lg-3 col-sm-6 col-md-6">
                         <div class="footer-widget">
                             <h4>Location</h4>
@@ -1371,7 +1378,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <i class='bx bx-message-dots'></i>
         </div>
         <div class="contact-options" id="contactOptions">
-            <a href="https://wa.me/918300604896?text=Hello%21%0AI%E2%80%99m%20interested%20in%20knowing%20more%20about%20your%20admissions.%0ACould%20you%20please%20share%20the%20details%20about%20courses%2C%20fees%2C%20eligibility%2C%20and%20the%20admission%20process%3F%0A%0AExcited%20to%20explore%20the%20opportunities%20at%20your%20institution.%20Thank%20you%21"
+            <a href="https://wa.me/919715260118?text=Hello%21%0AI%E2%80%99m%20interested%20in%20knowing%20more%20about%20your%20admissions.%0ACould%20you%20please%20share%20the%20details%20about%20courses%2C%20fees%2C%20eligibility%2C%20and%20the%20admission%20process%3F%0A%0AExcited%20to%20explore%20the%20opportunities%20at%20your%20institution.%20Thank%20you%21"
                 class="contact-option" target="_blank">
                 <i class='bx bxl-whatsapp'></i>
                 <span>WhatsApp Message</span>

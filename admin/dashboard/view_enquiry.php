@@ -12,8 +12,8 @@ $filter = isset($_GET['filter']) ? sanitize($_GET['filter']) : '';
 // Get the view type from URL
 $status = isset($_GET['status']) ? sanitize($_GET['status']) : 'pending';
 
-// Prepare the SQL query with search and filter
-$sql = "SELECT e.*, 
+        // Prepare the SQL query with search and filter
+        $sql = "SELECT e.*, 
                er.reply_subject, 
                er.reply_message, 
                er.sent_at as reply_sent_at,

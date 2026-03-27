@@ -378,8 +378,8 @@ $(document).ready(function () {
     autoplayTimeout: 3000, // <--- Control slider speed (duration of each slide in ms)
     smartSpeed: 1000,      // <--- Control transition speed (ms)
     navText: [
-      "<i class='bx bx-left-arrow-alt'></i>",
-      "<i class='bx bx-right-arrow-alt'></i>"
+      "<i class='bx bx-chevron-left'></i>",
+      "<i class='bx bx-chevron-right'></i>"
     ],
     responsive: {
       0: { items: 1 },
