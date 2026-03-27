@@ -147,6 +147,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
     </div>
     <!-- preloader -->
 
+    
     <!-- Start Top Navbar Area -->
     <div class="top-area">
         <div class="container-fluid">
@@ -154,8 +155,8 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                 <div class="col-lg-5 col-12 col-xm-12">
                     <div class="top-left-items">
                         <ul>
-                            <li><i class='bx bxs-time'></i> Mon - Sat : 9:00 AM - 06:00 PM</li>
-                            <li><i class='bx bxs-envelope'></i> <a href="mailto:hit.office@hindusthan.net">contact :
+                            <!-- <li><i class='bx bxs-time'></i> Mon - Sat : 9:00 AM - 06:00 PM</li> -->
+                            <li><i class='bx bxs-envelope'></i> <a href="mailto: hit.office@hindusthan.net">contact :
                                     hit.office@hindusthan.net</a></li>
                         </ul>
                     </div>
@@ -163,26 +164,41 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                 <div class="col-lg-7 col-12 col-xm-12">
                     <div class="top-right-items">
                         <ul>
-                            <li><i class='bx bxs-map'></i> <a href='https://maps.app.goo.gl/DuTdwTJQtNP2jzmr7'
-                                    target="_blank">Visit Us</a></li>
-                            <li><a href='student-activities.html'>Students</a></li>
-                            <li><a href='alumni.php'>Alumni</a></li>
-                            <li><a href='the-campus-experience.html'>Visitors</a></li>
-                            <!-- <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li> -->
+                            <li><a href='#'>Exam Result Even Sem</a></li>
+                            <!-- <li><a href='student-activities.html'>Students</a></li> -->
+                            <!-- <li><a href='alumni.php'>Alumni</a></li> -->
+                            <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li>
+                            <li><a href='contact-us.php'>contact-us</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Top Navbar Area -->
 
-    <!-- Navbar Area Start -->
-    <div class="navbar-area" id="navbar">
+
+
+    <!-- preloader -->
+
+    <!-- Start Navbar Area Start -->
+    <div class="navbar-area style-2" id="navbar">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg">
                 <a class='navbar-brand' href='index.html'>
-                    <img class="logo-light" src="assets/hindusthan_images/hindusthan_logo.png" alt="logo">
+
+                    <img class="logo-light logo-responsive" src="assets/hindusthan_images/hit_logo.jpg"
+                        style="height:auto !important; width:auto !important; max-height:50px;">
+
+
+                    <!-- <img class="logo-light" src="assets/hindusthan_images/hindusthan_logo.png" style="height: 50%; width: 50%;"
+                        alt="logo"> -->
+
+                    <img class="logo-dark" src="assets/hindusthan_images/hindusthan_logo.png" alt="logo">
+
+
+                    <!-- <img class="logo-light" src="assets/hindusthan_images/hect.png"  alt="logo">
+                    <img class="logo-dark" src="assets/hindusthan_images/hect.png"  alt="logo"> -->
+
                 </a>
 
                 <a class="navbar-toggler" data-bs-toggle="offcanvas" href="#navbarOffcanvas" role="button"
@@ -191,25 +207,27 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                 </a>
                 <div class="collapse navbar-collapse justify-content-between">
                     <ul class="navbar-nav ms-auto">
+
                         <li class="nav-item">
-                            <a class='nav-link' href='index.html'>
+                            <a class='nav-link ' href='index.html'>
                                 Home
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a href="javascript:void(0)" class="dropdown-toggle nav-link active">
+                            <a href="javascript:void(0)" class="dropdown-toggle nav-link">
                                 About
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class='nav-link' href='about-us.html'>About Us</a></li>
                                 <li class="nav-item"><a class='nav-link' href='news-and-blog.php'>News and Blog</a></li>
                                 <li class="nav-item"><a class='nav-link' href='blog-details.php'>Blog Details</a></li>
-                                <li class="nav-item"><a class='nav-link' href='alumni.php'>Alumni</a></li>
-                                <li class="nav-item"><a class='nav-link active' href='alumni_form.php'>Alumni Form</a>
-                                </li>
+
+                                <li class="nav-item"><a class='nav-link' href='facilities.html'>Facilities</a></li>
+                                <li class="nav-item"><a class='nav-link' href='gallery.html'>Gallery</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="javascript:void(0)" class="dropdown-toggle nav-link">
                                 Academics
                             </a>
@@ -220,7 +238,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                 <li class="nav-item"><a class='nav-link' href='graduate.html'>Postgraduate</a></li>
                                 <li class="nav-item"><a class='nav-link' href='education.html'>Education</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="nav-item mega-nav-item">
                             <a href="javascript:void(0)" class="dropdown-toggle nav-link">
                                 Courses
@@ -241,7 +259,11 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                                 <h6 class="mega-title">Mechanical Engineering</h6>
                                                 <p class="mega-desc">Design and manufacturing of mechanical systems.</p>
                                             </a>
-
+                                            <!-- <a href="m-e-vlsi-design.html" class="mega-link">
+                                                <h6 class="mega-title">M.E. VLSI Design</h6>
+                                                <p class="mega-desc">Microchip architecture and system-on-chip design.
+                                                </p>
+                                            </a> -->
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="artificial-intelligence-and-data-science.html" class="mega-link">
@@ -256,7 +278,7 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                                 <h6 class="mega-title">Master of Business Administration</h6>
                                                 <p class="mega-desc">Business leadership and corporate strategies.</p>
                                             </a>
-
+                                            <!--   -->
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="electronics-and-communication-engineering.html" class="mega-link">
@@ -284,21 +306,16 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                 Admissions
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class='nav-link' href='how-to-apply.html'>How to Apply</a></li>
                                 <li class="nav-item"><a class='nav-link' href='https://admission.hindusthan.net/'
                                         target="_blank">Admissions</a></li>
-                                <li class="nav-item"><a class='nav-link'
-                                        href='https://admission.hindusthan.net/arts-and-science' target="_blank">Arts &
-                                        Science-Form</a></li>
-                                <li class="nav-item"><a class='nav-link'
-                                        href='https://admission.hindusthan.net/engineering-form'
-                                        target="_blank">Engineering-Form</a></li>
+                                <li class="nav-item"><a class='nav-link' href='admission_policy.html'>Admission
+                                        Policy</a></li>
                                 <li class="nav-item"><a class='nav-link' href='financial-aid.html'>Financial Aid</a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="javascript:void(0)" class="dropdown-toggle nav-link">
                                 College Life
                             </a>
@@ -313,12 +330,224 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                 <li class="nav-item"><a class='nav-link' href='student-activities.html'>Student
                                         Activities</a></li>
                             </ul>
+                        </li> -->
+                        <li class="nav-item mega-nav-item">
+                            <a href="javascript:void(0)" class="dropdown-toggle nav-link">
+                                Placement
+                            </a>
+                            <div class="dropdown-menu mega-menu-boxPlacement">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 mega-col">
+                                            <a href="about_placement.html" class="mega-link">
+                                                <h6 class="mega-title">About Placement</h6>
+                                                <p class="mega-desc">Overview of our training and placement cell.</p>
+                                            </a>
+                                            <a href="assets/hit/pdf_folder/placement_pdf/HiTECH Placement Details.pdf"
+                                                target="_blank" class="mega-link">
+                                                <h6 class="mega-title">Placement Details</h6>
+                                                <p class="mega-desc">Detailed statistics and recruitment information.
+                                                </p>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 mega-col">
+                                            <a href="assets/hit/pdf_folder/placement_pdf/PLACEMENT 2024-2025.pdf"
+                                                target="_blank" class="mega-link">
+                                                <h6 class="mega-title">Placement 2025</h6>
+                                                <p class="mega-desc">Record of placements for the year 2025.</p>
+                                            </a>
+                                            <a href="assets/hit/pdf_folder/placement_pdf/PLACEMENT 2023-2024.pdf"
+                                                target="_blank" class="mega-link">
+                                                <h6 class="mega-title">Placement 2024</h6>
+                                                <p class="mega-desc">Record of placements for the year 2024.</p>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 mega-col">
+                                            <a href="assets/hit/pdf_folder/placement_pdf/PLACEMENT 2022-2023.pdf"
+                                                target="_blank" class="mega-link">
+                                                <h6 class="mega-title">Placement 2023</h6>
+                                                <p class="mega-desc">Record of placements for the year 2023.</p>
+                                            </a>
+                                            <a href="assets/hit/pdf_folder/placement_pdf/PLACEMENT 2021-2022.pdf"
+                                                target="_blank" class="mega-link">
+                                                <h6 class="mega-title">Placement 2022</h6>
+                                                <p class="mega-desc">Record of placements for the year 2022.</p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </li>
+
+                        <li class="nav-item mega-nav-item">
+                            <a href="javascript:void(0)" class="dropdown-toggle nav-link">
+                                Academic Menu
+                            </a>
+
+                            <div class="dropdown-menu mega-menu-boxmenu">
+                                <div class="container">
+                                    <div class="row">
+
+                                        <div class="col-lg-4 col-md-6 mega-col">
+                                            <a href="coe.html" class="mega-link">
+                                                <h6 class="mega-title">COE</h6>
+                                                <p class="mega-desc">Controller of Examinations portal and academic
+                                                    examination updates.</p>
+                                            </a>
+
+                                            <a href="http://ecampus.hicet.ac.in/ecampus/" class="mega-link">
+                                                <h6 class="mega-title">E Campus Login</h6>
+                                                <p class="mega-desc">Access the student E-Campus portal for academic
+                                                    information.</p>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 mega-col">
+                                            <a href="online-fee-payment.html" class="mega-link">
+                                                <h6 class="mega-title">Online Fee Payment</h6>
+                                                <p class="mega-desc">Pay tuition and other institutional fees securely
+                                                    online.</p>
+                                            </a>
+
+                                            <a href="exam-fee.html" class="mega-link">
+                                                <h6 class="mega-title">Exam Fee</h6>
+                                                <p class="mega-desc">Pay examination fees and check related
+                                                    notifications.</p>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 mega-col">
+                                            <a href="nirf.html" class="mega-link">
+                                                <h6 class="mega-title">NIRF</h6>
+                                                <p class="mega-desc">National Institutional Ranking Framework details
+                                                    and reports.</p>
+                                            </a>
+
+                                            <a href="e-content.html" class="mega-link">
+                                                <h6 class="mega-title">E-Content</h6>
+                                                <p class="mega-desc">Digital learning materials and academic resources.
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 mega-col">
+
+                                            <a href="nba_dcp.html" class="mega-link">
+                                                <h6 class="mega-title">NBA / DCP</h6>
+                                                <p class="mega-desc">
+                                                    NBA / DCP accreditation related official documents and reports.
+                                                </p>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 mega-col">
+
+                                            <div class="mega-link">
+                                                <h6 class="mega-title">Audit Report (NBA / NAAC)</h6>
+
+                                                <div class="audit-buttons">
+
+                                                    <a href="assets/hit/pdf_folder/Audit_pdf/Audit 2024-25.pdf"
+                                                        class="audit-btn" target="_blank">
+                                                        Audit Report 2024 – 2025
+                                                    </a>
+
+                                                    <a href="assets/hit/pdf_folder/Audit_pdf/Audit 2023-24.pdf"
+                                                        class="audit-btn" target="_blank">
+                                                        Audit Report 2023 – 2024
+                                                    </a>
+                                                    <a href="assets/hit/pdf_folder/Audit_pdf/Audit 2022-23.pdf"
+                                                        class="audit-btn" target="_blank">
+                                                        Audit Report 2022 – 2023
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 mega-col">
+
+                                            <div class="mega-link">
+                                                <h6 class="mega-title">Audit Report (NBA / NAAC)</h6>
+
+                                                <div class="audit-buttons">
+
+                                                    <a href="assets/hit/pdf_folder/Audit_pdf/NBA EXT 2025.pdf"
+                                                        class="audit-btn" target="_blank">
+                                                        NBA
+                                                    </a>
+
+                                                    <a href="assets/hit/pdf_folder/Audit_pdf/accreditation2022.pdf"
+                                                        class="audit-btn" target="_blank">
+                                                        NAAC
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                        </li>
+
+
                         <li class="nav-item">
+                            <a href="javascript:void(0)" class="dropdown-toggle nav-link active">
+                                Committees
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="statutory.html">Statutory</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="non-statutory.html">Non-Statutory</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="iqac.html">IQAC</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="research-cell.html">Research Cell</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        href="assets\hit\pdf_folder\HiTech Campus Security Audit Checklist.pdf"
+                                        target="_blank">
+                                        Campus Security Audit (PDF)
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="alumni.php">Alumni</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="posh-cell.html">
+                                        POSH Cell
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="reports.html">
+                                        Reports
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                        <!-- <li class="nav-item">
                             <a class='nav-link' href='contact-us.php'>
                                 Contact
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="others-option d-flex align-items-center">
                         <div class="option-item">
@@ -327,11 +556,17 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                     target="_blank">Admission</a>
                             </div>
                         </div>
+                        <div class="option-item">
+                            <!-- <div class="nav-search">
+                                <a href="#" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop" class="search-button"><i class='bx bx-search'></i></a>
+                            </div> -->
+                        </div>
                     </div>
                 </div>
             </nav>
         </div>
     </div>
+    <!-- End Navbar Area Start -->
 
     <!-- Start Responsive Navbar Area -->
     <div class="responsive-navbar offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="navbarOffcanvas">
@@ -343,19 +578,22 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
         </div>
         <div class="offcanvas-body">
             <div class="accordion" id="navbarAccordion">
+
+
                 <div class="accordion-item">
-                    <a class='accordion-link without-icon' href='index.html'>
+                    <a class='accordion-link without-icon active' href='index.html'>
                         Home
                     </a>
                 </div>
+
                 <div class="accordion-item">
-                    <button class="accordion-button collapsed active" type="button" data-bs-toggle="collapse"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         About
                     </button>
                     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
                         <div class="accordion-body">
-                            <div class="accordion" id="navbarAccordion8">
+                            <div class="accordion" id="navbarAccordionAbout">
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='about-us.html'>
                                         About Us
@@ -372,54 +610,20 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                     </a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='alumni.php'>
-                                        Alumni
+                                    <a class='accordion-link' href='facilities.html'>
+                                        Facilities
                                     </a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link active' href='alumni_form.php'>
-                                        Alumni Form
+                                    <a class='accordion-link' href='gallery.html'>
+                                        Gallery
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Academics
-                    </button>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
-                        <div class="accordion-body">
-                            <div class="accordion" id="navbarAccordion30">
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='academics.html'>
-                                        Academics
-                                    </a>
-                                </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='undergraduate.html'>
-                                        Undergraduate
-                                    </a>
-                                </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link ' href='graduate.html'>
-                                        Postgraduate
-                                    </a>
-                                </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='education.html
-'>
-                                        Education
 
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="accordion-item">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseCourses" aria-expanded="false" aria-controls="collapseCourses">
@@ -450,10 +654,9 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                                     <a class='accordion-link' href='information-technology.html'>Information
                                         Technology</a>
                                 </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='pharmaceutical-technology.html'>Pharmaceutical
-                                        Technology</a>
-                                </div>
+
+
+
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='mechanical-engineering.html'>Mechanical
                                         Engineering</a>
@@ -481,28 +684,15 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                     </button>
                     <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
                         <div class="accordion-body">
-                            <div class="accordion" id="navbarAccordion31">
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='how-to-apply.html'>
-                                        How to Apply
-                                    </a>
-                                </div>
-
+                            <div class="accordion" id="navbarAccordionAdmissions">
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='https://admission.hindusthan.net/' target="_blank">
                                         Admissions
                                     </a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='https://admission.hindusthan.net/arts-and-science'
-                                        target="_blank">
-                                        Arts & Science-Form
-                                    </a>
-                                </div>
-                                <div class="accordion-item">
-                                    <a class='accordion-link' href='https://admission.hindusthan.net/engineering-form'
-                                        target="_blank">
-                                        Engineering-Form
+                                    <a class='accordion-link' href='admission_policy.html'>
+                                        Admission Policy
                                     </a>
                                 </div>
                                 <div class="accordion-item">
@@ -518,41 +708,140 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
 
                 <div class="accordion-item">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                        College Life
+                        data-bs-target="#collapsePlacement" aria-expanded="false" aria-controls="collapsePlacement">
+                        Placement
                     </button>
-                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
+                    <div id="collapsePlacement" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
                         <div class="accordion-body">
-                            <div class="accordion" id="navbarAccordion40">
+                            <div class="accordion" id="navbarAccordionPlacement">
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='college-life.html'>
-                                        College Life
-                                    </a>
+                                    <a class='accordion-link' href='about_placement.html'>About Placement</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='the-campus-experience.html'>
-                                        The Campus Experience
-                                    </a>
+                                    <a class='accordion-link'
+                                        href='assets/hit/pdf_folder/placement_pdf/HiTECH Placement Details.pdf'
+                                        target="_blank">Placement Details</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='fitness-athletics.html'>
-                                        Fitness &amp; Athletics
-                                    </a>
+                                    <a class='accordion-link'
+                                        href='assets/hit/pdf_folder/placement_pdf/PLACEMENT 2024-2025.pdf'
+                                        target="_blank">Placement 2025</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='support-guidance.html'>
-                                        Support &amp; Guidance
-                                    </a>
+                                    <a class='accordion-link'
+                                        href='assets/hit/pdf_folder/placement_pdf/PLACEMENT 2023-2024.pdf'
+                                        target="_blank">Placement 2024</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='student-activities.html'>
-                                        Student Activities
-                                    </a>
+                                    <a class='accordion-link'
+                                        href='assets/hit/pdf_folder/placement_pdf/PLACEMENT 2022-2023.pdf'
+                                        target="_blank">Placement 2023</a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link'
+                                        href='assets/hit/pdf_folder/placement_pdf/PLACEMENT 2021-2022.pdf'
+                                        target="_blank">Placement 2022</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseMenu" aria-expanded="false" aria-controls="collapseMenu">
+                        Academic Menu
+                    </button>
+                    <div id="collapseMenu" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
+                        <div class="accordion-body">
+                            <div class="accordion" id="navbarAccordionMenu">
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='coe.html'>COE</a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='http://ecampus.hicet.ac.in/ecampus/'>E Campus
+                                        Login</a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='online-fee-payment.html'>Online Fee Payment</a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='exam-fee.html'>Exam Fee</a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='nirf.html'>NIRF</a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='e-content.html'>E-Content</a>
+                                </div>
+                                <div class="accordion-item">
+                                    <a class='accordion-link' href='nba_dcp.html'>NBA / DCP</a>
+                                </div>
+                                <div class="accordion-item">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseAudit" aria-expanded="false"
+                                        aria-controls="collapseAudit">
+                                        Audit Report (NBA / NAAC)
+                                    </button>
+                                    <div id="collapseAudit" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="accordion">
+                                                <div class="accordion-item"><a class='accordion-link'
+                                                        href='assets/hit/pdf_folder/Audit_pdf/Audit 2024-25.pdf'
+                                                        target="_blank">Audit Report
+                                                        2024 – 2025</a></div>
+                                                <div class="accordion-item"><a class='accordion-link'
+                                                        href='assets/hit/pdf_folder/Audit_pdf/Audit 2023-24.pdf'
+                                                        target="_blank">Audit Report
+                                                        2023 – 2024</a></div>
+                                                <div class="accordion-item"><a class='accordion-link'
+                                                        href='assets/hit/pdf_folder/Audit_pdf/Audit 2022-23.pdf'
+                                                        target="_blank">Audit Report
+                                                        2022 – 2023</a></div>
+                                                <div class="accordion-item"><a class='accordion-link'
+                                                        href='assets/hit/pdf_folder/Audit_pdf/NBA EXT 2025.pdf'
+                                                        target="_blank">NBA</a></div>
+                                                <div class="accordion-item"><a class='accordion-link'
+                                                        href='assets/hit/pdf_folder/Audit_pdf/accreditation2022.pdf'
+                                                        target="_blank">NAAC</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseCommittees" aria-expanded="false" aria-controls="collapseCommittees">
+                        Committees
+                    </button>
+                    <div id="collapseCommittees" class="accordion-collapse collapse" data-bs-parent="#navbarAccordion">
+                        <div class="accordion-body">
+                            <div class="accordion" id="navbarAccordionCommittees">
+                                <div class="accordion-item"><a class='accordion-link'
+                                        href='statutory.html'>Statutory</a></div>
+                                <div class="accordion-item"><a class='accordion-link'
+                                        href='non-statutory.html'>Non-Statutory</a></div>
+                                <div class="accordion-item"><a class='accordion-link' href='iqac.html'>IQAC</a></div>
+                                <div class="accordion-item"><a class='accordion-link' href='research-cell.html'>Research
+                                        Cell</a></div>
+                                <div class="accordion-item"><a class='accordion-link'
+                                        href='assets\hit\pdf_folder\HiTech Campus Security Audit Checklist.pdf'
+                                        target="_blank">Campus Security Audit (PDF)</a></div>
+                                <div class="accordion-item"><a class='accordion-link' href='alumni.php'>Alumni</a>
+                                </div>
+                                <div class="accordion-item"><a class='accordion-link' href='posh-cell.html'>POSH
+                                        Cell</a></div>
+                                <div class="accordion-item"><a class='accordion-link' href='reports.html'>Reports</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="accordion-item">
                     <a class='accordion-link without-icon' href='contact-us.php'>
                         Contact Us
@@ -585,8 +874,10 @@ if (isset($_GET['status']) && $_GET['status'] == 'success') {
                     <a class='default-btn' href='https://admission.hindusthan.net/' target="_blank">Admission</a>
                 </div>
             </div>
+
         </div>
     </div>
+    <!-- End Responsive Navbar Area -->
 
     <!-- Start hindusthan.net Searchbar Area -->
     <div class="hindusthan.net offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop">
@@ -775,12 +1066,12 @@ endif; ?>
                                 </div>
                                 <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</p>
                                 <div style="color: white;">
-                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 422 - 4440555"
-                                        style="color: white;"> +91 422 - 4440555</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 9715260118"
+                                        style="color: white;"> +91 9715260118</a>
                                 </div>
                                 <div style="color: white;">
-                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 80983 33333"
-                                        style="color: white;"> +91 80983 33333</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 9047010006"
+                                        style="color: white;"> +91 9047010006</a>
                                 </div>
                                 <div style="color: white;">
                                     <i class="bx bxs-envelope"></i> <a href="mailto:hit.office@hindusthan.net"

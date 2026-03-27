@@ -20,6 +20,94 @@
 
     <title>Reports | Hindusthan Institute of Technology</title>
     <link rel="icon" type="image/png" href="assets/hindusthan_images/hindusthan.png">
+
+    <style>
+        /* ── Reports Scrollspy Navigation ── */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* push sections down so sticky nav+site-nav don't cover the heading */
+        .iqac-section[id] {
+            scroll-margin-top: 130px;
+        }
+
+        .reports-scrollspy-nav {
+            position: sticky;
+            top: 80px;
+            /* sits just below the site navbar */
+            z-index: 900;
+            background: linear-gradient(135deg, #001054 0%, #002147 100%);
+            padding: 0;
+            /* box-shadow: 0 4px 20px #002147; */
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .reports-scrollspy-nav .scroll-nav-inner {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            gap: 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .reports-scrollspy-nav .scroll-nav-inner::-webkit-scrollbar {
+            display: none;
+        }
+
+        .reports-scrollspy-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 13px 18px;
+            color: rgba(255, 255, 255, .78);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -3px;
+            transition: color .25s, border-color .25s, background .25s;
+            letter-spacing: .3px;
+        }
+
+        .reports-scrollspy-nav a:hover,
+        .reports-scrollspy-nav a.active {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+            border: 2px solid #fff;
+            background: #ed6f26;
+        }
+
+        .reports-scrollspy-nav a i {
+            font-size: 15px;
+        }
+
+        /* Section header accent */
+        .iqac-section__header h3 {
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .iqac-section__header h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 4px;
+            height: 80%;
+            background: #ed6f26;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 576px) {
+            .reports-scrollspy-nav a {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -745,6 +833,27 @@
     </div>
     <!-- End Section Banner Area -->
 
+    <!-- Start Reports Scrollspy Nav -->
+    <nav class="reports-scrollspy-nav" id="reportsScrollspyNav">
+        <div class="container-fluid " style="margin-top: 60px;">
+            <div class="scroll-nav-inner">
+                <a href="#policies" id="nav-policies"><i class='bx bx-book'></i> Policies</a>
+                <a href="#nirf" id="nav-nirf"><i class='bx bx-bar-chart-alt-2'></i> NIRF</a>
+                <a href="#mandatory" id="nav-mandatory"><i class='bx bx-file'></i> Mandatory</a>
+                <a href="#naac" id="nav-naac"><i class='bx bx-award'></i> NAAC / NBA</a>
+                <a href="#affiliation" id="nav-affiliation"><i class='bx bx-link'></i> Affiliation</a>
+                <a href="#aicte" id="nav-aicte"><i class='bx bx-certification'></i> AICTE EOA</a>
+                <a href="#abc" id="nav-abc"><i class='bx bx-book-open'></i> ABC</a>
+                <!-- <a href="#innovation" id="nav-innovation"><i class='bx bx-bulb'></i> Innovation</a> -->
+                <a href="#yoga" id="nav-yoga"><i class='bx bx-sun'></i> Yoga</a>
+                <a href="#testimonials" id="nav-testimonials"><i class='bx bx-chat'></i> Testimonials</a>
+                <a href="#placement" id="nav-placement"><i class='bx bx-briefcase'></i> Placement</a>
+                <a href="#auerc" id="nav-auerc"><i class='bx bx-library'></i> AUERC</a>
+            </div>
+        </div>
+    </nav>
+    <!-- End Reports Scrollspy Nav -->
+
     <!-- Start Content Area -->
     <div class="ptb-100">
         <div class="container">
@@ -759,7 +868,115 @@
                 </div>
             </div>
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="policies">
+                <div class="iqac-section__header">
+                    <i class='bx bx-file'></i>
+                    <h3> Policies & Academic Documents </h3>
+                </div>
+                <div class="row g-3">
+                    <div class="col-lg-4 col-md-6">
+                        <a href="assets/hit/pdf_folder/iqac/Iqac_manual/HR Manual.pdf" target="_blank"
+                            class="iqac-pdf-card">
+                            <div class="iqac-pdf-card__icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div class="iqac-pdf-card__info">
+                                <span class="iqac-pdf-card__title"> HR Policy </span>
+                                <span class="iqac-pdf-card__tag">PDF Document</span>
+                            </div>
+                            <i class='bx bx-download iqac-pdf-card__dl'></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="assets/hit/pdf_folder/iqac/Iqac_Policy/Research Policy.pdf" target="_blank"
+                            class="iqac-pdf-card">
+                            <div class="iqac-pdf-card__icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div class="iqac-pdf-card__info">
+                                <span class="iqac-pdf-card__title"> Research Policy </span>
+                                <span class="iqac-pdf-card__tag">PDF Document</span>
+                            </div>
+                            <i class='bx bx-download iqac-pdf-card__dl'></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="assets/hit/pdf_folder/iqac/Iqac_Policy/Admission Policy.pdf" target="_blank"
+                            class="iqac-pdf-card">
+                            <div class="iqac-pdf-card__icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div class="iqac-pdf-card__info">
+                                <span class="iqac-pdf-card__title"> Admission Policy </span>
+                                <span class="iqac-pdf-card__tag">PDF Document</span>
+                            </div>
+                            <i class='bx bx-download iqac-pdf-card__dl'></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="assets/hit/pdf_folder/Reports/Innovation_StartUp/Hitech Policy_new.pdf" target="_blank"
+                            class="iqac-pdf-card">
+                            <div class="iqac-pdf-card__icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div class="iqac-pdf-card__info">
+                                <span class="iqac-pdf-card__title"> Innovation and Startup Policy </span>
+                                <span class="iqac-pdf-card__tag">PDF Document</span>
+                            </div>
+                            <i class='bx bx-download iqac-pdf-card__dl'></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="assets/hit/pdf_folder/iqac/Iqac_manual/OBE Manual.pdf" target="_blank"
+                            class="iqac-pdf-card">
+                            <div class="iqac-pdf-card__icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div class="iqac-pdf-card__info">
+                                <span class="iqac-pdf-card__title"> OBE Manual </span>
+                                <span class="iqac-pdf-card__tag">PDF Document</span>
+                            </div>
+                            <i class='bx bx-download iqac-pdf-card__dl'></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="assets/hit/pdf_folder/iqac/Iqac_manual/Service Rules.pdf" target="_blank"
+                            class="iqac-pdf-card">
+                            <div class="iqac-pdf-card__icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div class="iqac-pdf-card__info">
+                                <span class="iqac-pdf-card__title"> Service Rules </span>
+                                <span class="iqac-pdf-card__tag">PDF Document</span>
+                            </div>
+                            <i class='bx bx-download iqac-pdf-card__dl'></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="assets/hit/pdf_folder/iqac/HiTech IQAC Composition 2025_26.pdf" target="_blank"
+                            class="iqac-pdf-card">
+                            <div class="iqac-pdf-card__icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div class="iqac-pdf-card__info">
+                                <span class="iqac-pdf-card__title"> Latest IQAC list & Meeting (Composition) </span>
+                                <span class="iqac-pdf-card__tag">PDF Document</span>
+                            </div>
+                            <i class='bx bx-download iqac-pdf-card__dl'></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="assets/hit/pdf_folder/iqac/IQAC meeting Minutes_Action Taken 2025_26.pdf"
+                            target="_blank" class="iqac-pdf-card">
+                            <div class="iqac-pdf-card__icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div class="iqac-pdf-card__info">
+                                <span class="iqac-pdf-card__title"> Latest IQAC list & Meeting (Meeting) </span>
+                                <span class="iqac-pdf-card__tag">PDF Document</span>
+                            </div>
+                            <i class='bx bx-download iqac-pdf-card__dl'></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="assets/hit/pdf_folder/non_statutory/Planning_evalu_committee/ACADEMIC YEAR 2025-2026.pdf"
+                            target="_blank" class="iqac-pdf-card">
+                            <div class="iqac-pdf-card__icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div class="iqac-pdf-card__info">
+                                <span class="iqac-pdf-card__title"> Academic Calender 2025 - 2026 (Even) </span>
+                                <span class="iqac-pdf-card__tag">PDF Document</span>
+                            </div>
+                            <i class='bx bx-download iqac-pdf-card__dl'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="iqac-section mb-5" id="nirf">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3>NIRF Report 2025</h3>
@@ -814,7 +1031,7 @@
                 </div>
             </div>
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="mandatory">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3>Mandatory Disclosure</h3>
@@ -835,7 +1052,7 @@
                 </div>
             </div>
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="naac">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3>NAAC / NBA</h3>
@@ -856,7 +1073,7 @@
                 </div>
             </div>
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="affiliation">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3>AU Affiliation</h3>
@@ -912,7 +1129,7 @@
             </div>
 
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="aicte">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3> AICTE EOA/LOA </h3>
@@ -990,7 +1207,7 @@
                 </div>
             </div>
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="abc">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3> Academic Bank of Credits </h3>
@@ -1012,7 +1229,7 @@
 
 
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="innovation">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3> INNOVATION & START-UP POLICY </h3>
@@ -1049,7 +1266,7 @@
                 </div>
             </div>
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="yoga">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3> INTERNATIONAL YOGA 2025 </h3>
@@ -1071,7 +1288,7 @@
                 </div>
             </div>
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="testimonials">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3> STUDENT’S TESTIMONIALS </h3>
@@ -1093,7 +1310,7 @@
                 </div>
             </div>
 
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="placement">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3> Placement Details</h3>
@@ -1114,7 +1331,7 @@
 
                 </div>
             </div>
-            <div class="iqac-section mb-5">
+            <div class="iqac-section mb-5" id="auerc">
                 <div class="iqac-section__header">
                     <i class='bx bx-file'></i>
                     <h3> AUERC Remote Access </h3>
@@ -1177,12 +1394,12 @@
                                 <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641
                                     032. TamilNadu, INDIA</p>
                                 <div style="color: white;">
-                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 422 - 4440555"
-                                        style="color: white;"> +91 422 - 4440555</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 9715260118"
+                                        style="color: white;"> +91 9715260118</a>
                                 </div>
                                 <div style="color: white;">
-                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 80983 33333"
-                                        style="color: white;"> +91 80983 33333</a>
+                                    <i class="bx bxs-phone-call"></i> <a href="tel:+91 9047010006"
+                                        style="color: white;"> +91 9047010006</a>
                                 </div>
                                 <div style="color: white;">
                                     <i class="bx bxs-envelope"></i> <a href="mailto:hit.office@hindusthan.net"
@@ -1299,7 +1516,7 @@
             <i class='bx bx-message-dots'></i>
         </div>
         <div class="contact-options" id="contactOptions">
-            <a href="https://wa.me/918300604896?text=Hello%21%0AI%E2%80%99m%20interested%20in%20knowing%20more%20about%20your%20admissions.%0ACould%20you%20please%20share%20the%20details%20about%20courses%2C%20fees%2C%20eligibility%2C%20and%20the%20admission%20process%3F%0A%0AExcited%20to%20explore%20the%20opportunities%20at%20your%20institution.%20Thank%20you%21"
+            <a href="https://wa.me/919715260118?text=Hello%21%0AI%E2%80%99m%20interested%20in%20knowing%20more%20about%20your%20admissions.%0ACould%20you%20please%20share%20the%20details%20about%20courses%2C%20fees%2C%20eligibility%2C%20and%20the%20admission%20process%3F%0A%0AExcited%20to%20explore%20the%20opportunities%20at%20your%20institution.%20Thank%20you%21"
                 class="contact-option" target="_blank">
                 <i class='bx bxl-whatsapp'></i>
                 <span>WhatsApp Message</span>
@@ -1325,6 +1542,84 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/messagefloating.js"></script>
     <script src="assets/js/custom.js"></script>
+
+    <!-- Reports ScrollSpy JS -->
+    <script>
+        (function () {
+            var sections = ['policies', 'nirf', 'mandatory', 'naac', 'affiliation', 'aicte', 'abc', 'innovation', 'yoga', 'testimonials', 'placement', 'auerc'];
+            var navLinks = {};
+            sections.forEach(function (id) {
+                navLinks[id] = document.getElementById('nav-' + id);
+            });
+
+            var spyNav = document.getElementById('reportsScrollspyNav');
+            var siteNav = document.getElementById('navbar'); /* site main navbar */
+
+            /* Dynamically compute trigger = total height of all sticky bars above content */
+            function getTrigger() {
+                var siteH = siteNav ? siteNav.offsetHeight : 70;
+                var spyH = spyNav ? spyNav.offsetHeight : 50;
+                return siteH + spyH + 10; /* +10px buffer */
+            }
+
+            function getActiveSection() {
+                var trigger = getTrigger();
+                var best = null;
+                var bestTop = -Infinity;
+                sections.forEach(function (id) {
+                    var el = document.getElementById(id);
+                    if (!el) return;
+                    var top = el.getBoundingClientRect().top;
+                    /* Section that has scrolled past trigger and is closest to it */
+                    if (top <= trigger && top > bestTop) {
+                        bestTop = top;
+                        best = id;
+                    }
+                });
+                return best || sections[0];
+            }
+
+            /* Auto-scroll the horizontal scrollspy nav so active link is visible (mobile) */
+            function scrollNavToActive(activeId) {
+                var link = navLinks[activeId];
+                if (!link || !spyNav) return;
+                var navInner = spyNav.querySelector('.scroll-nav-inner');
+                if (!navInner) return;
+                var linkLeft = link.offsetLeft;
+                var linkWidth = link.offsetWidth;
+                var innerWidth = navInner.offsetWidth;
+                var scrollLeft = navInner.scrollLeft;
+                /* Center the active link inside the scrollable nav */
+                var target = linkLeft - (innerWidth / 2) + (linkWidth / 2);
+                navInner.scrollTo({ left: target, behavior: 'smooth' });
+            }
+
+            var lastActive = null;
+            function onScroll() {
+                var active = getActiveSection();
+                if (active === lastActive) return; /* skip if unchanged */
+                lastActive = active;
+                sections.forEach(function (id) {
+                    if (navLinks[id]) navLinks[id].classList.remove('active');
+                });
+                if (navLinks[active]) navLinks[active].classList.add('active');
+                scrollNavToActive(active);
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            /* Scroll to hash on load */
+            if (location.hash) {
+                var target = document.querySelector(location.hash);
+                if (target) {
+                    setTimeout(function () {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 400);
+                }
+            }
+        })();
+    </script>
 
 </body>
 
