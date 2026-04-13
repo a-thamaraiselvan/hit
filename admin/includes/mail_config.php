@@ -10,11 +10,12 @@ define('MAIL_USERNAME', 'hindusthaneducation@gmail.com'); // Replace with your e
 define('MAIL_PASSWORD', 'zgaq vprv ugac lmsy'); // Replace with your app password
 
 // Configure PHPMailer settings
-function configureMailer() {
+function configureMailer()
+{
     require_once __DIR__ . '/../../vendor/autoload.php';
-    
+
     $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
-    
+
     try {
         // Server settings
         $mail->isSMTP();
@@ -24,12 +25,13 @@ function configureMailer() {
         $mail->Password = MAIL_PASSWORD;
         $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
-        
+
         // Default sender
         $mail->setFrom(MAIL_FROM, MAIL_FROM_NAME);
-        
+
         return $mail;
-    } catch (Exception $e) {
+    }
+    catch (Exception $e) {
         error_log('Mailer Error: ' . $e->getMessage());
         return false;
     }
