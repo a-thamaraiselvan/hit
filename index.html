@@ -21,9 +21,9 @@
 
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Hindusthan Educational Institutions - Excellence in Education">
+    <meta property="og:title" content="Hindusthan Institute of Technology - Excellence in Technical Education">
     <meta property="og:description"
-        content="Leading educational institution offering quality programs in engineering, technology, and management with world-class facilities and experienced faculty.">
+        content="Empowering future engineers through quality education, modern infrastructure, and industry-oriented learning at Hindusthan Institute of Technology.">
     <meta property="og:image" content="assets/hindusthan_images/hindusthan_logo.png">
     <meta property="og:url" content="https://hit.edu.in">
     <meta property="og:type" content="website">
@@ -549,6 +549,7 @@
                             <!-- <li><a href='alumni.php'>Alumni</a></li> -->
                             <li><a href='https://www.instagram.com/hindusthancolleges'>Media</a></li>
                             <li><a href='contact-us.php'>contact-us</a></li>
+                            <li><a href=''> <span style="color: #000 !important; font-weight: 600 !important;">TNEA CODE : </span><span style="color: #ed6f26;font-weight: 600 !important;">2740</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -786,7 +787,8 @@
                                         </div>
 
                                         <div class="col-lg-4 col-md-6 mega-col">
-                                            <a href="online-fee-payment.html" class="mega-link">
+                                            <a href="http://ecampus.hicet.ac.in/ecampus/online_payments"
+                                                class="mega-link">
                                                 <h6 class="mega-title">Online Fee Payment</h6>
                                                 <p class="mega-desc">Pay tuition and other institutional fees securely
                                                     online.</p>
@@ -1143,7 +1145,8 @@
                                         Login</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='online-fee-payment.html'>Online Fee Payment</a>
+                                    <a class='accordion-link'
+                                        href='http://ecampus.hicet.ac.in/ecampus/online_payments'>Online Fee Payment</a>
                                 </div>
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='exam-fee.html'>Exam Fee</a>
@@ -1239,6 +1242,7 @@
                         <i class="bx bxs-time"></i>
                         <p>Mon - Sat : 9:00 AM - 06:00 PM</p>
                     </li>
+                
                 </ul>
                 <ul class="social-profile list-style">
                     <li><a href="https://www.facebook.com/Hindusthan.College.Coimbatore" target="_blank"><i
@@ -1252,6 +1256,11 @@
             <div class="offcanvas-other-options">
                 <div class="option-item">
                     <a class='default-btn' href='https://admission.hindusthan.net/' target="_blank">Admission</a>
+                </div>
+            </div>
+            <div class="offcanvas-other-options">
+                <div class="option-item">
+                    <a href=''> <span style="color: #000 !important; font-weight: 600 !important;">TNEA CODE : </span><span style="color: #ed6f26;font-weight: 600 !important;">2740</span></a>
                 </div>
             </div>
 
@@ -2524,11 +2533,12 @@
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <div class="sub-title">
-                       
+
                         <p>Our Presence</p>
                     </div>
                     <h2>13 Prestigious Institutions Across Tamil Nadu</h2>
-                    <p>Providing excellence in education through our diverse network of institutions in Coimbatore, Erode, and Salem.</p>
+                    <p>Providing excellence in education through our diverse network of institutions in Coimbatore,
+                        Erode, and Salem.</p>
                 </div>
 
                 <div class="map-container-wrapper" data-aos="zoom-in" data-aos-delay="200">
@@ -2591,7 +2601,9 @@
                             <div class="tooltip-card">
                                 <span class="category"></span>
                                 <h4 class="title"></h4>
-                                <p class="location"><i class="fa-solid fa-location-dot" style="color: red;"></i> <span></span></p>
+                                <p class="location"><i class="fa-solid fa-location-dot" style="color: red;"></i>
+                                    <span></span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -3062,7 +3074,7 @@
                                     </div>
                                     <div style="color: white;">
                                         <i class="bx bxs-envelope"></i> <a href="mailto:hit.office@hindusthan.net"
-                                            style="color: white;"> hit.office@hindusthan.et</a>
+                                            style="color: white;"> hit.office@hindusthan.net</a>
                                     </div>
 
                                 </ul>
@@ -3519,30 +3531,77 @@
                             // }
 
                             // 2. Render Recent News
+                            // if (data.recent && data.recent.length > 0) {
+                            //     const recentCont = document.getElementById('recent-news-container');
+                            //     recentCont.innerHTML = '';
+                            //     data.recent.forEach((news, index) => {
+                            //         const date = new Date(news.event_date);
+                            //         const dateStr = date.toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' });
+                            //         recentCont.innerHTML += `
+                            //         <div class="event" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+                            //             <div class="content">
+                            //                 <div class="image">
+                            //                     <img src="${news.poster ? news.poster : 'assets/img/all-img/events-image-2.png'}" alt="${news.event_name}">
+                            //                 </div>
+                            //                 <div class="text title-anim">
+                            //                     <div class="tag">News</div>
+                            //                     <h2 class="title-anim"><a href='blog-details.php?id=${news.id}'>${news.event_name}</a></h2>
+                            //                     <span>${dateStr}</span>
+                            //                     <p>${news.description.substring(0, 100)}...</p>
+                            //                     <div class="link"><a href='blog-details.php?id=${news.id}'><i class='bx bx-link-external'></i></a></div>
+                            //                 </div>
+                            //             </div>
+                            //         </div>
+                            //     `;
+                            //     });
+                            // }
+
                             if (data.recent && data.recent.length > 0) {
                                 const recentCont = document.getElementById('recent-news-container');
                                 recentCont.innerHTML = '';
+
                                 data.recent.forEach((news, index) => {
-                                    const date = new Date(news.event_date);
-                                    const dateStr = date.toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' });
+
+                                    const date = news.event_date
+                                        ? new Date(news.event_date.replace(" ", "T"))
+                                        : null;
+
+                                    const dateStr = date
+                                        ? date.toLocaleDateString('en-US', {
+                                            month: 'long',
+                                            day: '2-digit',
+                                            year: 'numeric'
+                                        })
+                                        : '';
+
+                                    const imagePath = news.poster
+                                        ? 'https://hit.edu.in/uploads/events/' + news.poster
+                                        : 'https://hit.edu.in/assets/img/all-img/events-image-2.png';
+
                                     recentCont.innerHTML += `
-                                    <div class="event" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-                                        <div class="content">
-                                            <div class="image">
-                                                <img src="${news.poster ? news.poster : 'assets/img/all-img/events-image-2.png'}" alt="${news.event_name}">
-                                            </div>
-                                            <div class="text title-anim">
-                                                <div class="tag">News</div>
-                                                <h2 class="title-anim"><a href='blog-details.php?id=${news.id}'>${news.event_name}</a></h2>
-                                                <span>${dateStr}</span>
-                                                <p>${news.description.substring(0, 100)}...</p>
-                                                <div class="link"><a href='blog-details.php?id=${news.id}'><i class='bx bx-link-external'></i></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                `;
+            <div class="event" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+                <div class="content">
+                    <div class="image">
+                        <img src="${imagePath}" alt="${news.event_name}">
+                    </div>
+                    <div class="text title-anim">
+                        <div class="tag">News</div>
+                        <h2>
+                            <a href='blog-details.php?id=${news.id}'>${news.event_name}</a>
+                        </h2>
+                        <span>${dateStr}</span>
+                        <p>${news.description ? news.description.substring(0, 30) : ''}...</p>
+                        <div class="link">
+                            <a href='blog-details.php?id=${news.id}'><i class='bx bx-link-external'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
                                 });
                             }
+
+
 
                             // 3. Render Upcoming Events
                             if (data.upcoming && data.upcoming.length > 0) {
@@ -3563,7 +3622,7 @@
                                         </div>
                                         <div class="content title-anim">
                                             <h3><a href='blog-details.php?id=${event.id}'>${event.event_name}</a></h3>
-                                            <p>${event.description.substring(0, 60)}...</p>
+                                            <p>${event.description.substring(0, 20)}...</p>
                                             <div class="location"><i class='bx bx-map'></i> ${event.venue}</div>
                                             <div class="link"><a href='blog-details.php?id=${event.id}'><i class='bx bx-link-external'></i></a></div>
                                         </div>
@@ -3672,52 +3731,52 @@
         <!-- script for lastest news ticker end  -->
 
         <script>
-const dots = document.querySelectorAll('.dot');
-const tooltip = document.getElementById('tooltip');
-const map = document.getElementById('map');
+            const dots = document.querySelectorAll('.dot');
+            const tooltip = document.getElementById('tooltip');
+            const map = document.getElementById('map');
 
-const categoryEl = tooltip.querySelector('.category');
-const titleEl = tooltip.querySelector('.title');
-const locationEl = tooltip.querySelector('.location span');
+            const categoryEl = tooltip.querySelector('.category');
+            const titleEl = tooltip.querySelector('.title');
+            const locationEl = tooltip.querySelector('.location span');
 
-function showTooltip(dot, x, y) {
-    categoryEl.innerText = dot.dataset.category;
-    titleEl.innerText = dot.dataset.name;
-    locationEl.innerText = dot.dataset.location;
+            function showTooltip(dot, x, y) {
+                categoryEl.innerText = dot.dataset.category;
+                titleEl.innerText = dot.dataset.name;
+                locationEl.innerText = dot.dataset.location;
 
-    tooltip.style.display = 'block';
-    tooltip.style.left = x + 'px';
-    tooltip.style.top = y + 'px';
-}
+                tooltip.style.display = 'block';
+                tooltip.style.left = x + 'px';
+                tooltip.style.top = y + 'px';
+            }
 
-dots.forEach(dot => {
-    dot.addEventListener('mouseenter', (e) => {
-        const rect = map.getBoundingClientRect();
-        showTooltip(dot, e.clientX - rect.left + 15, e.clientY - rect.top + 15);
-    });
+            dots.forEach(dot => {
+                dot.addEventListener('mouseenter', (e) => {
+                    const rect = map.getBoundingClientRect();
+                    showTooltip(dot, e.clientX - rect.left + 15, e.clientY - rect.top + 15);
+                });
 
-    dot.addEventListener('mousemove', (e) => {
-        const rect = map.getBoundingClientRect();
-        tooltip.style.left = (e.clientX - rect.left + 15) + 'px';
-        tooltip.style.top = (e.clientY - rect.top + 15) + 'px';
-    });
+                dot.addEventListener('mousemove', (e) => {
+                    const rect = map.getBoundingClientRect();
+                    tooltip.style.left = (e.clientX - rect.left + 15) + 'px';
+                    tooltip.style.top = (e.clientY - rect.top + 15) + 'px';
+                });
 
-    dot.addEventListener('mouseleave', () => {
-        if (!dot.classList.contains('active')) {
-            tooltip.style.display = 'none';
-        }
-    });
-});
+                dot.addEventListener('mouseleave', () => {
+                    if (!dot.classList.contains('active')) {
+                        tooltip.style.display = 'none';
+                    }
+                });
+            });
 
-/* AUTO SHOW ACTIVE */
-window.addEventListener('load', () => {
-    const activeDot = document.querySelector('.dot.active');
-    if (activeDot) {
-        const x = activeDot.offsetLeft + 20;
-        const y = activeDot.offsetTop - 10;
-        showTooltip(activeDot, x, y);
-    }
-});
+            /* AUTO SHOW ACTIVE */
+            window.addEventListener('load', () => {
+                const activeDot = document.querySelector('.dot.active');
+                if (activeDot) {
+                    const x = activeDot.offsetLeft + 20;
+                    const y = activeDot.offsetTop - 10;
+                    showTooltip(activeDot, x, y);
+                }
+            });
         </script>
 
 </body>

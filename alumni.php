@@ -596,7 +596,8 @@ $alumni = $stmt->fetchAll();
                                             </div>
 
                                             <div class="col-lg-4 col-md-6 mega-col">
-                                                <a href="online-fee-payment.html" class="mega-link">
+                                                <a href="http://ecampus.hicet.ac.in/ecampus/online_payments"
+                                                    class="mega-link">
                                                     <h6 class="mega-title">Online Fee Payment</h6>
                                                     <p class="mega-desc">Pay tuition and other institutional fees
                                                         securely
@@ -964,7 +965,9 @@ $alumni = $stmt->fetchAll();
                                             Login</a>
                                     </div>
                                     <div class="accordion-item">
-                                        <a class='accordion-link' href='online-fee-payment.html'>Online Fee Payment</a>
+                                        <a class='accordion-link'
+                                            href='http://ecampus.hicet.ac.in/ecampus/online_payments'>Online Fee
+                                            Payment</a>
                                     </div>
                                     <div class="accordion-item">
                                         <a class='accordion-link' href='exam-fee.html'>Exam Fee</a>
@@ -1202,18 +1205,18 @@ $alumni = $stmt->fetchAll();
                 <div class="swiper team-swiper">
                     <div class="swiper-wrapper">
                         <?php foreach ($alumni as $alum):
-    $id = htmlspecialchars($alum['id'] ?? spl_object_hash((object)$alum));
-    $name = htmlspecialchars($alum['name'] ?? '—');
-    $role = htmlspecialchars($alum['current_position'] ?? '');
-    $company = htmlspecialchars($alum['company'] ?? '');
-    $course = htmlspecialchars($alum['course'] ?? '');
-    $year = htmlspecialchars($alum['graduation_year'] ?? '');
-    $desc = trim($alum['message'] ?? '');
-    $linkedin = htmlspecialchars($alum['linkedin_url'] ?? '');
-    $email = htmlspecialchars($alum['email'] ?? '');
-    $phone = htmlspecialchars($alum['phone'] ?? '');
-    $photo = !empty($alum['photo']) ? htmlspecialchars($alum['photo']) : 'assets/img/default-avatar.jpg';
-?>
+                            $id = htmlspecialchars($alum['id'] ?? spl_object_hash((object) $alum));
+                            $name = htmlspecialchars($alum['name'] ?? '—');
+                            $role = htmlspecialchars($alum['current_position'] ?? '');
+                            $company = htmlspecialchars($alum['company'] ?? '');
+                            $course = htmlspecialchars($alum['course'] ?? '');
+                            $year = htmlspecialchars($alum['graduation_year'] ?? '');
+                            $desc = trim($alum['message'] ?? '');
+                            $linkedin = htmlspecialchars($alum['linkedin_url'] ?? '');
+                            $email = htmlspecialchars($alum['email'] ?? '');
+                            $phone = htmlspecialchars($alum['phone'] ?? '');
+                            $photo = !empty($alum['photo']) ? htmlspecialchars($alum['photo']) : 'assets/img/default-avatar.jpg';
+                            ?>
                             <div class="swiper-slide" role="group" aria-label="<?php echo $name; ?>">
                                 <article class="member-card" aria-labelledby="member-<?php echo $id; ?>">
                                     <div class="member-photo" aria-hidden="false">
@@ -1230,30 +1233,29 @@ $alumni = $stmt->fetchAll();
                                         </div>
                                         <?php if ($role): ?>
                                             <div class="member-role"><?php echo $role; ?></div><?php
-    endif; ?>
+                                        endif; ?>
 
                                         <div class="member-desc" id="desc-<?php echo $id; ?>">
                                             <?php
-    if (!empty($desc)) {
-        echo nl2br(htmlspecialchars($desc));
-    }
-    else {
-        $parts = [];
-        if ($company)
-            $parts[] = $company;
-        if ($course)
-            $parts[] = $course;
-        if ($year)
-            $parts[] = ($year ? "Class of $year" : '');
-        echo htmlspecialchars(implode(' • ', array_filter($parts)));
-    }
-?>
+                                            if (!empty($desc)) {
+                                                echo nl2br(htmlspecialchars($desc));
+                                            } else {
+                                                $parts = [];
+                                                if ($company)
+                                                    $parts[] = $company;
+                                                if ($course)
+                                                    $parts[] = $course;
+                                                if ($year)
+                                                    $parts[] = ($year ? "Class of $year" : '');
+                                                echo htmlspecialchars(implode(' • ', array_filter($parts)));
+                                            }
+                                            ?>
                                         </div>
                                         <div class="member-meta" aria-hidden="false">
                                             <span style=" font-weight: 700 !important;">Company :</span>
                                             <?php if ($company): ?>
                                                 <div><?php echo htmlspecialchars($company); ?></div><?php
-    endif; ?>
+                                            endif; ?>
                                         </div>
 
 
@@ -1261,11 +1263,11 @@ $alumni = $stmt->fetchAll();
                                                 style=" font-weight: 700 !important;">Studied Department:</span>
                                             <?php if ($course): ?>
                                                 <div><?php echo htmlspecialchars($course); ?></div><?php
-    endif; ?>
+                                            endif; ?>
                                             <?php if ($year): ?>
                                                 <div><span style="color: #ed6f26;"><?php echo htmlspecialchars($year); ?></span>
                                                 </div><?php
-    endif; ?>
+                                            endif; ?>
                                         </div>
                                     </div>
 
@@ -1282,15 +1284,15 @@ $alumni = $stmt->fetchAll();
                                                         d="M7.5 7.5H12V10.2C12.7 9.15 14.2 7.5 17.1 7.5C21.4 7.5 24 10.1 24 15.3V24H19V16.2C19 14.1 18.5 12.3 16 12.3C13.5 12.3 12.9 13.9 12.9 16V24H7.5V7.5Z" />
                                                 </svg>
                                             </a>
-                                        <?php
-    endif; ?>
+                                            <?php
+                                        endif; ?>
 
 
                                     </div>
                                 </article>
                             </div>
-                        <?php
-endforeach; ?>
+                            <?php
+                        endforeach; ?>
                     </div>
 
                     <!-- pagination + nav -->
@@ -1340,7 +1342,8 @@ endforeach; ?>
                                             src="assets/college_logos/hindusthan_logo_white.png"
                                             style="height:auto !important; width:auto !important; max-height:50px; margin-bottom: 20px; align-items: center;">
                                     </div>
-                                    <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</p>
+                                    <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore -
+                                        641 032. TamilNadu, INDIA</p>
                                     <div>
                                         <a href="tel:+91 9715260118" style="color: #868786;">+91 9715260118</a>
                                     </div>

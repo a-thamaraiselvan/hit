@@ -2,7 +2,7 @@
 require_once 'admin/includes/db.php';
 
 // Get news ID from URL
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
 // Fetch news details
 $stmt = $conn->prepare("SELECT * FROM news_events WHERE id = ?");
@@ -450,7 +450,8 @@ $shareText = rawurlencode("Check this out");
                                         </div>
 
                                         <div class="col-lg-4 col-md-6 mega-col">
-                                            <a href="online-fee-payment.html" class="mega-link">
+                                            <a href="http://ecampus.hicet.ac.in/ecampus/online_payments"
+                                                class="mega-link">
                                                 <h6 class="mega-title">Online Fee Payment</h6>
                                                 <p class="mega-desc">Pay tuition and other institutional fees securely
                                                     online.</p>
@@ -808,7 +809,8 @@ $shareText = rawurlencode("Check this out");
                                         Login</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='online-fee-payment.html'>Online Fee Payment</a>
+                                    <a class='accordion-link'
+                                        href='http://ecampus.hicet.ac.in/ecampus/online_payments'>Online Fee Payment</a>
                                 </div>
                                 <div class="accordion-item">
                                     <a class='accordion-link' href='exam-fee.html'>Exam Fee</a>
@@ -957,16 +959,16 @@ $shareText = rawurlencode("Check this out");
                     <span><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($news['venue']); ?></span>
                     <?php if ($news['chief_guest']): ?>
                         <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></span>
-                    <?php
-endif; ?>
+                        <?php
+                    endif; ?>
                 </div>
             </div>
 
             <?php if ($news['poster']): ?>
                 <img src="<?php echo htmlspecialchars($news['poster']); ?>"
                     alt="<?php echo htmlspecialchars($news['title']); ?>" class="news-poster">
-            <?php
-endif; ?>
+                <?php
+            endif; ?>
 
             <div class="row">
                 <div class="col-lg-8">
@@ -1013,12 +1015,12 @@ endif; ?>
                         <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($news['venue']); ?></p>
                         <?php if ($news['event_name']): ?>
                             <p><i class="fas fa-bookmark"></i> <?php echo htmlspecialchars($news['event_name']); ?></p>
-                        <?php
-endif; ?>
+                            <?php
+                        endif; ?>
                         <?php if ($news['chief_guest']): ?>
                             <p><i class="fas fa-user"></i> <?php echo htmlspecialchars($news['chief_guest']); ?></p>
-                        <?php
-endif; ?>
+                            <?php
+                        endif; ?>
                     </div>
                 </div>
             </div>
@@ -1060,7 +1062,8 @@ endif; ?>
                                         src="assets/college_logos/hindusthan_logo_white.png"
                                         style="height:auto !important; width:auto !important; max-height:50px; margin-bottom: 20px; align-items: center;">
                                 </div>
-                                <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</p>
+                                <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641
+                                    032. TamilNadu, INDIA</p>
                                 <div style="color: white;">
                                     <i class="bx bxs-phone-call"></i> <a href="tel:+91 9715260118"
                                         style="color: white;"> +91 9715260118</a>
@@ -1113,11 +1116,14 @@ endif; ?>
                         <div class="footer-widget">
                             <h4>Quick Links</h4>
                             <ul>
-                                <li><a href='admission_policy.html'><i class='bx bx-chevron-right'></i> Admission Policy</a></li>
+                                <li><a href='admission_policy.html'><i class='bx bx-chevron-right'></i> Admission
+                                        Policy</a></li>
                                 <li><a href='about-us.html'><i class='bx bx-chevron-right'></i> About us</a></li>
                                 <li><a href='facilities.html'><i class='bx bx-chevron-right'></i> Facilities</a></li>
-                                <li><a href='about_placement.html'><i class='bx bx-chevron-right'></i> Placements</a></li>
-                                <li><a href='news-and-blog.php'><i class='bx bx-chevron-right'></i> News & Blogs</a></li>
+                                <li><a href='about_placement.html'><i class='bx bx-chevron-right'></i> Placements</a>
+                                </li>
+                                <li><a href='news-and-blog.php'><i class='bx bx-chevron-right'></i> News & Blogs</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -1126,12 +1132,12 @@ endif; ?>
                             <h4>Location</h4>
                             <ul>
                                 <div id="map" class="map-pd">
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28364.026242912434!2d76.997067!3d10.894546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85abaa31dcfa9%3A0x72d5daed0d228046!2sHindusthan%20Institute%20of%20Technology!5e1!3m2!1sen!2sus!4v1772600967447!5m2!1sen!2sus"
-                                            width="600" height="450" style="border-radius:20px 20px 20px 20px;"
-                                            allowfullscreen="" loading="lazy"
-                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    </div>
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28364.026242912434!2d76.997067!3d10.894546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85abaa31dcfa9%3A0x72d5daed0d228046!2sHindusthan%20Institute%20of%20Technology!5e1!3m2!1sen!2sus!4v1772600967447!5m2!1sen!2sus"
+                                        width="600" height="450" style="border-radius:20px 20px 20px 20px;"
+                                        allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
                             </ul>
                         </div>
                     </div>

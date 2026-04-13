@@ -67,17 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bind_param("ssssss", $name, $email, $phone, $subject, $message, $date);
             if ($stmt->execute()) {
                 header("Location: contact-us.php?status=success");
-            }
-            else {
+            } else {
                 header("Location: contact-us.php?status=error");
             }
             $stmt->close();
-        }
-        else {
+        } else {
             header("Location: contact-us.php?status=error");
         }
-    }
-    elseif ($form_type === 'grievance') {
+    } elseif ($form_type === 'grievance') {
         // Handle Grievance Form
         $name = trim(strip_tags($_POST['g_name'] ?? ''));
         $roll_number = trim(strip_tags($_POST['g_roll_number'] ?? ''));
@@ -98,17 +95,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bind_param("ssssssss", $name, $roll_number, $department, $mobile_number, $email, $grievance_type, $query, $date);
             if ($stmt->execute()) {
                 header("Location: contact-us.php?status=success");
-            }
-            else {
+            } else {
                 header("Location: contact-us.php?status=error");
             }
             $stmt->close();
-        }
-        else {
+        } else {
             header("Location: contact-us.php?status=error");
         }
-    }
-    else {
+    } else {
         header("Location: contact-us.php?status=error");
     }
 
@@ -271,7 +265,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <p class="mega-desc">Design and manufacturing of
                                                     mechanical systems.</p>
                                             </a>
-                                            
+
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="artificial-intelligence-and-data-science.html" class="mega-link">
@@ -291,7 +285,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <p class="mega-desc">Business leadership and corporate
                                                     strategies.</p>
                                             </a>
-                                            
+
                                         </div>
                                         <div class="col-lg-4 col-md-6 mega-col">
                                             <a href="electronics-and-communication-engineering.html" class="mega-link">
@@ -300,7 +294,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <p class="mega-desc">Circuit design and electronic
                                                     devices.</p>
                                             </a>
-                                            
+
                                             <a href="m-e-computer-science-and-engineering.html" class="mega-link">
                                                 <h6 class="mega-title">M.E. Computer Science and
                                                     Engineering</h6>
@@ -423,7 +417,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         </div>
 
                                         <div class="col-lg-4 col-md-6 mega-col">
-                                            <a href="online-fee-payment.html" class="mega-link">
+                                            <a href="http://ecampus.hicet.ac.in/ecampus/online_payments"
+                                                class="mega-link">
                                                 <h6 class="mega-title">Online Fee Payment</h6>
                                                 <p class="mega-desc">Pay tuition and other institutional
                                                     fees securely
@@ -697,7 +692,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <a class='accordion-link' href='m-e-vlsi-design.html'>M.E. VLSI
                                         Design</a>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -786,7 +781,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         Login</a>
                                 </div>
                                 <div class="accordion-item">
-                                    <a class='accordion-link' href='online-fee-payment.html'>Online Fee
+                                    <a class='accordion-link'
+                                        href='http://ecampus.hicet.ac.in/ecampus/online_payments'>Online Fee
                                         Payment</a>
                                 </div>
                                 <div class="accordion-item">
@@ -985,15 +981,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <div class="contact-content">
                         <div class="header-content">
                             <h2>Get in Touch / Submit a Grievance</h2>
-                            <p>Please select the type of form you want to submit. Based on your selection, the form fields will update accordingly.</p>
-                            <p>For verifications, please email <a href="mailto:hit.office@hindusthan.net">hit.office@hindusthan.net</a></p>
+                            <p>Please select the type of form you want to submit. Based on your selection, the form
+                                fields will update accordingly.</p>
+                            <p>For verifications, please email <a
+                                    href="mailto:hit.office@hindusthan.net">hit.office@hindusthan.net</a></p>
                         </div>
 
                         <div id="formMessage"></div>
                         <div class="contact-form">
-                            <form id="contactForm" action="contact-us.php" method="POST" onsubmit="return validateForm()">
-                                <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
-                                
+                            <form id="contactForm" action="contact-us.php" method="POST"
+                                onsubmit="return validateForm()">
+                                <input type="hidden" name="csrf_token"
+                                    value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 mb-4">
                                         <!-- <div class="form-group">
@@ -1007,28 +1007,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </small>
                                         </div> -->
                                         <div style="margin-bottom:20px;">
-                                        <label style="font-weight:600; color:#000; display:block; margin-bottom:8px;">
-                                            Select Form Type <span style="color:red;">*</span>
-                                        </label>
+                                            <label
+                                                style="font-weight:600; color:#000; display:block; margin-bottom:8px;">
+                                                Select Form Type <span style="color:red;">*</span>
+                                            </label>
 
-                                        <div style="position:relative;">
-                                            <select name="form_type" id="form_type" onchange="toggleFormFields()"
-                                                style="width:100%; height:50px; padding:0 45px 0 15px; border:1px solid #ccc; border-radius:8px; font-size:16px; appearance:none; -webkit-appearance:none; -moz-appearance:none; background:#fff; cursor:pointer;">
-                                                
-                                                <option value="contact" selected>Contact Form</option>
-                                                <option value="grievance">Student Grievance</option>
-                                            </select>
+                                            <div style="position:relative;">
+                                                <select name="form_type" id="form_type" onchange="toggleFormFields()"
+                                                    style="width:100%; height:50px; padding:0 45px 0 15px; border:1px solid #ccc; border-radius:8px; font-size:16px; appearance:none; -webkit-appearance:none; -moz-appearance:none; background:#fff; cursor:pointer;">
 
-                                            <!-- Arrow -->
-                                            <span style="position:absolute; right:15px; top:50%; transform:translateY(-50%); pointer-events:none; font-size:14px; color:#555;">
-                                                ▼
-                                            </span>
+                                                    <option value="contact" selected>Contact Form</option>
+                                                    <option value="grievance">Student Grievance</option>
+                                                </select>
+
+                                                <!-- Arrow -->
+                                                <span
+                                                    style="position:absolute; right:15px; top:50%; transform:translateY(-50%); pointer-events:none; font-size:14px; color:#555;">
+                                                    ▼
+                                                </span>
+                                            </div>
+
+                                            <small
+                                                style="color:red; display:block; margin-top:6px; font-weight:500; font-size:13px;">
+                                                * If you are a student and want to raise a complaint, please select
+                                                "Student Grievance."
+                                            </small>
                                         </div>
-
-                                        <small style="color:red; display:block; margin-top:6px; font-weight:500; font-size:13px;">
-                                            * If you are a student and want to raise a complaint, please select "Student Grievance."
-                                        </small>
-                                    </div>
                                     </div>
                                 </div>
 
@@ -1036,32 +1040,44 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <div class="row" id="contact-fields">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="nameError" style="color: red; display: none;">Please enter your name</span>
-                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                            <span class="error-message" id="nameError"
+                                                style="color: red; display: none;">Please enter your name</span>
+                                            <input type="text" name="name" id="name" class="form-control"
+                                                placeholder="Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="emailError" style="color: red; display: none;">Please enter a valid email address</span>
-                                            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                            <span class="error-message" id="emailError"
+                                                style="color: red; display: none;">Please enter a valid email
+                                                address</span>
+                                            <input type="email" name="email" id="email" class="form-control"
+                                                placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="phoneError" style="color: red; display: none;">Please enter a valid 10-digit phone number</span>
-                                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone">
+                                            <span class="error-message" id="phoneError"
+                                                style="color: red; display: none;">Please enter a valid 10-digit phone
+                                                number</span>
+                                            <input type="text" name="phone" id="phone" class="form-control"
+                                                placeholder="Phone">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="subjectError" style="color: red; display: none;">Please enter the subject</span>
-                                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject">
+                                            <span class="error-message" id="subjectError"
+                                                style="color: red; display: none;">Please enter the subject</span>
+                                            <input type="text" name="subject" id="subject" class="form-control"
+                                                placeholder="Subject">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <span class="error-message" id="messageError" style="color: red; display: none;">Please enter your message</span>
-                                            <textarea name="message" id="message" class="form-control" placeholder="Your Message"></textarea>
+                                            <span class="error-message" id="messageError"
+                                                style="color: red; display: none;">Please enter your message</span>
+                                            <textarea name="message" id="message" class="form-control"
+                                                placeholder="Your Message"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -1070,78 +1086,105 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <div class="row" id="grievance-fields" style="display: none;">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="gNameError" style="color: red; display: none;">Please enter your name</span>
-                                            <input type="text" name="g_name" id="g_name" class="form-control" placeholder="Name">
+                                            <span class="error-message" id="gNameError"
+                                                style="color: red; display: none;">Please enter your name</span>
+                                            <input type="text" name="g_name" id="g_name" class="form-control"
+                                                placeholder="Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="gRollError" style="color: red; display: none;">Please enter your roll number</span>
-                                            <input type="text" name="g_roll_number" id="g_roll_number" class="form-control" placeholder="Roll Number">
+                                            <span class="error-message" id="gRollError"
+                                                style="color: red; display: none;">Please enter your roll number</span>
+                                            <input type="text" name="g_roll_number" id="g_roll_number"
+                                                class="form-control" placeholder="Roll Number">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="gDeptError" style="color: red; display: none;">Please enter your department</span>
-                                            <input type="text" name="g_department" id="g_department" class="form-control" placeholder="Department">
+                                            <span class="error-message" id="gDeptError"
+                                                style="color: red; display: none;">Please enter your department</span>
+                                            <input type="text" name="g_department" id="g_department"
+                                                class="form-control" placeholder="Department">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="gMobileError" style="color: red; display: none;">Please enter a valid mobile number</span>
-                                            <input type="text" name="g_mobile_number" id="g_mobile_number" class="form-control" placeholder="Mobile Number">
+                                            <span class="error-message" id="gMobileError"
+                                                style="color: red; display: none;">Please enter a valid mobile
+                                                number</span>
+                                            <input type="text" name="g_mobile_number" id="g_mobile_number"
+                                                class="form-control" placeholder="Mobile Number">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <span class="error-message" id="gEmailError" style="color: red; display: none;">Please enter a valid email</span>
-                                            <input type="email" name="g_email" id="g_email" class="form-control" placeholder="Email">
+                                            <span class="error-message" id="gEmailError"
+                                                style="color: red; display: none;">Please enter a valid email</span>
+                                            <input type="email" name="g_email" id="g_email" class="form-control"
+                                                placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
-    <div style="margin-bottom:20px;">
+                                        <div style="margin-bottom:20px;">
 
-        <!-- Error Message -->
-        <span id="gTypeError"
-            style="color:red; display:none; font-size:13px; margin-bottom:6px; font-weight:500;">
-            Please select grievance type
-        </span>
+                                            <!-- Error Message -->
+                                            <span id="gTypeError"
+                                                style="color:red; display:none; font-size:13px; margin-bottom:6px; font-weight:500;">
+                                                Please select grievance type
+                                            </span>
 
-        <!-- Custom Dropdown -->
-        <div style="position:relative;">
-            <select name="g_grievance_type" id="g_grievance_type"
-                style="width:100%; height:50px; padding:0 45px 0 15px; border:1px solid #ccc; border-radius:8px; font-size:15px; appearance:none; -webkit-appearance:none; -moz-appearance:none; background:#fff; cursor:pointer;">
-                
-                <option value="" disabled selected>Select Type of Grievance</option>
-                <option value="Admission">Grievance related to Admission</option>
-                <option value="Discrimination SC/ST">Complaints on discrimination by students from SC/ST Categories</option>
-                <option value="Women Redressal">Complaints on Women redressal</option>
-                <option value="Victimization">Grievance related to Victimization</option>
-                <option value="Attendance">Grievance related to Attendance</option>
-                <option value="Fee Charging">Grievance related to charging of fees</option>
-                <option value="Evaluation Process">Grievance regarding non-transparent or unfair evaluation process</option>
-                <option value="AICTE Norms">Non-observation of AICTE norms and standards</option>
-                <option value="Document Return">Refusal to return documents such as certificates</option>
-                <option value="Harassment">Harassment by fellow students or teachers</option>
-                <option value="Scholarships">Non-payment or Delay in payment of scholarships</option>
-                <option value="Timetable">Grievance related to timetable scheduling</option>
-                <option value="Lab/Library Rules">Violation of lab/library rules</option>
-                <option value="Hostel and Mess">Institute hostel and mess related issues</option>
-                <option value="Administration Maintenance">General administration and maintenance related issues</option>
-            </select>
+                                            <!-- Custom Dropdown -->
+                                            <div style="position:relative;">
+                                                <select name="g_grievance_type" id="g_grievance_type"
+                                                    style="width:100%; height:50px; padding:0 45px 0 15px; border:1px solid #ccc; border-radius:8px; font-size:15px; appearance:none; -webkit-appearance:none; -moz-appearance:none; background:#fff; cursor:pointer;">
 
-            <!-- Arrow -->
-            <span style="position:absolute; right:15px; top:50%; transform:translateY(-50%); pointer-events:none; font-size:14px; color:#555;">
-                ▼
-            </span>
-        </div>
+                                                    <option value="" disabled selected>Select Type of Grievance</option>
+                                                    <option value="Admission">Grievance related to Admission</option>
+                                                    <option value="Discrimination SC/ST">Complaints on discrimination by
+                                                        students from SC/ST Categories</option>
+                                                    <option value="Women Redressal">Complaints on Women redressal
+                                                    </option>
+                                                    <option value="Victimization">Grievance related to Victimization
+                                                    </option>
+                                                    <option value="Attendance">Grievance related to Attendance</option>
+                                                    <option value="Fee Charging">Grievance related to charging of fees
+                                                    </option>
+                                                    <option value="Evaluation Process">Grievance regarding
+                                                        non-transparent or unfair evaluation process</option>
+                                                    <option value="AICTE Norms">Non-observation of AICTE norms and
+                                                        standards</option>
+                                                    <option value="Document Return">Refusal to return documents such as
+                                                        certificates</option>
+                                                    <option value="Harassment">Harassment by fellow students or teachers
+                                                    </option>
+                                                    <option value="Scholarships">Non-payment or Delay in payment of
+                                                        scholarships</option>
+                                                    <option value="Timetable">Grievance related to timetable scheduling
+                                                    </option>
+                                                    <option value="Lab/Library Rules">Violation of lab/library rules
+                                                    </option>
+                                                    <option value="Hostel and Mess">Institute hostel and mess related
+                                                        issues</option>
+                                                    <option value="Administration Maintenance">General administration
+                                                        and maintenance related issues</option>
+                                                </select>
 
-    </div>
-</div>
+                                                <!-- Arrow -->
+                                                <span
+                                                    style="position:absolute; right:15px; top:50%; transform:translateY(-50%); pointer-events:none; font-size:14px; color:#555;">
+                                                    ▼
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <span class="error-message" id="gQueryError" style="color: red; display: none;">Please enter your query</span>
-                                            <textarea name="g_query" id="g_query" class="form-control" placeholder="Your Query"></textarea>
+                                            <span class="error-message" id="gQueryError"
+                                                style="color: red; display: none;">Please enter your query</span>
+                                            <textarea name="g_query" id="g_query" class="form-control"
+                                                placeholder="Your Query"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -1149,7 +1192,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <!-- Google reCAPTCHA Widget -->
-                                        <div class="g-recaptcha mb-3" data-sitekey="6LejcI0sAAAAANBbwHXGRa3dpOirsLj9BaZo6iPZ"></div>
+                                        <div class="g-recaptcha mb-3"
+                                            data-sitekey="6LejcI0sAAAAANBbwHXGRa3dpOirsLj9BaZo6iPZ"></div>
                                         <button type="submit" class="default-btn">Submit</button>
                                     </div>
                                 </div>
@@ -1179,7 +1223,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <li><i class='bx bxs-phone-call'></i> Mobile - <a href="tel:+91 9047010006"> 91 80983
                                         33333</a></li>
                                 <!-- <li><i class='bx bxs-phone-call'></i> Student Account Inquiries - <a href="tel:+18554750885"> (849) 516-0885</a>(Option 5)</li> -->
-                                <li><i class='bx bxs-map'></i>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</li>
+                                <li><i class='bx bxs-map'></i>Hindusthan Institute of Technology, Valley Campus,
+                                    Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</li>
                                 <li><i class='bx bxs-envelope'></i><a
                                         href="mailto:hit.office@hindusthan.net">hit.office@hindusthan.net</a>
                                 </li>
@@ -1226,7 +1271,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         src="assets/college_logos/hindusthan_logo_white.png"
                                         style="height:auto !important; width:auto !important; max-height:50px; margin-bottom: 20px; align-items: center;">
                                 </div>
-                                <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641 032. TamilNadu, INDIA</p>
+                                <p>Hindusthan Institute of Technology, Valley Campus, Pollachi Highway, Coimbatore - 641
+                                    032. TamilNadu, INDIA</p>
                                 <div style="color: white;">
                                     <i class="bx bxs-phone-call"></i> <a href="tel:+91 9715260118"
                                         style="color: white;"> +91 9715260118</a>
@@ -1278,21 +1324,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="footer-widget">
-                                <h4>Quick Links</h4>
-                                <ul>
-                                    <li><a href='admission_policy.html'><i class='bx bx-chevron-right'></i> Admission
-                                            Policy</a></li>
-                                    <li><a href='about-us.html'><i class='bx bx-chevron-right'></i> About us</a></li>
-                                    <li><a href='facilities.html'><i class='bx bx-chevron-right'></i> Facilities</a>
-                                    </li>
-                                    <li><a href='about_placement.html'><i class='bx bx-chevron-right'></i>
-                                            Placements</a></li>
-                                    <li><a href='news-and-blog.php'><i class='bx bx-chevron-right'></i> News & Blogs</a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="footer-widget">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href='admission_policy.html'><i class='bx bx-chevron-right'></i> Admission
+                                        Policy</a></li>
+                                <li><a href='about-us.html'><i class='bx bx-chevron-right'></i> About us</a></li>
+                                <li><a href='facilities.html'><i class='bx bx-chevron-right'></i> Facilities</a>
+                                </li>
+                                <li><a href='about_placement.html'><i class='bx bx-chevron-right'></i>
+                                        Placements</a></li>
+                                <li><a href='news-and-blog.php'><i class='bx bx-chevron-right'></i> News & Blogs</a>
+                                </li>
+                            </ul>
                         </div>
+                    </div>
                     <div class="col-lg-3 col-sm-6 col-md-6">
                         <div class="footer-widget">
                             <h4>Location</h4>
@@ -1477,34 +1523,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 if (!gName.value.trim()) {
                     document.getElementById('gNameError').style.display = 'block'; isValid = false;
                 } else { document.getElementById('gNameError').style.display = 'none'; }
-                
+
                 const gRoll = document.getElementById('g_roll_number');
                 if (!gRoll.value.trim()) {
                     document.getElementById('gRollError').style.display = 'block'; isValid = false;
                 } else { document.getElementById('gRollError').style.display = 'none'; }
-                
+
                 const gDept = document.getElementById('g_department');
                 if (!gDept.value.trim()) {
                     document.getElementById('gDeptError').style.display = 'block'; isValid = false;
                 } else { document.getElementById('gDeptError').style.display = 'none'; }
-                
+
                 const gMobile = document.getElementById('g_mobile_number');
                 const mobilePattern = /^[0-9]{10}$/;
                 if (!gMobile.value.trim() || !mobilePattern.test(gMobile.value)) {
                     document.getElementById('gMobileError').style.display = 'block'; isValid = false;
                 } else { document.getElementById('gMobileError').style.display = 'none'; }
-                
+
                 const gEmail = document.getElementById('g_email');
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!gEmail.value.trim() || !emailPattern.test(gEmail.value)) {
                     document.getElementById('gEmailError').style.display = 'block'; isValid = false;
                 } else { document.getElementById('gEmailError').style.display = 'none'; }
-                
+
                 const gType = document.getElementById('g_grievance_type');
                 if (!gType.value) {
                     document.getElementById('gTypeError').style.display = 'block'; isValid = false;
                 } else { document.getElementById('gTypeError').style.display = 'none'; }
-                
+
                 const gQuery = document.getElementById('g_query');
                 if (!gQuery.value.trim()) {
                     document.getElementById('gQueryError').style.display = 'block'; isValid = false;
